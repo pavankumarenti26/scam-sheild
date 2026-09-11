@@ -1,0 +1,376 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0036)https://tgsrtcpass.com/secondPass.do -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>TGSRTC BUS PASS</title>
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+<link href="./TGSRTC BUS PASS_files/jqueryCustom.css" rel="stylesheet" type="text/css">
+<script src="./TGSRTC BUS PASS_files/jquery-latest.min.js.download"></script>
+<script type="text/javascript" charset="utf-8" src="./TGSRTC BUS PASS_files/commonjsvalidations.js.download"></script>
+<script type="text/javascript" charset="utf-8" src="./TGSRTC BUS PASS_files/mandalVillageScript.js.download"></script>
+<script type="text/javascript" charset="utf-8" src="./TGSRTC BUS PASS_files/jquery-ui.js.download"></script>
+<script type="text/javascript" charset="utf-8" src="./TGSRTC BUS PASS_files/abovessc.js.download"></script>
+
+
+<link href="./TGSRTC BUS PASS_files/newFormStyle.css" type="text/css" rel="stylesheet">
+
+<script type="text/javascript">
+$(document).ready(function() {
+	
+	$('#instcollname').prop('disabled',true);
+	 $('#manualupload').trigger('click');
+	 $('[name="userProperties(passdob)"]').val($('#userProperties(passdob1)').val());
+	
+});
+
+/* $(document).ready(function() { */
+	//$('#instcollname').prop('disabled',true);
+	 //$('#manualupload').trigger('click');
+	//calculateAgeAge($('#dob').val());
+	 /* if($('#greaterRouteInstitute').val() == 'true') {*/
+	 	/* $('#pdId').hide();
+	 	$('#fpId').hide(); */
+	 	/* $("#pdId").css("display", "none");
+	 	$("#fpid").css("display", "none"); */
+	 	/* $('#jrnyrouteId').val('');
+	 	$('#toplaceId').val(''); */
+	 /*}  */
+	
+	
+  	//document.getElementById("thumbnil").style.display="";
+  	
+	//$('[name="userProperties(passdob)"]').val($('#userProperties(passdob1)').val());
+	//$('#dob').val($('userProperties(passdob)').val());
+/* }); */
+
+/*  $( document ).ready(function() {
+        $(this).bind("contextmenu", function(e) {
+            e.preventDefault();
+        });
+         $(document).bind('copy paste', function (e) {
+       e.preventDefault();
+    });
+ */
+  window.history.forward();
+    function noBack() { window.history.forward(); }
+    
+    function disableF5(e) { if ((e.which || e.keyCode) == 116) e.preventDefault(); };
+    
+    $(document).on("keydown", disableF5);
+    
+    
+   //Logic to disbale browser back button
+    /* $(document).ready(function() {
+        function disableBack() { window.history.forward(); }
+
+        window.onload = disableBack();
+        window.onpageshow = function(evt) { if (evt.persisted) {disableBack();} };
+        });
+
+history.pushState(null, null, 'no-back-button');
+window.addEventListener('popstate', function(event) {   history.pushState(null, null, 'no-back-button'); }); */
+ 
+ document.onmousedown=disableclick;
+    status="Right Click Disabled";
+    function disableclick(event)
+    {
+      if(event.button==2)
+       {
+         alert(status);
+         return false;    
+       }
+    }
+    
+    // slight update to account for browsers not supporting e.which
+	function disableF5(e) { if ((e.which || e.keyCode) == 116) e.preventDefault(); };
+	// To disable f5
+	    /* jQuery < 1.7 */
+	$(document).bind("keydown", disableF5);
+	/* OR jQuery >= 1.7 */
+	$(document).on("keydown", disableF5);
+
+
+    $(document).keydown(function(event){
+    if(event.keyCode==123){
+    return false;
+   }
+else if(event.ctrlKey && event.shiftKey && event.keyCode==73){
+      return false;  //Prevent from ctrl+shift+i
+   }
+});
+
+function getDistId()
+{
+	if($('#instdistname').val()=='16')
+	{
+	$('#451Id').hide();
+	$('#45Id').hide();
+	}
+	else
+	{
+	$('#451Id').show();
+	$('#45Id').show();
+	}
+}
+/* $(function() {
+    $("#studentphoto").on("change", function()
+    {
+        var files = !!this.files ? this.files : [];
+        if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
+
+        if (/^image/.test( files[0].type)){ // only image file
+            var reader = new FileReader(); // instance of the FileReader
+            reader.readAsDataURL(files[0]); // read the local file
+                  if ( filesizeCheck($('#studentphoto')[0],100)   )
+                  {
+                  reader.onloadend = function(){ // set image data as background of div
+                $("#thumbnil").css("background-image", "url("+this.result+")");
+                document.getElementById("thumbnil").style.display="";
+            }
+             }
+             else{
+              document.getElementById("imagePreview").style.display="none";
+            }
+        }
+    });
+}); */
+
+
+function showimagepreview(input) {
+	if (input.files && input.files[0]) {
+		var filerdr = new FileReader();
+		filerdr.onload = function(e) {
+			$('#imgprvw').attr('src', e.target.result);
+			/* $('#base64textarea').val(e.target.result); */
+		};
+		filerdr.readAsDataURL(input.files[0]);
+	}
+}
+
+/* function showDeliverymode1(obj)
+{
+alert("Payment mode value==>");
+} */
+
+function showDeliverymode(obj)
+	{
+	//alert("HII Delivery mode");
+		$('#collectpassId')[0].selectedIndex=0;
+		//alert("Payment mode value==>"+$(obj).find(":selected").val());
+		if($(obj).find(":selected").val()==1)
+		{//alert("1");
+			$('#tPlus3DaysId option').remove();
+			$("#tPlus3DaysId").append("<option value=''>" + "--- Choose Pass Valid From Date ---" + "</option>");
+				var currdate = new Date();
+				for(i=1;i<=7;i++)
+				{
+					var newdate = new Date(currdate );
+					newdate.setDate(newdate.getDate() + i);
+					var dd = newdate.getDate();
+    				var mm = newdate.getMonth() + 1;
+    				var y = newdate.getFullYear();
+    				var someFormattedDate = dd + '/' + mm + '/' + y;//value=""> 
+    				$("#tPlus3DaysId").append("<option value='" + someFormattedDate+ "'>" + someFormattedDate + "</option>");
+				}
+					
+					//$('#dateDropdown').show();
+					$('#noId').hide();
+					$('#gatewaysid').show();
+					$('#collectpassId').prop("disabled",false);
+					$('#paymentDetailsCId').show();
+					//$('#courierAddressId').show();
+					$('#dateDropdown').hide();
+				
+			
+		}else if($(obj).find(":selected").val()==2)
+		{//alert("2");
+			$('#collectpassId').prop("disabled","disabled");
+			$('#noId').show();
+			$('#gatewaysid').hide();
+			$('#paymentDetailsCId').hide();
+			$('#paymentDetailsId').hide();
+			$('#paymentId').hide();
+  			$('#submitId').show();
+  			$('#courierAddressId').hide();
+  			$('#dateDropdown').hide();
+  			$('#gatewayId').val("");
+			
+		}else if($(obj).find(":selected").val()==0)
+		{
+			$('#collectpassId').prop("disabled",false);
+			$('#noId').hide();
+			$('#paymentDetailsCId').hide();
+			$('#paymentDetailsId').hide();
+			$('#paymentId').hide();
+  			$('#submitId').show();
+  			$('#gatewaysid').hide();
+  			$('#courierAddressId').hide();
+  			$('#dateDropdown').hide();
+		
+		}else
+		{
+			$('#collectpassId').prop("disabled",false);
+			$('#noId').hide();
+			$('#gatewaysid').hide();
+			
+			
+		}
+	}
+	
+/* $("select[readonly]").live("focus mousedown mouseup click",function(e){
+    e.preventDefault();
+    e.stopPropagation();
+}); */
+
+$('select.readonly option:not(:selected)').attr('disabled',true);
+
+function showFunction(url,mode){
+	$('#myForm').attr('action', url);
+	 $(this).attr('target', '_blank');
+	document.forms[0].elements["mode"].value=mode;
+	document.forms[0].submit();
+	
+}
+
+</script>
+<script type="text/javascript">
+	
+
+	function loadCaptcha() {
+		$.ajax({
+			url : "CaptchaAjax.do",
+			dataType : "text",
+			data : {
+				captcha : "login"
+			},
+			success : function(response) {
+				var responsedata = response.split(",");
+				$("#captcha").val(responsedata[0]);
+				$("#salt").val(responsedata[1]);
+				$("#imagetext").attr("src",
+						"data:image/jpeg;base64," + responsedata[2]);
+			},
+			error : function(xhr, status, error) {
+				alert(xhr.responseText);
+			}
+
+		});
+	}
+	$(document).ready(function() {
+		var specialKeys = new Array();
+	    specialKeys.push(8); //Backspace
+	 
+	    // To allow numbers ,  disgits only for css class alphanumeric
+		$(".alphanumeric").bind("keypress",function(e){
+			var keyCode = e.which ? e.which : e.keyCode;
+	        var returnKeyCode = ( (keyCode>=48 && keyCode<=57) || (keyCode>=97 && keyCode<=122) || (keyCode>=65 && keyCode) || specialKeys.indexOf(keyCode) !=-1  );
+			$(".error").css("display",returnKeyCode ? "none" : "inline");
+			return returnKeyCode;
+		})
+		
+		$(".alphanumeric,.nodrag").bind("paste",function(e){
+			return false;
+		});
+		
+		$(".alphanumeric,.nodrag").bind("drop",function(e){
+			return false;
+		});
+	});
+	</script>
+
+
+<style type="text/css">
+#thumbnil {
+    width: 100px;
+    height: 100px;
+    background-position: center center;
+    background-size: cover;
+    -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
+    display: inline-block;
+}
+</style>
+<style>
+u {
+	color: #000;
+	font-weight: bold;
+}
+</style>
+<title>TGSRTC BUS PASS</title>
+<link rel="shortcut icon" type="image/x-icon" href="./TGSRTC BUS PASS_files/Tsrtc_new_logo.jpg">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+<style type="text/css">
+
+	 </style>
+<style type="text/css">
+/* LIST #5 */
+#list5 { color:#eee; background-color:white }
+#list5 ol { font-size:20px; }
+#list5 ol li { }
+#list5 ol li ol { list-syle-image: url("../images/nested.png"); padding:5px 0 5px 18px; font-size:18px; }
+#list5 ol li ol li { color:#bfe1f1; height:15px; margin-left:10px; }
+</style>
+</head>
+
+
+
+
+	<body style="background-color: white"><center>
+	<table align="center" class="yashLab" cellpadding="2" cellspacing="2" bgcolor="#FFFFFF" id="application" width="800px">
+	<tbody><tr>
+										<td align="center"><img src="./TGSRTC BUS PASS_files/Tsrtc_new_logo.jpg" width="40px" height="40px"></td>
+									</tr>
+									<tr>
+										<td colspan="4" align="center"><font size="4" color="blue"><b>TELANGANA STATE ROAD TRANSPORT CORPORATION</b> </font> <br>  </td>
+									</tr>
+									<tr>
+										<th colspan="4" align="center"><h2> STUDENT BUS PASS APPLICATION ABOVE SSC </h2></th>
+									</tr>
+									</tbody></table>
+		
+		
+
+	<div class="alert-box success" style="width:50%;align:right;height: 20px">
+				<span><font color="green" size="4px" style="font-weight: bold;">
+					
+					<a onclick="showFunction(&#39;secondPass.do&#39;,&#39;getSecPassApplicantData&#39;);"><span style="color:green">Details Updated Successfully 26013118457245  </span> </a>
+				</font> </span>
+				<span style="color:red;">
+				<br><br>Details for Second Bus Pass Application  submitted Successfully click on the above reference number to take the print out of the filled application form.<br>
+				 <!-- Please attach the relevant documents and Photograph with the application form and submit at the selected bus pass issuing center --></span>
+				 <br>
+				<span>You are requested to take pass within 10 days from centre visit date </span>
+			</div>
+		
+	</center>
+	
+	<noscript>
+			<center>	
+				<fieldset style="width:500px; color:red; font-weight: bold;">
+					For full functionality of this site it is necessary to enable
+					JavaScript. <br />Here are the <a
+						style="color:#333; font-size: 12px;"
+						href="http://www.enable-javascript.com/" target="_blank">
+						instructions how to enable JavaScript in your web browser</a>.
+				</fieldset>
+			</center>
+		</noscript>
+	<center>
+		
+	<form name="StudentBusPassForm" id="myForm" method="post" action="https://tgsrtcpass.com/secondPass.do" enctype="multipart/form-data"><div><input type="hidden" name="org.apache.struts.taglib.html.TOKEN" value="a1f46065a8fc78a997ca3c66185ec9e4"></div>
+		<input type="hidden" name="mode" value="secPassInsertNProceedtoPymnt" id="mode">
+		<input type="hidden" name="userProperties(id)" value="26013118457245" id="id">
+		<input type="hidden" name="userProperties(applicant_dob)" value="19/10/2006" id="applicant_dob">
+				<input type="hidden" name="csrfToken" value="pgdpct6ipuskv4d3seu9l0t891">
+	
+</form>
+		</center>
+		
+
+</body></html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scam Shield | Get started</title>
+<style>
+:root { --bg: #081124; --card: #101d39; --line: #345b91; --muted: #9aacca; --cyan: #67f0e2; --blue: #367fe9; }
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 24px; color: #fff; font-family: "Aptos Display", "Trebuchet MS", sans-serif; background: radial-gradient(circle at 15% 10%, rgba(30, 200, 212, .2), transparent 25rem), radial-gradient(circle at 85% 90%, rgba(79, 131, 255, .18), transparent 24rem), var(--bg); }
+.start-card { width: min(100%, 820px); padding: clamp(28px, 6vw, 58px); border: 1px solid var(--line); border-radius: 28px; text-align: center; background: linear-gradient(145deg, rgba(20, 38, 72, .98), rgba(10, 20, 45, .98)); box-shadow: 0 28px 80px rgba(0,0,0,.42); }
+.brand { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 26px; text-align: left; }
+.brand-mark { width: 48px; height: 48px; display: grid; place-items: center; border-radius: 14px; color: #061019; background: linear-gradient(145deg, var(--cyan), var(--blue)); font-size: 26px; font-weight: bold; }
+.brand strong { display: block; font-size: 24px; }
+.brand small { display: block; margin-top: 3px; color: #8fa9c7; font-size: 11px; }
+h1 { margin: 0 0 10px; font-size: clamp(30px, 6vw, 52px); letter-spacing: -1.5px; }
+.intro { max-width: 590px; margin: 0 auto 32px; color: var(--muted); line-height: 1.6; }
+.choices { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; text-align: left; }
+.choice { display: grid; gap: 12px; min-height: 190px; padding: 24px; border: 1px solid #345276; border-radius: 17px; color: #fff; text-decoration: none; background: linear-gradient(145deg, rgba(25, 58, 97, .8), rgba(12, 27, 58, .9)); transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
+.choice:hover { transform: translateY(-5px); border-color: var(--cyan); box-shadow: 0 16px 30px rgba(30, 200, 212, .14); }
+.choice-icon { width: 43px; height: 43px; display: grid; place-items: center; border-radius: 12px; background: linear-gradient(145deg, #16bfc8, var(--blue)); font-size: 21px; font-weight: bold; }
+.choice h2 { margin: 0; font-size: 22px; }
+.choice p { margin: 0; color: var(--muted); line-height: 1.45; }
+.choice span { align-self: end; color: var(--cyan); font-size: 13px; font-weight: bold; }
+.note { margin: 26px 0 0; color: #7189a8; font-size: 11px; }
+@media (max-width: 600px) { .choices { grid-template-columns: 1fr; } .choice { min-height: 150px; } }
+</style>
+</head>
+<body>
+<main class="start-card">
+    <div class="brand"><div class="brand-mark">✓</div><div><strong>Scam Shield</strong><small>Private scam protection</small></div></div>
+    <h1>How would you like to start?</h1>
+    <p class="intro">Choose an account option to access your personal protection workspace and check suspicious activity with confidence.</p>
+    <div class="choices">
+        <a class="choice" href="login.html">
+            <div class="choice-icon">↪</div>
+            <h2>Log in</h2>
+            <p>Already have a Scam Shield account? Continue to your saved protection workspace.</p>
+            <span>Continue to log in →</span>
+        </a>
+        <a class="choice" href="signup.html">
+            <div class="choice-icon">+</div>
+            <h2>Sign up</h2>
+            <p>Create your account and set up your personal scam protection profile.</p>
+            <span>Create a new account →</span>
+        </a>
+    </div>
+    <p class="note">Local prototype: account details are saved only in this browser.</p>
+</main>
+</body>
+</html>

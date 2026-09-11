@@ -1,0 +1,2204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0036)https://tgsrtcpass.com/searchPass.do -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>TGSRTC BUS PASS</title>
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+<link href="./detILS_files/jqueryCustom.css" rel="stylesheet" type="text/css">
+<script src="./detILS_files/jquery-latest.min.js.download"></script>
+<script type="text/javascript" charset="utf-8" src="./detILS_files/commonjsvalidations.js.download"></script>
+<script type="text/javascript" charset="utf-8" src="./detILS_files/mandalVillageScript.js.download"></script>
+<script type="text/javascript" charset="utf-8" src="./detILS_files/jquery-ui.js.download"></script>
+<script type="text/javascript" charset="utf-8" src="./detILS_files/abovessc.js.download"></script>
+
+
+<link href="./detILS_files/newFormStyle.css" type="text/css" rel="stylesheet">
+
+
+<script type="text/javascript">
+function loadCaptcha() {
+	$.ajax({
+		url : "CaptchaAjax.do",
+		dataType : "text",
+		data : {
+			captcha : "login"
+		},
+		success : function(response) {
+			var responsedata = response.split(",");
+			$("#captcha").val(responsedata[0]);
+			$("#salt").val(responsedata[1]);
+			$("#imagetext").attr("src",
+					"data:image/jpeg;base64," + responsedata[2]);
+		},
+		error : function(xhr, status, error) {
+			alert(xhr.responseText);
+		}
+
+	});
+}
+$(document).ready(function() {
+	var specialKeys = new Array();
+    specialKeys.push(8); //Backspace
+ 
+    // To allow numbers ,  disgits only for css class alphanumeric
+	$(".alphanumeric").bind("keypress",function(e){
+		var keyCode = e.which ? e.which : e.keyCode;
+        var returnKeyCode = ( (keyCode>=48 && keyCode<=57) || (keyCode>=97 && keyCode<=122) || (keyCode>=65 && keyCode) || specialKeys.indexOf(keyCode) !=-1  );
+		$(".error").css("display",returnKeyCode ? "none" : "inline");
+		return returnKeyCode;
+	})
+	
+	$(".alphanumeric,.nodrag").bind("paste",function(e){
+		return false;
+	});
+	
+	$(".alphanumeric,.nodrag").bind("drop",function(e){
+		return false;
+	});
+});
+</script>
+
+<script type="text/javascript">
+$( document ).ready(function() {
+$('#instcollname').prop('disabled',false);
+calculateAgeAge($('#dob').val());
+$('#manualupload').trigger('click');
+$("#thumbnil").css("background-image", "url(https://tgsrtcpass.com:443/RTC_Uploads/Images_student/2026/JANUARY/bp_26013118457245.jpeg)");
+  document.getElementById("thumbnil").style.display="";
+});
+
+function getDistId()
+{
+	if($('#instdistname').val()=='16')
+	{
+	$('#451Id').hide();
+	$('#45Id').hide();
+	}
+	else
+	{
+	$('#451Id').show();
+	$('#45Id').show();
+	}
+}
+$(function() {
+    $("#studentphoto").on("change", function()
+    {
+        var files = !!this.files ? this.files : [];
+        if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
+
+        if (/^image/.test( files[0].type)){ // only image file
+            var reader = new FileReader(); // instance of the FileReader
+            reader.readAsDataURL(files[0]); // read the local file
+                  if ( filesizeCheck($('#studentphoto')[0],100)   )
+                  {
+                  reader.onloadend = function(){ // set image data as background of div
+                $("#thumbnil").css("background-image", "url("+this.result+")");
+                document.getElementById("thumbnil").style.display="";
+            }
+             }
+             else{
+              document.getElementById("imagePreview").style.display="none";
+            }
+        }
+    });
+});
+
+/* Added by Shyam on 14-02-02 */
+function checkisValidFile() {
+	var fileName = $('#studentphoto').val();
+	var requiredFileName= fileName.split('\\').pop().split('/').pop();
+	$.ajax({
+		url:"loadResources.do?mode=isValidFile&filename="+requiredFileName,
+		success: function (response) {
+            if(response=='false') {
+            	alert('Please upload a photo with valid extension');
+            	var fileName = $('#studentphoto').val("");
+            	$('#imagePreview').hide();
+            	$('#studentphoto').focus();
+            } 
+		}
+		});
+}
+
+function showFunction(){
+	$("#myForm").attr('action','printTicket.do');
+  	 $(this).attr('target', '_blank');
+  $("#mode").val("showTicket");
+  	document.forms[0].submit();
+  	
+  }
+</script>
+<style type="text/css">
+#thumbnil {
+    width: 100px;
+    height: 100px;
+    background-position: center center;
+    background-size: cover;
+    -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
+    display: inline-block;
+}
+</style>
+<style>
+u {
+	color: #000;
+	font-weight: bold;
+}
+</style>
+<title>TGSRTC BUS PASS</title>
+<link rel="shortcut icon" type="image/x-icon" href="./detILS_files/Tsrtc_new_logo.jpg">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+<style type="text/css">
+
+	 </style>
+<style type="ext/css">
+/* LIST #5 */
+#list5 { color:#eee; background-color:white }
+#list5 ol { font-size:20px; }
+#list5 ol li { }
+#list5 ol li ol { list-syle-image: url("../images/nested.png"); padding:5px 0 5px 18px; font-size:18px; }
+#list5 ol li ol li { color:#bfe1f1; height:15px; margin-left:10px; }
+</style>
+</head>
+
+<body style="background-color: white"><form name="StudentBusPassForm" id="myForm" method="post" action="https://tgsrtcpass.com/searchPass.do" enctype="multipart/form-data"><div><input type="hidden" name="org.apache.struts.taglib.html.TOKEN" value="498091a419a6c36cc852ede5e5c68fcc"></div>
+<input type="hidden" name="userProperties(id)" value="" id="id">
+				<input type="hidden" name="userProperties(applicant_dob)" value="19/10/2006" id="applicant_dob">
+
+		<input type="hidden" name="mode" value="previousData" id="mode">
+			<input type="hidden" name="salt" value="" id="salt">
+		<input type="hidden" name="captcha" value="1Edph9" id="captcha">
+		<input type="hidden" name="csrfToken" id="csrfToken" value="pgdpct6ipuskv4d3seu9l0t891">
+
+
+
+	<center>
+	<table align="center" class="yashLab" cellpadding="2" cellspacing="2" bgcolor="#FFFFFF" id="application" width="800px">
+	<tbody><tr>
+										<td align="center"><img src="./detILS_files/Tsrtc_new_logo.jpg" width="40px" height="40px"></td>
+									</tr>
+									<tr>
+										<td colspan="4" align="center"><font size="4" color="blue"><b>TELANGANA STATE ROAD TRANSPORT CORPORATION</b> </font> <br>  </td>
+									</tr>
+									<tr>
+										<th colspan="4" align="center"><h2> STUDENT BUS PASS APPLICATION ABOVE SSC </h2></th>
+									</tr>
+									</tbody></table>
+		
+	</center>
+	
+	<noscript>
+			<center>	
+				<fieldset style="width:500px; color:red; font-weight: bold;">
+					For full functionality of this site it is necessary to enable
+					JavaScript. <br />Here are the <a
+						style="color:#333; font-size: 12px;"
+						href="http://www.enable-javascript.com/" target="_blank">
+						instructions how to enable JavaScript in your web browser</a>.
+				</fieldset>
+			</center>
+		</noscript>
+	<center>
+		
+	
+		
+	
+	<input type="hidden" name="validImage" value="" id="validImage">
+		<input type="hidden" name="userProperties(updateId)" value="26013118457245">
+		<input type="hidden" name="userProperties(type)" value="above">
+		<input type="hidden" name="userProperties(instcollname1)" value=" select   coll_name as name ||&#39;---&#39;|| coll_code from  rtc_mst_colleges_registration where coll_code=&#39;16&#39; ">
+		<input type="hidden" name="userProperties(instcourseid1)" value="">
+		<input type="hidden" name="userProperties(lang)" value="">
+		<input type="hidden" name="userProperties(isValidSSCData)" value="N" id="userProperties(isValidSSCData)">
+		<input type="hidden" name="userProperties(formId)" value="">
+		<input type="hidden" name="userProperties(cdate)" value="January 31, 2026" id="cdate">
+		<input type="hidden" name="userProperties(hiddenkiloMetersAllowed)" value="110" id="hiddenkiloMetersAllowed">
+				<table border="0" align="center" bgcolor="#FFFFFF" width="1000px" cellpadding="0" id="insId1" cellspacing="2px">
+				</table>
+				<div id="divId1" class="formstyle">
+					<table border="0" align="center" bgcolor="#FFFFFF" cellpadding="0" cellspacing="0">
+						<tbody><tr>
+							<td align="center">
+								<div id="ajax_loading" style="vertical-align: middle;"></div></td>
+						</tr>
+						<tr>
+
+</tr></tbody></table><table width="800px" border="0" align="center">
+										<tbody><tr>
+										<td>
+											<fieldset style="width: 750px" class="ofeildset" id="hideDetailsId">
+												<legend>
+													<font style="font-weight: bold;"><b>1.Student
+															10th Details</b> </font>
+												</legend>
+												<table width="100%" border="0" align="center">
+													<tbody><tr class="firstrow" id="sscdisp2">
+														<th><span class="num">1.1</span> SSC Board Type
+														</th>
+														<td>
+													           AP SSC
+														</td>
+														<th><span class="num">1.2</span> SSC Regular/ <br> Supplementary
+														</th>
+														<td>
+														Regular
+														</td>
+													</tr>
+													<tr class="secondrow" id="sscdisp1">
+
+														<th width="25%"><span class="num">1.3</span> SSC Year of pass </th>
+														<td>
+														2023
+														</td>
+
+														<th><span class="num">1.4</span> SSC hall ticket no.
+														</th>
+														<td>
+														2321111636
+
+														</td>
+													</tr>
+													<tr class="secondrow" id="sscdisp1">
+														<th width="18%"><span class="num">1.5 Date of Birth (dd/mm/yyyy) </span></th>
+														<td>
+														19/10/2006
+														</td></tr>
+													<tr class="firstrow" id="boardother" style="display: none;">
+														<th>&nbsp;Other Board <font color="red">*</font>
+														</th>
+														<td colspan="3"><input type="text" name="userProperties(boardother)" maxlength="20" value="" onkeyup="return charOnly(this);">
+														</td>
+													</tr>
+												</tbody></table>
+											</fieldset>
+
+									</td></tr>
+
+									<tr>
+										<td>
+										<fieldset style="width: 750px" class="ofeildset">
+												<legend>
+													<font style="font-weight: bold;"><b>2.Student Details</b> </font>
+												</legend>
+												<table width="100%" border="0" align="center">
+													<tbody><tr class="firstrow">
+														<th width="18%">&nbsp;<span class="num">2.1</span> Name 
+														</th>
+														<td width="23%"> E PAVAN KUMAR
+														<input type="hidden" name="userProperties(youthname)" value="E PAVAN KUMAR" onkeyup="return charOnly(this)" onblur="changeToUpperCase(this)" id="youthname" style="width:200px">
+														</td>
+														<th width="18%">&nbsp;<span class="num">2.2</span> Father's / Guardian's Name
+														
+														</th>
+														<td width="23%"> E DURYODHANA
+														<input type="hidden" name="userProperties(youthfgname)" value="E DURYODHANA" onkeyup="return charOnly(this)" onblur="changeToUpperCase(this)" id="youthfgname" style="width:200px">
+														</td>
+													</tr>
+													<tr class="secondrow">
+														<th width="18%"><span class="num">2.3</span> Date Of Birth <small><font size="1" color="blue">(dd/mm/yyyy)</font> </small><br> <br>&nbsp;Age
+															As on :</th>
+														<td width="23%"> 19/10/2006 <input type="text" name="userProperties(dob)" maxlength="10" value="19/10/2006" onchange="getPasses_clear()" onblur="if(this.value.length==8){this.value= this.value.substring(0,2)+&#39;/&#39;+this.value.substring(2,4)+&#39;/&#39;+this.value.substring(4,8); return chkDate(this); }
+																else if(this.value.length==10){return chkDate(this);} else if(this.value.length!=10 || this.value.length!=8){ alert(&#39;enter DoB as  dd/mm/yyyy&#39;); this.focus();  this.value=&#39;&#39;} ; " id="dob" style="width:200px;display:none"> <br> <br> 
+																 
+																 <div style="display: flex; align-items: center;">
+																 <input type="text" name="userProperties(ageyears)" maxlength="4" value="" onchange="getPasses_clear()" readonly="readonly" id="ageyears" style="width:30px;display:none"><!-- <sup>Year(s)</sup> -->
+															    <input type="text" name="userProperties(agemonths)" maxlength="4" value="" readonly="readonly" id="agemonths" style="width:30px;display:none"><!-- <sup>Month(s)</sup>
+																 --><input type="text" name="userProperties(agedays)" maxlength="4" value="" readonly="readonly" id="agedays" style="width:30px;display:none"><!-- <sup>Day(s)</sup> -->  <!-- <br/> <br/> -->
+																 19
+																 
+																 </div>
+														</td>
+														<th>&nbsp;<span class="num">2.4</span> Gender   <br>
+															<br>&nbsp;<span class="num">2.5</span> Aadhaar No: 
+														</th>
+
+														<td width="23%">
+														
+
+														
+														Male
+														
+
+														<input type="radio" name="userProperties(gender)" value="F" onchange="getPasses_clear()" id="gender1" style="display:none">
+														<input type="radio" name="userProperties(gender)" value="M" checked="checked" onchange="getPasses_clear()" id="gender2" style="display:none">
+															 <br> <br>
+															 <input type="text" name="userProperties(aadharno)" maxlength="12" value="" onkeypress="return isNumber(event)" onchange="return AadharEncryption()" id="aadharno" style="width:200px">
+														</td>
+													</tr>
+
+													<tr class="firstrow">
+														<th><span class="num">2.6</span> Mobile No  <font color="red">*</font></th>
+														<td><input type="text" name="userProperties(studentmobileno)" maxlength="10" value="7093625351" onkeypress="return isNumber(event)" onblur="checkMobileNumber(this)" id="userProperties(studentmobileno)" style="width:200px">
+														</td>
+
+															<th><span class="num">1.7</span> Is Employee Children </th>
+														<td colspan="">
+
+														<input type="radio" name="userProperties(isempchild)" value="Yes" onchange="showEmpfields(this)" onblur="getPasses_clear()" id="isEmpChild1">Yes
+														<input type="radio" name="userProperties(isempchild)" value="No" checked="checked" onchange="showEmpfields(this)" onblur="getPasses_clear()" id="isEmpChild2"> No
+														
+														
+														<span id="empChildFields" style="display: none;">
+														
+
+														 &nbsp; <br> <b>Staff Id.</b>
+														<input type="text" name="userProperties(empId)" value="" onchange="getEmpDetails()" id="empId"> </span>
+														</td>
+													</tr>
+													<tr class="firstrow">
+														<th><span class="num">2.8 </span>Email <font color="red">*</font></th>
+														<td><input type="text" name="userProperties(email)" value="" onblur="checkEmail(this)" id="emailId" style="width:200px">
+														</td>
+														</tr>
+													<tr class="secondrow">
+														<th>&nbsp;Photo <font color="red">*</font></th>
+														<td colspan="3">
+															<input type="file" name="userProperties(studentphoto)" value="" onchange="return checkisValidFile()" id="studentphoto" style="width:200px">
+															<div id="thumbnil" style="background-image: url(&quot;https://tgsrtcpass.com:443/RTC_Uploads/Images_student/2026/JANUARY/bp_26013118457245.jpeg&quot;);"></div>
+																												</td>
+													</tr>
+												</tbody></table>
+											</fieldset>
+										</td>
+									</tr>
+
+									<tr>
+
+										<td>
+
+											<fieldset style="width: 750px" class="ofeildset">
+												<legend>
+													<font style="font-weight: bold;"><b>3.Residential
+															Address Details</b> </font>
+												</legend>
+												<table>
+													<tbody><tr class="firstrow">
+														<th width="18%"><span class="num">3.1</span> District<font color="red">*</font>
+														</th>
+														<td width="23%"><select name="userProperties(addrdistid)" onchange="getMandals(&#39;man&#39;,&#39;upssc&#39;)" id="distId" style="width:200px"><option value="16" selected="selected">Hyderabad</option></select>
+														</td>
+
+														<th width="18%"><span class="num">3.2</span> Mandal<font color="red">*</font>
+														</th>
+														<td width="23%"><select name="userProperties(addrmndlid)" onchange="getVillages(&#39;vilId&#39;,&#39;upssc&#39;)" id="man" style="width:200px"><option value="16" selected="selected">Hyderabad</option></select></td>
+
+														</tr>
+
+													<tr class="secondrow">
+														<th width="18%"><span class="num">3.3</span> Village
+														</th>
+														<td width="23%"><select name="userProperties(addrvillid)" onchange="getfromdistid();" id="vilId" style="width:200px"><option value="16" selected="selected">Hyderabad</option></select></td>
+
+															<th rowspan="3" width="18%"><span class="num">3.4</span> Address<font color="red">*</font></th>
+														<td rowspan="3" width="23%"><textarea name="userProperties(addrhouseno)" cols="20" rows="1" onkeydown="limitText(this,this.form.countdown,150);" onkeyup="limitText(this,this.form.countdown,150);javascript:RemoveSpecialChar(this)" id="userProperties(addrhouseno)" style="width:200px">MOOSAPET</textarea>
+																 <font size="1">(Maximum characters: 150)<br>
+                                                                  You have <input readonly="" type="text" name="countdown" size="3" value="150"> characters left.</font></td>
+													</tr>
+													<tr class="secondrow">
+														<th width="18%"><span class="num">3.5</span> Postal Code
+														</th>
+														<td width="23%"><input type="text" name="userProperties(pincode)" maxlength="6" value="500018" onkeypress="return isNumber(event)" id="userProperties(pincode)"></td>
+
+															<th rowspan="3" width="18%" colspan="2">&nbsp;</th>
+														
+													</tr>
+												</tbody></table>
+											</fieldset></td>
+									</tr>
+
+									<tr id="abovessc">
+										<td>
+											<fieldset style="width: 750px" class="ofeildset">
+												<legend>
+													<font style="font-weight: bold;"><b>4.Institution Details </b> </font>
+												</legend>
+												<table>
+											<!-- <tr><th colspan="4" style="color:red"><b> Hyderabad city pass  applicants should select the institution address as HYDERABAD, though the      institution is at Hyderabad surrounding areas.
+											 (Ibrahimpatnam, Patancheru, Ghatkesar, Hakimpet, Medchal, Shamshabad, Kandukar, Hayathnagar etc.,     and beyond </b> </th> </tr> -->
+													<tbody><tr class="firstrow">
+														 <th style="display: none;">Institution Code</th>
+
+														<td style="display: none;"><input type="text" name="instutueCode" value="" id="instutionCode" onkeypress="return isNumber(event)" onchange="getCollegeDetails() ">
+														</td>
+
+														<th width="18%"><span class="num">4.1</span> District <font color="red">*</font></th>
+														<td width="23%"><select name="userProperties(instdistname)" onchange="getMandal(&#39;instmndlname&#39;,&#39;upssc&#39;),getCenter();" onblur="getDistId()" id="instdistname" style="width:200px"><option value="16" selected="selected">Hyderabad</option></select>
+														</td>
+												<th width="18%"><span class="num">4.2</span> Mandal <font color="red">*</font>
+														</th>
+														<td width="23%"><select name="userProperties(instmndlname)" onchange="getColleges(&#39;instcollname&#39;);" id="instmndlname" style="width:200px"><option value="16" selected="selected">Hyderabad</option></select></td>
+													</tr>
+
+													<tr class="secondrow">
+
+															<th width="18%"><span class="num">4.3</span> Institution Name <font color="red">*</font></th>
+														<td><select name="userProperties(instcollname)" onchange="getCourses1();" id="instcollname" style="width:200px"><option value="">-----Select-----</option>
+<option value="32282">AADHYA  DEGREE COLLEGE, ANUPURAM,KAPRA---D5915</option>
+<option value="31508">AAR  MAHAVEER ENGG COLL, BANDLAGUDA KESHAVAGIRI---T3150</option>
+<option value="34814">ABHYAAS JUNIOR COLLEGE PEERZADIGUDA---J5874</option>
+<option value="31908">ACE ENG.COLLGE,ANKUSHPUR---T3246</option>
+<option value="31275">ACME COLLEGE OF ARTS  SCIENCES ,MALAKPET---D0484</option>
+<option value="34461">ADHYA JUNIOR COLLEGE---J5801</option>
+<option value="31342">AGARWAL JR.COLLEGE FOR BOYS,CHARKAMAN---J4790</option>
+<option value="34844">AGASTYA JR.COLLEGE,PET BASHEERABAD.---J5883</option>
+<option value="33921">AIMS COL OF HOTEL MGMT AND CATERING TECH, LB NAGAR---D6126</option>
+<option value="34951">AIMS DEGREE COLLEGE---D6225</option>
+<option value="35187">AKBAR OWAISI DEGREE COLLEGE---D6257</option>
+<option value="35188">AKBAR OWAISI DEGREE COLLEGE---D6258</option>
+<option value="34980">AKBAR OWAISI JUNIOR COLLEGE---J5903</option>
+<option value="35104">AKBAR OWAISI JUNIOR COLLEGE,MOGHAL PURA HYD---J5915</option>
+<option value="35105">AKBAR OWAISI JUNIOR COLLEGE, TALABKATTA,MOGHALPURA HYD---J5916</option>
+<option value="31116">AKLR GOVT ORIENTAL COLLEGE,NALLAKUNTA.---D5631</option>
+<option value="34327">AKSHADEEP JR.COLLEGE LIC COLONY MP,HYD.---J5770</option>
+<option value="32292">AKSHARA DEG.COLLEGE,MEDCHAL---D6027</option>
+<option value="34861">AKSHARA DEGREE COLLEGE FOR WOMEN---D6207</option>
+<option value="32894">AKSHARA INST.OF MANAGEMENT STUDIES,UPPARI GUDA.---P3203</option>
+<option value="30453">AKSHARA JR COLLGE SD ROAD SECBAD---J5342</option>
+<option value="34961">AKSHARA JUNIOR COLLEGE,ATTAPUR---J5899</option>
+<option value="34432">AKSHARA JUNIOR COLLEGE,KARMANGHAT---J5792</option>
+<option value="31134">ALI YAVARJUNG INST HEARING HC,MVIKASNGR---D0486</option>
+<option value="31134">ALI YAVARJUNG INST HEARING HC,MVIKASNGR---D0486</option>
+<option value="34481">ALLIANCE COLLEGE OF HOTEL MANAGEMENT, MOOSAPET, KUKATPALLY---D6155</option>
+<option value="33525">ALPHORES JR COLLEGE, SHIVAM ROAD, NEW NALLAKUNTA, HYD---J5709</option>
+<option value="31761">ALPHORES JUNIOR COLLEGE KARMANGHAT---J5377</option>
+<option value="31973">ALPHORES JUNIOR COLLEGE,PAKALA PRIDE,AUSHAPUR,GTKRSAR---J5494</option>
+<option value="32956">AMZAD ALI KHAN COLL OF BUSINESS  ADMINISTRATION,,RD NO 3 B.HILLS---P3131</option>
+<option value="33893">ANANNTHA LAW COLLEGE, VIVEKANANDA COLONY, KUKATPALLY---D6121</option>
+<option value="34873">ANAYA DEGREE DOLLEGE,HASTHINAPURAM.---D6210</option>
+<option value="32050">ANISH COLLEGE OF COMMERCE, AS RAO NAGAR---J5615</option>
+<option value="32337">ANISH DEGREE COLLEGE,NACHARAM---D6003</option>
+<option value="32139">ANITHA VOC. JR. COLLEGE,PEERZADI GUDA---J5506</option>
+<option value="30406">ANJUMANS OOMER ITI, BAKARAM---T3039</option>
+<option value="31379">ANNAMACHARYA INST OF TECH AND SC,PIGLIPUR---T3223</option>
+<option value="32200">ANNAMACHARYA INST. OF TECH.  SCI.,PIGLIPURAM,BATASINGARAM.---T3351</option>
+<option value="31315">ANNAPURNA ITI, OPP RAMSINGHPURA, KARWAN---T3136</option>
+<option value="32232">ANR INDUSTRIAL TRAINING INSTITUTE,PEDDAMBERPET,HAYATNAGAR.---T3373</option>
+<option value="34930">ANURAG UNIVERSITY-NEELIMA INSTITUTE OF MEDICAL SCIENCES---T3469</option>
+<option value="34927">ANURAG UNIVERSITY -SCHOOL OF ENGINEERING---T3465</option>
+<option value="34929">ANURAG UNIVERSITY-SCHOOL OF MANAGEMENT---T3468</option>
+<option value="34928">ANURAG UNIVERSITY-SCHOOL OF PHARMACY---T3466</option>
+<option value="31636">ANWARUL ULOOM COLLEGE,NEW MALLEPALLY.---D0491</option>
+<option value="30691">ANWAR UL ULOOM COLLEGE OF EDUCATION,NAMPALLY.---D0001</option>
+<option value="32772">ANWARUL ULOOM COLLEGE OF PHARMACY,NEW MALLEPALLY---P3137</option>
+<option value="31453">ANWAR UL ULOOM JR COLLEGE NAMPALLY---J5350</option>
+<option value="33840">APJ ABDUL KALAM JR.COLLEGE,SHAPOORNAGAR---J5743</option>
+<option value="32892">APOLLO COLLEGE OF NURSING,JUBILEE HILLS---P3297</option>
+<option value="33832">APOLLO COLLEGE OF PHYSIOTHERAPY, JUBILEE HILLS, HYD---D6113</option>
+<option value="32834">APOLLO INST.OF MEDICAL SCI.AND RESERCH,J.HILLS---P3287</option>
+<option value="33928">APOLLO SCHOOL OF NURSING,JUBILEE HILLS---P3444</option>
+<option value="32574">APPOLLO INST.OF HOSP. ADMINISTRATION,JUBILEE HILLS.---P3061</option>
+<option value="32592">ARADHANA COLL OF EDUCATION,BANDLAGUDA JAGIR,RJNR.X RDS---P3101</option>
+<option value="32923">ARADHANA SCHOOL OF BUSINESS MANAGEMENT, KISMATHPURA---P3226</option>
+<option value="32535">ARISTOTLE P.G. COLL CHILKUR,MOINABAD---P0828</option>
+<option value="31180">ARJUN COLL OF TECH AND SCI,BATASINGARAM.---T3229</option>
+<option value="32555">ARK DEGREE AND P.G. COLLEGE,VIDYANAGAR---P3260</option>
+<option value="32912">ARMY COL.OF DENTAL SCIENCE,ACDS NAGAR---P4002</option>
+<option value="30578">ARUNODAYA DEGREE COLLEGE,DILSUKHNAGAR,HYD.---D0356</option>
+<option value="32696">ARYA COL.OF PHARMACY,KANDI---P4021</option>
+<option value="33141">ASHARY AKRUTI SPECIAL EDUCATION COLLEGE---SP193</option>
+<option value="33008">ASHLESHA I.T.I,ALIYABAD X ROAD,SHAMEERPET.---T3405</option>
+<option value="33896">ASHOKA SCHOOL OF PLANING AND ARCHTECTURE, MALKAPUR.---D6120</option>
+<option value="31599">ASPIRE JR.COLLEGE, KUKATPALLY, ADDAGUTTA, HYD.---J5173</option>
+<option value="32754">AUROBINDO COLL.OF BUSINES MANG,CHINTAPALLIGUDA,IBP.---P3282</option>
+<option value="32791">AUROBINDO INST.OF CUMPUTER SCIENCES,CHINTAPALLIGUDA,IBP---P3281</option>
+<option value="35010">AURORA HIGHER EDUCATION DEPT.ENG  TECH.BHONGIR CAMPUS YADAGIRI DT.---T3477</option>
+<option value="35014">AURORA HIGHER EDUCATION  RESERCH ACADEMY DEPT.ENGTECH UPPAL CAMPUS---T3478</option>
+<option value="35012">AURORA HIGHER EDUCATION  RESERCH ACADEMY,DEPT.LAW BHONGIR---P3352</option>
+<option value="35016">AURORA HIGHER EDUCATIONRESERCH ACADEMY DEPT.MANAGEMENT.UPPAL CAMPUS---P3353</option>
+<option value="30596">AURORA JR.COLLEGE CHIKADAPALLY---J4802</option>
+<option value="32530">AURORA PG COLLEGE (MBA),RAMANTHPUR.---P4034</option>
+<option value="32704">AURORA P.G.COLLEGE(MCA),NAMPALLY, HYD---P3228</option>
+<option value="30914">AURORAS DEGREE AND PG COLLEGE,CHIKKADPALLY---D0494</option>
+<option value="35034">AURORAS DEGREE   PG COLLEGE---P3356</option>
+<option value="32043">AURORAS JR COLLEGE, STRT NO 10, CHIKADPALLY---J5602</option>
+<option value="34483">AURORAS LEGAL SCIENCES ACADEMY, BANDLAGUDA, KHALASA,HYD---D6156</option>
+<option value="32714">AURORAS PG COLLEGE,CHIKKADPALLY---P0060</option>
+<option value="35097">AURORAS PG COLLEGE (MBA)---P3357</option>
+<option value="32735">AURORAS PG COLLEGE (MBA),PANJAGUTTA.---P3229</option>
+<option value="35098">AURORAS PG COLLEGE (MCA)---P3358</option>
+<option value="33352">AURORAS PG COLLEGE(MCA), PEERZADIGUDA---P3315</option>
+<option value="33898">AURORAS PG COLLEGE (MCA), RAMANTHAPUR---P3328</option>
+<option value="33339">AURORAS PG COLLEGE, PEERZADIGUDA---P3313</option>
+<option value="32271">AURORAS SCIENTIFIC AND TECHN INST, AUSHAPUR.---T3332</option>
+<option value="31797">AURORAS SCI TECH AND RES ACADMEY---T3021</option>
+<option value="31684">AURORAS TECHNOLOGICAL AND RESEARCH INST.PARVATHAPUR---T3110</option>
+<option value="31131">AVANTHI DEGREE AND PG COLLEGE, BARKATPURA---D0495</option>
+<option value="33879">AVANTHI DEGREE AND PG COLLEGE,NARAYANAGUDA---D6118</option>
+<option value="31135">AVANTHI DEGREE COLL,MOOSARAMBAGH,DSNR.HYD---D0497</option>
+<option value="33359">AVANTHI INSTITUTE OF PHARMACEUTICAL SCIENCE,GUNTHAPALLY---T3431</option>
+<option value="31582">AVANTHI INST.OF PHAR.SCI,GUNTHAPALLY---D5800</option>
+<option value="30816">AVANTHI INSTT OF ENGG  TECH. GUNTHAPALLY.---T3210</option>
+<option value="32815">AVANTHI PG COLLEGE,MOOSARAMBAGH---P0027</option>
+<option value="32930">AVANTHIS  P G  RESEARCH ACADEMY GUNTHAPALLY---P3294</option>
+<option value="32374">AVANTHIS SCIENTIFIC TECH  RESEARCH ACADEMY. GUNTHAPALLY.---T3392</option>
+<option value="30577">A.V.COLLEGE OF ARTS, SCI.  COMM,GAGANMAHAL.---D0353</option>
+<option value="32549">AV COLLEGE OF ARTS,SCI. COMM. PG CENTRE,GAGANMAHAL---P0026</option>
+<option value="32316">AVINASH COLLEGE OF COMMERCE AS RAJU NAGAR..---D6005</option>
+<option value="30797">AVINASH COLLEGE OF COMMERCE, BASHEERBAGH.---D5882</option>
+<option value="34659">AVINASH COLLEGE OF COMMERCE---J5842</option>
+<option value="34666">AVINASH COLLEGE OF COMMERCE,KUKATPALLY.---J5841</option>
+<option value="33824">AVINASH COLLEGE OF COMMERCE, L B NAGAR---J5741</option>
+<option value="31002">AVINASH COLLEGE OF COMMERCE, S.D ROAD, SEC-BAD---D5687</option>
+<option value="33777">AVINASH COLLEGE OF COMMERCE,SD ROAD,SECBAD---J5729</option>
+<option value="32322">AVINASH COL.OF COMMERCE, HNO: 18/MIG1, 19/MIG1, KPHB COLONY, KP VILLAGE---J5673</option>
+<option value="32315">AVINASH DEGREE COLLEGE, PLOT NO. 59/A,B,C,D, SRINAGAR COLONY, SAROORNAGAR---D6006</option>
+<option value="31890">AVN INSTITUTE OF ENGG AND TECH, KOHEDA ROAD, PATELGUDA---T3305</option>
+<option value="30820">AWARE COLL OF MED LAB TECH,SAGAR RD,KARMANGHAT---D5712</option>
+<option value="31099">AYATI JUNIOR COLLEGE---J5165</option>
+<option value="32799">AZAD COLL OF PHARMACY,MOINABAD---P3138</option>
+<option value="32150">AZAM DEGREE COLLEGE HUSSAINI ALAM---D5921</option>
+<option value="31611">AZAM VOC JR COLLEGE, HUSSAINIALAM---J5123</option>
+<option value="34966">BABU JAGJEEVAN RAM VOC JUNIOR COLLEGE---J5900</option>
+<option value="30871">BABUL REDDY JR COLLEGE,SR NGR---J5151</option>
+<option value="34693">BACKSTAGE PASS INST.OF GAMEING ,MADHAPUR.---D6164</option>
+<option value="32851">BADDAM BAL REDDY INSTITUTE OF TECHNOLOGY AND BUSINESS SCHOOL BALAPUR---P0818</option>
+<option value="34995">BADDAM BHOOPAL REDDY DEGREE COLLEGE,BALAPUR---D6220</option>
+<option value="33784">BADRUKA COLLEGE OF COMMERCE  ARTS,H.NO:3-2-847,KACHIGUDA RAILWAY STATION ROAD,HYDERABAD---D6107</option>
+<option value="32635">BADRUKA COLLEGE OF PG CENTRE,KACHIGUDA---P0061</option>
+<option value="33382">BALAPUR NARAYANA JUNIOR COLLEGE---J5701</option>
+<option value="31913">BANDARI SRINIVAS INST.OF TECH,GOLLAPALLI---T4005</option>
+<option value="32527">BANKATLAL BADRUKA COLLEGE FOR IT, KACHIGUDA---P4036</option>
+<option value="34477">BANSAL JUNIOR COLLEGE HABSHIGUDA---J5797</option>
+<option value="34448">BANSAL JUNIOR COLLEGE NADERGUL---J5798</option>
+<option value="31199">BETHELHEM VOC.JR.COLLEGE,NALLAKUNTA---J5362</option>
+<option value="32217">BHAGEERATHA COLLEGE OF DIPLOMA IN EDUCATION MANGALPALLY---D5990</option>
+<option value="34575">BHAGEERTHA COLLEGE OF EDUCATION---D6161</option>
+<option value="35020">BHAGWAN MAHAVIR SCHOOLOF NURSING---D6232</option>
+<option value="30748">BHAGYARADHI DEG COLLEGE,BESIDE IDPL PETROL BUNK,CHINTAL MAIN ROAD,CHINTAL---D0403</option>
+<option value="31484">BHAGYARATHI JR.COLL, HMT ROAD,CHINTAL.---J3341</option>
+<option value="32665">BHARATH INSTITUTE OF TECHNOLOGY, MANGALPALLY---P4009</option>
+<option value="31256">BHARAT INIST OF ENG AND TECH, MANGALPALLY---T3123</option>
+<option value="30572">BHARAT ITI, PHASE-I, IDA JEEDIMETLA---T3042</option>
+<option value="31837">BHARAT SCHOOL OF PHARMACY.MANGALPALLY---D5805</option>
+<option value="32033">BHASHITHA JR COLLEGE CHINTAL---J5581</option>
+<option value="32042">BHASKAR ENGINEERING COLLEGE,YENKAPALLY.---T3362</option>
+<option value="32970">BHASKAR LAW COLLEGE,JBIT CAMPUS,YENKAPALLY.---P3309</option>
+<option value="32812">BHASKAR MEDICAL COL.,YENKAPALLY---P4000</option>
+<option value="32533">BHASKAR PHARMACY COLLEGE, YENKAPALLY(V), MOINABAD(M)---P3267</option>
+<option value="31150">BHAVANS NEW SCIENCE COLLEGE, NARAYANGUDA---D0504</option>
+<option value="30726">BHAVANS SRI AUROBINDO JR COLLEGE, SAINIKPURI, SECBAD---J5118</option>
+<option value="34657">BHAVANS VIVEKANANDA COLLEGE OF SCIENCE HUMANITIES  COMMERCE---D 0358</option>
+<option value="31136">B J R GOVT DEG.COLLEGE, VITTALWADI.---D0498</option>
+<option value="30600">BJR GOVT JR COLLEGE(GIRLS), RISALA BAZAR,GOLKONDA, HYD.---J4842</option>
+<option value="30494">BLOOMS COLL OF HOTEL MANGT AND CATERING TECHNOLOGY,LANGARHOUSE.---D0076</option>
+<option value="32477">BONFIRE INST OF DESIGN, BASHEERBAGH---SP192</option>
+<option value="30404">BOYS TOWN ITI,JAHANUMA---T3044</option>
+<option value="32817">BRIGHT INST OF MNGT,T YAMJAL---P3083</option>
+<option value="31413">BRIGHT ROOTS JUNIOR COLLEGE---J6038</option>
+<option value="32165">BRILLIANT GR.SCHOOL,EDU.SOCIETY GRPUP OF INSTITUTIONS.ABDULLAPUR---T3343</option>
+<option value="31717">BRILLIANT INST. OF ENG. TECHNOLOGY,ABDULAPUR VILLAGE.---T3258</option>
+<option value="31324">BRILLIANT JR.COLLEGE,RC.PURAM.---J5169</option>
+<option value="31748">BRINDAVAN INST OF TEACHER EDUCATION SHERIGUDA---D5819</option>
+<option value="33241">B.R.Y.M PRIVATE ITI,BEERAMGUDA---T3422</option>
+<option value="32353">BVRIT, BACHUPALLY,HYD.---T3389</option>
+<option value="32545">CAPITAL DEGREE COLLEGE, SHAPUR NAGAR---P0278</option>
+<option value="34466">CAREER POINT JUNIOR COLLEGE STREET 5 TARNAKA---J5802</option>
+<option value="31838">CARE INST.OF MEDICAL SCI.,COLLEGE OF PHYSIOTHERAPY,RD.NO.1,BANJARA HILLS.BANJARA HILLS---D5804</option>
+<option value="34367">CARRER POINT JUNIOR COLLEGE KUSHAIGUDA---J5779</option>
+<option value="31216">CAT DEG COLLEGE,NAMPALLY---D0164</option>
+<option value="32623">CBIT GANDIPET---P0031</option>
+<option value="31754">CBIT---T3001</option>
+<option value="34574">CENTRE FOR ECONOMIC AND SOCIAL STUDIES (AIDED)---P3345</option>
+<option value="32279">CHAITANYA DEGREE COLLEGE,MADHURA NAGAR,SMSB---D5911</option>
+<option value="34438">CHAITANYA HUB JUNIOR COLLEGE POOJA MANO HIMAYATHNAGAR,HYD---J5795</option>
+<option value="30629">CHAITANYA JR COLLEGE TRIVENINAGAR.---J5434</option>
+<option value="31501">CHAITANYA JR.KALASALA---J3306</option>
+<option value="31470">CHAITANYA JUNIOR COLLEGE SHAMSHABAD---J5328</option>
+<option value="35002">CHAITANYA UNIVERSITY DEPT OF AGR  NURSING---P3350</option>
+<option value="35003">CHAITANYA UNIVERSITY DEPT OF ARTS  COMM  SCI---D6229</option>
+<option value="35000">CHAITANYA UNIVERSITY DEPT OF ENGG---T3475</option>
+<option value="35004">CHAITANYA UNIVERSITY DEPT OF MGMT---P3349</option>
+<option value="35001">CHAITANYA UNIVERSITY DEPT OF PHARMACY---T3476</option>
+<option value="35060">CHALLENGER DEGREE COLLEGE MOINABAD---D6238</option>
+<option value="33905">CHALLENGER JR COLLEGE,SURANGAL ROAD,MOINABAD.---J5746</option>
+<option value="34677">CHENNAIS AMIRTA INSTI. OF HOTEL MANAGEMENT, KHAIRATABAD.---D6174</option>
+<option value="32541">CHILKUR BALAJI COL.PHARMACY,AZIZNAGAR---P4011</option>
+<option value="30799">CIPET,CHERLAPALLY---T3156</option>
+<option value="31575">CIPET---SP085</option>
+<option value="30894">CITD BALANAGAR---T3160</option>
+<option value="30643">CITY JR. COLLEGE A.C. GUARDS---J6085</option>
+<option value="35030">CMR COLLEGE OF PHYSIOTHERAPY.KANDLAKOYA MEDCHAL---D6235</option>
+<option value="31576">CMR COLL OF ENGGANDTECH KANDLA KOYALA---T3175</option>
+<option value="32746">CMR COLL OF PHARMACY,KANDLAKOYA---P3139</option>
+<option value="32116">CMR ENGINEERING COLLEGE, KANDLAKOYA---T3328</option>
+<option value="35029">CMR INSTITUTE OF HEALTH SCIENCES KANDLAKOYA---D6234</option>
+<option value="30850">CMR INSTITUTE OF TECHNOLOGY.,KANDLAKOYA---T3220</option>
+<option value="32275">CMR TECHNICAL COMPUS, KANDLAKOYA, MEDCHAL---T3327</option>
+<option value="32235">CMS COMMERCE JR.COLLEGE(23015),RP ROAD,SEC.BAD---J5638</option>
+<option value="32211">CMS COMMERCE JR COLLEGE,SR NAGAR---J5593</option>
+<option value="34644">CMS COMMERCE JUNIOR COLELGE,NIZAMPET.---J5832</option>
+<option value="33778">CMS COMMERCE JUNIOR COLLEGE,KAMALANAGAR,ECIL.---J5734</option>
+<option value="33696">CMS COMMERCE JUNIOR COLLEGE, NEAR RAVINDRA BHARATHI SCHOOL GADDIANNARAM,SAIDABAD---J5720</option>
+<option value="31607">CMS DEGREE COLLEGE---D0185</option>
+<option value="30999">CMS JUNIOR COLLEGE---J6028</option>
+<option value="34648">COGNOS INSTITUTE OF HOTEL MGMT, TARNAKA.---D6170</option>
+<option value="31267">COLLEGE OF NURSING,SOMAJIGUDA---D5669</option>
+<option value="31791">COLLEGE OF PHYSIOTHERAPY,KIMS SECBAD.---D5792</option>
+<option value="30656">COLLEGE OF VET SCIENCES,RJNR---D5624</option>
+<option value="30700">COLL.OF HOME SCI.(PROF.JAYASHANKAR .TSAGU SAIFABAD)---D5614</option>
+<option value="30628">COLL.OF HORTICULTURE,RJNR---D5878</option>
+<option value="34590">CREATIVE MULTIMEDIA COLLEGE OFFINEARTS, DILSUKHNAGAR---D6167</option>
+<option value="31505">CSI EVA MAIR VOCATIONAL JUNIOR COLLEGE,SD ROAD SECBAD---J5391</option>
+<option value="32916">CSI INSTITUTE OF PG STUDIES EAST MAREDPALLY---P3198</option>
+<option value="30711">CSI INST.OF TECHNOLOGY,OPP.ANAND THATRE,SEC.BAD---T3111</option>
+<option value="33227">CSI WESLEY INST.OF TECH. AND SCI.,SECUNDERABAD---T3414</option>
+<option value="31362">CULINARY ACADEMY OF INDIA,UMANAGAR,BEGUMPET. BEUMPET, HYD.---SP148</option>
+<option value="30916">CULINARY ACADEMY OF INDIA,UMANAGAR,BEGUMPET.---D0080</option>
+<option value="34663">CULINARY GURU INST. OF HOTEL MANAGEMENT,DWARAKANAGAR.---D6173</option>
+<option value="31616">CVR COLLEGE OF ENGINEERING, MANGALPALLY---T3141</option>
+<option value="34809">DAKSHA JUNIOR COLLEGE ALIYABAD---J5872</option>
+<option value="31113">DAKSHIN BHARATH HINDI PRA SABH---D5648</option>
+<option value="31454">DAVID MEM.DEG  P.G COLLEGE,TARNAKA---D5759</option>
+<option value="32844">DAVID MEM. INSTITUTE OF MANG,TARNAKA---P0067</option>
+<option value="30874">DAVID MEMORIAL JR.COLL,TARNAKA---J5090</option>
+<option value="31562">DCMS COLL OF PHYSIOTHERAPY, DARUSALAM---D5665</option>
+<option value="31507">DECCAN COLLEGE OF ENG  TECHNOLOGY,DARUSALAM NAMPALLY.---T3009</option>
+<option value="32778">DECCAN SCHOOL OF MANAGEMENT,DAR-US-SALAM,AGHAPUR.---P0032</option>
+<option value="33357">DECCAN SCHOOL OF PHARMACY, AGAHPURA---T3425</option>
+<option value="33780">DECCANS NEW CHAITANYA JUNIOR COLLEGE,TARANAKA,SECBAD.---J5733</option>
+<option value="34697">DEEKSHA JR.COLLEGE,ALWAL.---J5854</option>
+<option value="34843">DEEKSHA JR.COLLEGE,BALAJINAGAR,KPHB COLONY---J5882</option>
+<option value="30862">DEEKSHA JR COLLEGE LB NAGAR---J5162</option>
+<option value="31442">DEEKSHA JR.COLLEGE UPPAL ENCLOVE,KAPRA---J4562</option>
+<option value="30442">DEEPSHIKHA VOC JUNIOR COLLEGE AMEERPET---J5427</option>
+<option value="30953">DELTA JR COLL,OU ROAD,NALLAKUNTA---J5212</option>
+<option value="32112">DEVES MEDICAL COLL.  HOSP.,DEVA NAGAR.---D5900</option>
+<option value="31050">DEVI COLL OF MEDICAL LAB TECH---D5698</option>
+<option value="34321">DEVS COLLEGE OF NURSING, DEVANAGAR.---D6143</option>
+<option value="35036">DHRUVA COLLEGE OF FASHION TECHNOLOGY,MADHAPUR,HYD---D6237</option>
+<option value="30764">DHRUVA COLL OF MGMT,BEHIND OXYGEN PARK, MEDCHAL.---SP033</option>
+<option value="31784">DHRUVA DEGREE COLLEGE---D5785</option>
+<option value="34766">DHRUVA JUNIOR COLLEGE, SANTOSH NAGAR---J5869</option>
+<option value="34583">DIGIQUEST INSTITUTE OF CREATIVE ARTS  DESIGN---D6163</option>
+<option value="30991">DISTRICT INST. OF EDUCATION.N AND TRG, NEREDMAT.---T3104</option>
+<option value="30925">DON BOSCO DEG.COLEGEL,ERRAGADDA---D0513</option>
+<option value="32913">DR.B.R.AMBEDKAR COLL,BAGHLINGAMPALLY---P0114</option>
+<option value="30671">DR BR AMBEDKAR COLL OF LAW,BAGHLINGAMPALLY---D0016</option>
+<option value="30499">DR BR AMBEDKAR DEG COLL,BAGHLINGAMPALLY---D0514</option>
+<option value="32882">DR.B.R.AMBEDKAR INST.OF MANAGEMENT AND TECH.BAGH LINGAMPALLY,HYD.---P3174</option>
+<option value="31529">DR BR AMBEDKAR JR COLLEGE, BAGHLINGAMPALLY---J4670</option>
+<option value="32667">DR BRKR GOVT AYURVEDI COL,SR NAGR---P4003</option>
+<option value="31298">DR JINDAL JR COLLEGE,ESAMAIBAZAR,CHADERGHAT.---J4661</option>
+<option value="35038">D.R.JUNIOR COLLEGE MIYAPUR,SERILINGAMPALLY,HYD---J5905</option>
+<option value="30831">DRK INSTITUTE OF SCIENCE AND TECHNOLOGY, BOWRAMPET, QUTHBULLAPUR(M)---T3205</option>
+<option value="34736">DR.NARAYANA COLLEGE OF COMMERCE,OLD ALWAL.---D6177</option>
+<option value="31252">DR. NARAYANA DEG COLL OF HOTEL MGMT  CATERING TECHNOLOGY,  ALWAL.---D5729</option>
+<option value="30845">DR. NARAYANA JR.COLLEGE, OLD ALWAL---J5338</option>
+<option value="35035">DR.PATNAM MAHENDAR REDDY COLLEGE OF PHYSIOTHERAPY---D6236</option>
+<option value="34895">DR.PATNAM MAHENDER REDDY INST. OF MEDICAL SCIENCES, CHEVELLA---T3464</option>
+<option value="35114">DR.V.R.K.COLLEGE OF LAW---D6245</option>
+<option value="31079">DURGA BAI DESHMUKH COLLEGE OF NURSING,VIDYANAGAR,OU ROAD.---D5719</option>
+<option value="31678">DURGABAI DESHMUKH COLLEGE OF PHYSIOTHERAPY,VIDYANAGAR.PHYSIOTHERANY OU---D5615</option>
+<option value="33441">DURGABAI DESHMUKH GOVT.WOMENS TECHNICAL TRAINING INSTITUTE. AMEERPET---T3434</option>
+<option value="30713">DURGABAI DESHMUKH (VOC) TRAINING AND REHABILITATION CENTRE FOR HANDICAPPED, VIDYANAGAR---T3113</option>
+<option value="30913">DVM COLLEGE OF COMMERCE, LB NAGAR---D0509</option>
+<option value="32935">DVM DEGREE AND PG COLLEGE, LB NAGAR---P3141</option>
+<option value="32435">EDVANTA DEGREE COLLEGE,RTC COLONY, HAYATHNAGAR---D6046</option>
+<option value="34908">ELITE PARA MEDICAL COLLEGE---SP202</option>
+<option value="31367">ELITE VOC JR COLLEGE,HUDA COMPLEX,KOTHAPET.---J5310</option>
+<option value="30815" selected="selected">ELLENKI COLLEGE OF ENG. AND TEC,PATEL GUDA---T3209</option>
+<option value="32743">ENGINEERING COLLEGE,OU---P3044</option>
+<option value="30758">ENGINEERING STAFF COLLEGE OF INDIA.GACHIBOWLI---SP086</option>
+<option value="31363">ESHWARIBAI MEMORIAL COLLEGE OF NURSING, WEST MARREDPALLY , SECBAD---D5707</option>
+<option value="33917">ESIC MEDICAL COLLEGE,SANATHNAGAR---P3329</option>
+<option value="32369">ETHAMES DEGREE COLLEGE PUNJAGUTTA X RDS---D6013</option>
+<option value="34572">EXCEL COLLEGE OF HOTEL MANAGEMENT, OPP. KAMINENI HOSPI. L.B. NAGAR---D6162</option>
+<option value="35164">EXCEL JUNIIOR COLLEGE BAGH HAYATH NAGAR---J5922</option>
+<option value="33775">EXCELLENCIA JR.COLLEGE,NEAR D.MART, LB.NAGAR.---J5649</option>
+<option value="33776">EXCELLENCIA JR.COLLEGE, NEAR MIYAPUR PS, MADINAGUDA.---J5731</option>
+<option value="34820">EXCELLENCIA JUNIOR COLLEGE,DAMMAIGUDA---J5877</option>
+<option value="35147">EXCELLENCIA JUNIOR COLLEGE NARSUNG---J5920</option>
+<option value="34819">EXCELLENCIA JUNIOR COLLEGE,PET BHASHEERBAGH(J5876)---J5876</option>
+<option value="30590">FIITJEE JR COLLEGE, MADINAGUDA,MYTHRINAGAR ARCH,HYD.---J5432</option>
+<option value="31356">FIITJEE JUNIOR COLLEGE,  OPP SECRETARIAT, SAIFABAD---J5313</option>
+<option value="34478">FOOTWEAR DSGN  DEVLPMT INST,H.S.DARGA RAIDURGAM---P3343</option>
+<option value="30677">FSB DEGREE COLLEGE,BALAJINAGAR,KP.---D0602</option>
+<option value="32016">GALAXY DEGREE COLLEGE, SHAH ALI BANDA---D5942</option>
+<option value="30956">GALAXY VOC JR COLLEGE, DEWAN DEVDI---J5213</option>
+<option value="31583">GANDHIAN COLLEGE OF EDUCATION,KUNTLOOR---D5812</option>
+<option value="31653">GANDHI MEDICAL COLLEGE AND HOSPITAL,SECBAD---D5806</option>
+<option value="31331">GANDHI MEDICAL COLLEGE,BHOIGUDA---T3084</option>
+<option value="32863">GANDHI NATURAPATHIC MED.COL,BEGUMPET---P4004</option>
+<option value="34661">GATIK JUNIOR COLLEGE---J 5846</option>
+<option value="35203">GATIK JUNIOR COLLEGE---J5924</option>
+<option value="32731">GAUTHAMI DEG AND PG COLLEGE, IDPL COLONY,CHINTAL---P0167</option>
+<option value="31647">GAUTHAMI DEGREE COLLEGE, BESIDE IDPL PETROL BUNK,CHINTAL---D5789</option>
+<option value="30804">GAUTHAMI DEGREE COLLEGE, KUKATPALLY---D0519</option>
+<option value="31644">GAUTHAMI JR.COLLEGE BJP OFF.KP.---J4547</option>
+<option value="34773">GAYATHRI DEGREE COLLEGE,MEDCHAL---D6190</option>
+<option value="34075">GAYATHRI JR.COLLEGE,SHIVARAMPALLY,RJNR---J5757</option>
+<option value="32339">GAYATRI DEGREE COLLEGE FOR WOMEN,PREMAVATHIPET, RJNR---D6014</option>
+<option value="31821">G B N INST OF PHARMACY,EDULABAD---D5850</option>
+<option value="32993">GEETANJALI JUNIOR COLLEGE, APHB,  IDPL, CHINTAL---J3409</option>
+<option value="32434">GEETHAJALI JR COLLEGE,NAGENDRANAGAR.---J5677</option>
+<option value="31577">GEETHANJALI COLLEGE OF  ENGG AND TECH,CHEERYAL (V)---T3215</option>
+<option value="31747">GEETHANJALI COLLEGE OF PHARMACY, CHEERYAL (V)---D5811</option>
+<option value="32244">GEETHANJALI DEG COLLEGE, ECIL X ROADS, KUSHAIGUDA---D5967</option>
+<option value="32085">GEETHANJALI JR COLLEGE,ECIL,KUSAHIAGUDA---J5545</option>
+<option value="31953">GITAM JR COLLEGE, ECIL X ROAD.---J5505</option>
+<option value="31743">GITAM UNIVERSITY,RUDRARAM---T3289</option>
+<option value="31960">GLAND INST. OF PHAR.SCIENCE, KOTHAPET,MDK---D5891</option>
+<option value="32258">GLOBAAL JR.COLLEGE, ST.NO.6, TARNAKA---J5630</option>
+<option value="31686">GLOBAL COLLEGE OF PHARMACY CHILKUR---D5799</option>
+<option value="32955">GLOBAL EDUCATON CENTER,CHILKUR,MOINABAD---P4045</option>
+<option value="31375">GLOBAL INSTITUTE OF HOTEL MANGAGEMENT, BARKATPURA---D5741</option>
+<option value="31383">GLOBAL INST OF ENGG AND TECH CHILKUR---T3233</option>
+<option value="32878">GLOBAL INST.OF MANAGEMENT,UPPARIGUDA---P3202</option>
+<option value="30639">GLR NEW MODEL JR COLLEGE, BESIDE RTA OFFICE, UPPAL---J3364</option>
+<option value="34588">GNANA DEEPIKA JUNIOR COLLEGE MADHAPUR---J5814</option>
+<option value="34789">GOKARAJU LAILAVATHI WOMENS COLLEGE---D6196</option>
+<option value="32828">GOKARAJU RNGRJ COLLEGE OF PHARMACY,BACHUPALLY---P3108</option>
+<option value="31169">GOKUL DEGREE COLLEGE NARSINGI---D5758</option>
+<option value="33779">GOVERNMENT DEGREE COLLEGE FOR WOMEN,GOLKONDA HYDERABAD.---D6109</option>
+<option value="32349">GOVERNMENT DEGREE COLLEGE, MALKAJGIRI---D6030</option>
+<option value="33826">GOVERNMENT POLYTECHNIC COLLEGE FOR WOMEN,BADANGPET.---J3195</option>
+<option value="34497">GOVERNMENT POLYTECHNIC FOR WOMEN EAST MARREDIPALLY SECUNDERABAD---T3450</option>
+<option value="30776">GOVT CITY COLLEGE,NAYAPOOL---D0521</option>
+<option value="32846">GOVT CITY COLLEGE,NAYAPOOL---P0105</option>
+<option value="31297">GOVT CITY JR.COLLEGE---J4660</option>
+<option value="30703">GOVT COLLEGE OF PHYSICAL EDUCATION,GAGANMAHAL---D0688</option>
+<option value="32471">GOVT COL.OF NURSING,GANDHI HOSPITAL---D6082</option>
+<option value="31574">GOVT COMPHN.COLL(IASF), M.TANK---D5639</option>
+<option value="32396">GOVT DEG COLLEGE FOR WOMEN,SANGAREDDY---D5969</option>
+<option value="32444">GOVT DEGREE COLEGE, SERILINGAMPALLY---D6061</option>
+<option value="34741">GOVT DEGREE COLLEGE, BADANGPET---D6184</option>
+<option value="34086">GOVT.DEGREE COLLEGE,CHANCHALGUDA---D6134</option>
+<option value="33783">GOVT.DEGREE COLLEGE CHEVELLA.T---D6108</option>
+<option value="34161">GOVT.DEGREE COLLEGE,FALAKNUMA,HYD---D6136</option>
+<option value="32404">GOVT DEGREE COLLEGE,GAJWAL---D5959</option>
+<option value="31734">GOVT DEGREE COLLEGE IBRAHIMPATNAM---D5868</option>
+<option value="31722">GOVT DEGREE COLLEGE,KUKTAPALLY---D5871</option>
+<option value="35005">GOVT DEGREE COLLEGE MAHESHWARAM---D6226</option>
+<option value="34988">GOVT.DEGREE COLLEGE, MAHESHWARAM, RR DIST---D-6226</option>
+<option value="31731">GOVT DEGREE COLLEGE,NEAR MONTHER DIARY, HAYATH NAGAR.---D5863</option>
+<option value="31737">GOVT DEGREE COLLEGE, PATANCHERU.---D5880</option>
+<option value="34882">GOVT.DEGREE COLLEGE, QUTHBULLAPUR---D6211</option>
+<option value="34868">GOVT DEGREE COLLEGE RAJENDRA NAGAR---D6204</option>
+<option value="33711">GOVT. DEGREE COLLEGE SITHAPHALMANDI.---D6105</option>
+<option value="34743">GOVT DEGREE COLLEGE, UPPAL---D6183</option>
+<option value="30511">GOVT DEGREE COLLEGE(W)BEGUMPET---D0522</option>
+<option value="30514">GOVT DEGREE COL(W)HUSSAINIALAM---D0523</option>
+<option value="30876">GOVT DENTAL COLLEGE  HOSPITAL,AFZALGUNJ---T3145</option>
+<option value="30880">GOVT DOMESTIC  SCIENCE TRAINING COLLEGE,,E.MARREDPALLY.---T3146</option>
+<option value="30823">GOVT. GEN AND CHEST HOSPITAL---SP156</option>
+<option value="30938">GOVT GIRLS VOC. INSTITUTE,EAST MARREDPALLY.---T3132</option>
+<option value="31110">GOVT.INIST OF PD IN ENT,RPUR---SP095</option>
+<option value="31416">GOVT INSTIT OFDIP IN ENGG TECH,EASTMAREDPALLY---T3026</option>
+<option value="30772">GOVT INST.OF ADVANCE STUDY IN EDUCATION.---D0003</option>
+<option value="31517">GOVT. INST.OF ADV. STUDIES,MASABTANK.---T3130</option>
+<option value="30555">GOVT INST. OF ELECTRONICS,EAST MAREDPALLY.---T3029</option>
+<option value="30769">GOVT INST OF PRINT TECHNOLOGY,MARREDPALLY---T3133</option>
+<option value="30992">GOVT ITI ALWAL.---T3105</option>
+<option value="33922">GOVT ITI, BHONGIR.---T3443</option>
+<option value="33908">GOVT ITI KHAIRATABAD.---T3439</option>
+<option value="30491">GOVT ITI,MALLEPALLY---T3049</option>
+<option value="32514">GOVT ITI MEDCHAL---T3190</option>
+<option value="30470">GOVT ITI,MSRD---T3048</option>
+<option value="31500">GOVT ITI,OLD CITY---T3046</option>
+<option value="31500">GOVT ITI,OLD CITY---T3046</option>
+<option value="30718">GOVT ITI,PATANCHERU---T3051</option>
+<option value="31587">GOVT ITI,SANATHNAGAR.---T3047</option>
+<option value="31066">GOVT ITI SANGAREDDY.---T3187</option>
+<option value="31066">GOVT ITI SANGAREDDY.---T3187</option>
+<option value="30552">GOVT ITI,SECUNDERABAD---T3052</option>
+<option value="34470">GOVT. ITI SHADNAGAR---T3449</option>
+<option value="33894">GOVT ITI,SHAMEERPET---T3438</option>
+<option value="34751">GOVT ITI SHANTHINAGAR---T3457</option>
+<option value="30717">GOVT ITI,TARNAKA---T3050</option>
+<option value="34726">GOVT. ITI VIJAYANAGAR COLONY.---T3458</option>
+<option value="31836">GOVT J.N. POLYTECHNIC COLL,RAMANTHPUR---T3090</option>
+<option value="31287">GOVT JR COL.FOR BOYS NAMPALLY---J4570</option>
+<option value="30879">GOVT JR COLLEGE ALIYA GNFD---J4530</option>
+<option value="30679">GOVT JR.COLLEGE BHEL---J3387</option>
+<option value="30679">GOVT JR.COLLEGE BHEL---J3387</option>
+<option value="30739">GOVT JR.COLLEGE, BOLLARAM---J3350</option>
+<option value="31400">GOVT JR COLLEGE BOMMALARAMARAM---J5385</option>
+<option value="33821">GOVT JR COLLEGE, BORABANDA,HYD---J5740</option>
+<option value="34058">GOVT.JR.COLLEGE,B.POCHAMPALLY---J5753</option>
+<option value="30788">GOVT JR COLLEGE CHANCHALAGUDA.---J4710</option>
+<option value="34158">GOVT. JR.COLLEGE,CHEVELLA---J5758</option>
+<option value="31157">GOVT JR.COLLEGE FALAKHNUMA---J4730</option>
+<option value="30464">GOVT JR COLLEGE FOR GIRLS FALAKNAMA---J5424</option>
+<option value="30607">GOVT JR COLLEGE FOR GIRLS MAREDPALLY.---J4990</option>
+<option value="30607">GOVT JR COLLEGE FOR GIRLS MAREDPALLY.---J4990</option>
+<option value="31725">GOVT JR.COLLEGE (G),MISARAM---J5411</option>
+<option value="30640">GOVT JR.COLLEGE,HAYATHNAGAR.---J3365</option>
+<option value="32487">GOVT JR.COLLEGE HUSSAINIALAM---J4740</option>
+<option value="30531">GOVT JR.COLLEGE IBP---J3370</option>
+<option value="31291">GOVT JR.COLLEGE KACHIGUDA---J4610</option>
+<option value="31566">GOVT JR COLLEGE KANDUKUR.---J5441</option>
+<option value="34401">GOVT.JR.COLLEGE,MADGUL,RR.DIST---J5787</option>
+<option value="32283">GOVT JR COLLEGE,MADHURANAGAR, RAIDURGA.---J5540</option>
+<option value="33710">GOVT. JR COLLEGE MANCHAL.---J5724</option>
+<option value="33710">GOVT. JR COLLEGE MANCHAL.---J5724</option>
+<option value="30901">GOVT JR.COLLEGE, MEDCHAL---J3340</option>
+<option value="30420">GOVT JR.COLLEGE,MULUGU---J5449</option>
+<option value="30833">GOVT JR.COLLEGE OLD MALAKPET.---J4690</option>
+<option value="31266">GOVT JR COLLEGE,PATANCHERU---J5142</option>
+<option value="31488">GOVT JR.COLLEGE RAJENDRANAGAR.---J3363</option>
+<option value="31627">GOVT JR COLLEGE SANGAREDDY---J5396</option>
+<option value="30970">GOVT JR.COLLEGE SAROORNAGAR---J3366</option>
+<option value="30970">GOVT JR.COLLEGE SAROORNAGAR---J3366</option>
+<option value="30642">GOVT JR.COLLEGE SHAMSHABAD---J3372</option>
+<option value="33640">GOVT.JR COLLEGE SITHAPHALMANDI.---J5717</option>
+<option value="30612">GOVT JR.COLLEGE SP ROAD---J5040</option>
+<option value="31762">GOVT JR COLLEGE VIDYANGR---J5380</option>
+<option value="32130">GOVT JR.COLLEGE YACHARAM---J5483</option>
+<option value="30540">GOVT JR.COLL, MALAKAJGIRI---J3342</option>
+<option value="30601">GOVT JR COOLLEGE QUTHBULLAPUR---J5438</option>
+<option value="31824">GOVT JUNIOR COLLEGE BEERAMGUA,RC PURAM MEDAK DIST---J5416</option>
+<option value="31742">GOVT JUNIOR COLLEGE JINNARAM MEDAK---J6087</option>
+<option value="32037">GOVT JUNIOR COLLEGE MAHESHWARAM---J5601</option>
+<option value="34853">GOVT.JUNIOR COLLEGE, MEERPET---J5887</option>
+<option value="34853">GOVT.JUNIOR COLLEGE, MEERPET---J5887</option>
+<option value="32354">GOVT JUNIOR VOC COLLEGE---J5656</option>
+<option value="30884">GOVT MAHABOOBIA JR COLLEGE FOR GIRLA.,GUNFOUNDRY,ABIDS.---J4870</option>
+<option value="31369">GOVT MATERNITY HOSPITAL.---SP154</option>
+<option value="35209">GOVT MEDICAL COLLEGE MAHESHWARAM---D6263</option>
+<option value="35209">GOVT MEDICAL COLLEGE MAHESHWARAM---D6263</option>
+<option value="35206">GOVT MEDICAL COLLEGE QUTHBULLAPUR---D6260</option>
+<option value="35206">GOVT MEDICAL COLLEGE QUTHBULLAPUR---D6260</option>
+<option value="32378">GOVT POLYTECHNIC COLLEGE, SANGAREDDY---T3365</option>
+<option value="32212">GOVT POLYTECHNIC COLLEGE,YADAGIRIGUTTA---T3354</option>
+<option value="32334">GOVT. POLYTECHNIC,GIRMAPUR,MEDCHAL. MEDCHAL---T3386</option>
+<option value="31772">GOVT POLYTECHNIC,GOMARAM---T4032</option>
+<option value="34979">GOVT.POLYTECHNIC,MAHESHWARAM,R.R.DIST.---T3472</option>
+<option value="31094">GOVT POLYTECHNIC,MASAB TANK.---T3143</option>
+<option value="35167">GOVT POLYTECHNIC PATANCHERU---T3484</option>
+<option value="35167">GOVT POLYTECHNIC PATANCHERU---T3484</option>
+<option value="31801">GOVT POLYTECHNIC,VIKARABAD---T3248</option>
+<option value="30982">GOVT POLYTECHNIC (W),BADANGPET---T3195</option>
+<option value="30486">GOVT POLYTECHNIC,ZOOPARK---T3089</option>
+<option value="31431">GOVT SGM POLYTECHNIC,ABDULLAPURMET---T3091</option>
+<option value="31398">GOVT TIBBI MEDICAL COLLEGE,CHARMINAR.---T3088</option>
+<option value="32158">GOVT VOC. JR.COLLEGE,BAZARGHAT, NAMPALLY---J5550</option>
+<option value="31766">GOWTHAMI DEGREE COLLEGE,SHAMSHABAD---D5790</option>
+<option value="30834">GOWTHAMI JR COLLEGE, IDPL COLONY, CHINTAL---J5332</option>
+<option value="31159">GOWTHAMI JUNIOUR COLLEGE SHAMSHABAD---J5329</option>
+<option value="31475">GOWTHAM JR.COLLEGE,SHALIBANDA---J5372</option>
+<option value="34686">GOWTHAM JR.COLLEGE,TRIMULGHERRY.---J5853</option>
+<option value="34521">GOWTHAM JUNIOR COLLEGE RAGHAVENDRA COLONY JDM---J5806</option>
+<option value="33343">G PULLA REDDY COLLEGE OF PHARMACY,MEHDIPATNAM.---T3430</option>
+<option value="31142">G PULLA REDDY COLL OF PHARMACY,MEHDIPATNAM---D0206</option>
+<option value="30510">G PULLA REDDY DEG AND PG COLLEGE ,MEHDIPATNAM.---D0517</option>
+<option value="32438">GREAT INDIA DEG COLLEGE,VENKAT SAI COLONY,KOMPALLY.---D6052</option>
+<option value="30792">G R I E T,BACHUPALLY---T3134</option>
+<option value="30538">GURUKULA JR.COLL, GHATKESAR---J3330</option>
+<option value="35021">GURUNANAK HOMEOPATHIC MEDICAL COLLEGE  HOSPITAL IBP---P3355</option>
+<option value="32004">GURU NANAK INSTITUTE OF TECHNOLOGY,KHANAPUR.---T3324</option>
+<option value="31920">GURU NANAK INSTITUTIONS TECHNICAL CAMPUS, AGHAPALLY,MANCHAL(M)---D5816</option>
+<option value="35123">GURUNANAK UIAH---D6250</option>
+<option value="35119">GURUNANAK UIAHS---D6247</option>
+<option value="35120">GURUNANAK UICM---D6248</option>
+<option value="35118">GURUNANAK UICSA---D6246</option>
+<option value="35117">GURUNANAK UIET---T3479</option>
+<option value="35185">GURUNANAK UIL---D6256</option>
+<option value="35184">GURUNANAK UIPS---D6255</option>
+<option value="34454">GYANAM JUNIOR COLLEGE, SHALIBANDA.---J5800</option>
+<option value="34656">GYAN DEGREE COLLEGE---D6169</option>
+<option value="31687">GYAN JYOTHI COL OF PHARMACY,UPPAL DEPOT---D5827</option>
+<option value="34786">HAINDAVI COLLEGE OF HOTEL MANAGEMENT, HIMAYATH NAGAR---D6194</option>
+<option value="31606">HAINDAVI DEG  AND PG COLLEGE, BARKATPURA---D0171</option>
+<option value="32833">HAINDAVI DEG  AND PG COLLEGE, BARKATPURA---P0235</option>
+<option value="30873">HAINDAVI DEG AND PG  COLLEGE, DSNR---D5667</option>
+<option value="32246">HAINDAVI DEG COLLEGE, MAHESH NAGAR, ECIL---D5964</option>
+<option value="32977">HAINDAVI DEGREE COLLEGE, AYODHYANAGAR COLONY, MEHDIPATNAM---D6086</option>
+<option value="32367">HAINDAVI DEGREE COLLEGE, SR NAGAR---D6010</option>
+<option value="31977">HAINDAVI JR COLLEGE, BARKATPURA---J5497</option>
+<option value="34328">HAMSA HOMEOPATHY COL.,HOSP. AND REASERCH CENTER,KSHEERASAGAR,MULUGU(M).---D6146</option>
+<option value="34681">HAMSTECH COLLEGE OF DESIGN,PUNJAGUTTA.---D6166</option>
+<option value="34963">HAYAATH JUNIOR COLLEGE,CHANDRAYANAGUTTA,HBNAGAR---J5898</option>
+<option value="34636">HAYAATH JUNIOR COLLEGE, SHALIBANDA, CHARMINAR---J5838</option>
+<option value="31715">HEH NIZAMS ALLADIN TECH INST,BOGGULAKUNTA,ABIDS---T3114</option>
+<option value="32645">HELEN KELLER INST.OF RESEARCH AND REH FOR D.CHILDREN,BANK COLONY,RK PURAM.---P3187</option>
+<option value="31197">HELEN KELLERS INST. OF RES. AND REH. FOR THE DIS. CHILDREN,RK PURAM---D5768</option>
+<option value="33918">HELEN KELLERS INST.OF RESEARCH AND REHABILITATION FOR THE DISABLE,RK PURAM.---D6124</option>
+<option value="34910">HIDAYAH DEG.COLLEGE,MURAD NAGAR,MP---D6217</option>
+<option value="34467">HIDAYAH JUNIOR COLLEGE, ASIFNAGAR---J5803</option>
+<option value="31296">HINDI MAHA VIDYALAYA JR.COLL,NALLAKUNTA---J4630</option>
+<option value="30495">HINDI MAHA VIDYALAYA,NALLAKUNTA---D0527</option>
+<option value="35108">HOLY MARRY COLLEGE OF NURSING---D6243</option>
+<option value="32323">HOLY MARY DEGREE COLLEGE, KPHB COLONY---D6035</option>
+<option value="32707">HOLY MARY INST OF TECH AND MGMT, BOGARAM---P3232</option>
+<option value="32950">HOLY MARY INST OF TECH AND SCI AND COLLEGE OF PHARMACY,BOGARAM---P3300</option>
+<option value="31215">HOLY MARY INST OF TECH AND SCIENCE, BOGARAM---T3018</option>
+<option value="31637">H R D DEG COLLEGE,NARAYANGUDA---D0525</option>
+<option value="31914">HYDERABAD INST OF TECH AND MGMT, GOWDAVELLY(V), MEDCHAL(M)---T4010</option>
+<option value="30827">HYDERABAD ITI/ITC,HASTHINAPURAM---T3206</option>
+<option value="30450">HYDERABAD-ITI,RAJANNAGUDA---T3053</option>
+<option value="32760">HYDERABAD  PRESIDENCY DEG COLL  PG CENTRE,PUPPALGUDA,RJNR---P0822</option>
+<option value="30752">HYDERABAD SCHOOL OF BUSINESS DEGREE COLLEGE  HABSHIGUDA---D0406</option>
+<option value="34585">IACG MULTIMEDIA COLLEGE,DILSUKHNAGAR---D6165</option>
+<option value="31558">I A S E , OU---T3135</option>
+<option value="34679">ICAT DESIGN AND MEDIA COLLEGE,KOTHAPET X ROAD.---D6168</option>
+<option value="31988">I CLASS CDR JR COLLEGE, ST JOHNS ROAD, SECBAD---J5465</option>
+<option value="34728">I CREATE DEGREE COLLEGE, KUKATPALLY---D6179</option>
+<option value="31083">IDEAL DEG COLL FOR WOMEN,DILSUKHNAGAR---D5704</option>
+<option value="30740">IDEAL JR.COLLEGE, DILSUKHNAGAR,HYD.---J3354</option>
+<option value="32679">IFHE ICFAI BUSINESS SCHOOL DONTHAPALLY---P3306</option>
+<option value="35181">IFHE ICFAI LAW SCHOOL DONTHAPALLY---D6254</option>
+<option value="35180">IFHE ICFAI SCHOOL OF ARCHITECTURE DONTHAPALLY---T3486</option>
+<option value="35179">IFHE ICFAI SCHOOL OF SCIENCE  TECHNOLOGY DONTHAPALLY---T3485</option>
+<option value="34616">IGNITE JR.COLLEGE,DHULAPALLY.---J5822</option>
+<option value="34660">IGNITE JUNIOR COLLEGE---J5845</option>
+<option value="34549">IMPULSE JUNIOR COLLEGE  HYDERNAGAR---J5809</option>
+<option value="32587">INDIAN INSTIT OF MANG COMM,LAKDIKAPOOL,KHAIRTHABAD.---P0118</option>
+<option value="30425">INDIAN INSTITUTE OF PACKAGING.SANATHNAGAR.---T3377</option>
+<option value="30757">INDIAN INSTT OF HOTEL MGMT AND CULINARY ARTS,HABSIGUDA---D5664</option>
+<option value="30926">INDIAN INSTT OF MGMT COMM,LAKDIKAPOOL,HYD.---D0367</option>
+<option value="31633">INDIRA GANDHI PRIYA GOV DEG COLL(W),NAMPALLY---D5622</option>
+<option value="30790">INDIRA PRIYADARSHNI GOVT DEG  PG COLLEGE FOR WOMEN, NAMPALLY.---D0535</option>
+<option value="30790">INDIRA PRIYADARSHNI GOVT DEG  PG COLLEGE FOR WOMEN, NAMPALLY.---D0535</option>
+<option value="34599">INDRANI JUNIOR COLLEGE, PEERZADIGUDA---J5815</option>
+<option value="31603">INDUS COLLEGE OF COMMERCE, LANCER LANE, SECUNDERABAD---D0560</option>
+<option value="32324">INFANT JESUS DEGREE COLLEGE,VELANKANNI NAGAR, SHAMSHABAD---D6038</option>
+<option value="32121">INFANT JESUS JUNIOR COLLEGE, VELANKANNI NAGAR, SHAMSHABAD---J5511</option>
+<option value="33935">INSTITUTE OF AGRICULTURE ENG. AND TECH. RAJENDRANAGAR---P3333</option>
+<option value="30553">INSTITUTE OF GENETICS   HOSPITAL FOR GENETICS DISEASES OU BEGUMPET---SP047</option>
+<option value="30553">INSTITUTE OF GENETICS   HOSPITAL FOR GENETICS DISEASES OU BEGUMPET---SP047</option>
+<option value="34246">INSTITUTE OF SCIENCE(JNTU),KP,HYD---P3338</option>
+<option value="30485">INST. OF AERONAUTIC ENGG COLL,DUNDIGAL---T3024</option>
+<option value="31226">INST.OF HOTEL  MANAGEMENT CATERING TECH,DD COLONY,VIDYANAGAR.---T3127</option>
+<option value="31203">INST.OF  PREVENTIVE MEDICINE PUBLIC HEALTH LABS AND FOOD (H) ADMN.NARAYANAGUDA.---D5710</option>
+<option value="31451">INST OF PREVENTIVE MED,YMCA---SP053</option>
+<option value="32269">INST.OF TECH.  MANAGEMENT DEG.COL.GHATKESAR.---D5908</option>
+<option value="32044">INTERNATIONAL DEGREE COLLEGE, SHAIKPET---D5949</option>
+<option value="31349">INTERNATIONAL JR COLLEGE, SHAIKPET---J6035</option>
+<option value="32012">IQBALIA JUNIOR COLLEGE,TOLICOWKI---J5600</option>
+<option value="35133">IRA JUNIOR COLLEGE---J5918</option>
+<option value="32925">ISLAMIA COLLEGE OF EDN,CHANDRAYANGUTTA,HYD.---P3092</option>
+<option value="34986">ISLAMIA COLLEGE OF LAW,SY.NO.103/15 BANDLAGUDA KHALSA HYD---D6228</option>
+<option value="31813">ISL ENGINEERING COLLEGE.CHANDRAYAGUTTA X RD,BANDLAGUDA---T3272</option>
+<option value="32086">ISO DEGREE COLLEGE, TARNAKA---D5922</option>
+<option value="35211">ISTA JUNIOR COLLEGE AMEENPUR---J5925</option>
+<option value="31672">JAFERIA TECH INIST DARUSHIFA---T3155</option>
+<option value="31253">JAGRUTHI DEG COLLEGE,SANJAY NAGAR,MALKAJGIRI---D5728</option>
+<option value="31931">JAGRUTHI DEG PG COLLEGE,NARAYANAGUDA.---D0537</option>
+<option value="33484">JAGRUTHI DEGREE COLLEGE SHANKARPALLY RR.DIST.---D6101</option>
+<option value="32134">JAGRUTHI JR COLLEGE, SANJAY NAGAR, MALKAJGIRI---J5489</option>
+<option value="34833">JAGRUTHI JUNIOR COLLEGE NARSINGI---J5880</option>
+<option value="32969">JAGRUTHI PG COLLEGE OF MANAGEMENT STUDIES, MANGALPALLY---P0832</option>
+<option value="33772">JAGRUTHI VOCATIONAL JUNIOR COLLEGE,  MEDCHAL---J5728</option>
+<option value="32570">JAHNAVI DEGREE AND PG COLLEGE, NARAYANAGUDA---P3264</option>
+<option value="30811">JAHNAVI DEGREE COLLEGE, MG ROAD,SECBAD---D5745</option>
+<option value="31305">JAHNAVI  DEGREE COLLEGE, NARAYANAGUDA---D5689</option>
+<option value="34080">JAHNAVI DEGREE COLLEGE,PEERZADIGUDA---D6133</option>
+<option value="34047">JAHNAVI DEGREE COLLEGE,PEERZADIGUDA---T6133</option>
+<option value="32185">JAHNAVI JUNIOR COLLEGE,BAGH LINGAMPALLY.---J5568</option>
+<option value="32187">JAHNAVI JUNIOR COLLEGE, MG ROAD, SECBAD---J5569</option>
+<option value="32698">JAHNAVI PG COLLEGE, NARAYANAGUDA---P3194</option>
+<option value="30814">JAHNAVI WOMENS DEGREE COLLEGE,NARAYANGUDA---D5746</option>
+<option value="31639">JAYAPRAKASH NARAYAN ENGINEERING COLLEGE---T3212</option>
+<option value="31679">J B INST. OF ENG. TECH YENKAPALLY---T3118</option>
+<option value="32400">JBR ARCHITECTURE COLLEGE,BHASKARNAGAR,YENKAPALLY.---T3380</option>
+<option value="32469">JEC COLLEGE OF EDUCATION, ALMASGUDA---D6072</option>
+<option value="33552">J.ESHWARI BAI MEMORIAL SCHOOL OF NURSING,WEST MARREDPALLY---T3435</option>
+<option value="33329">JIMS HOMOEOPATHIC MEDICAL COLLGE,MUCHINTAL,SHAMSHABAD.---D6097</option>
+<option value="31957">JJ COLLEGE OF PHARMACY, MAHESWARAM---D5898</option>
+<option value="30937">JNAF COLLEGE OF FINE ARTS,MASABTANK---T3131</option>
+<option value="30701">JN GOVT POLYTECHNIC, RAMANTHA PUR---T3119</option>
+<option value="32308">JNTUH COLLEGE OF ENG,SULTANPUR.---T3385</option>
+<option value="30412">JNTU,KUKATPALLY---T3115</option>
+<option value="31093">JNTU SCH OF PLANNING AND ARCH,MT---T3103</option>
+<option value="31753">JOGINPALLY B.R ENGINEERING COLLEGE,YENKAPALLY.---T3174</option>
+<option value="32682">JOGINPALLY B.R.PHARMACY COLLEGE,YENKAPALLY, MOINABAD,RR DIST---P3266</option>
+<option value="31401">JOHN PETER MEM JR.COLL DEAF---J6047</option>
+<option value="30490">JSPS  HOMEO MEDICAL COLLEGE,RAMANTAPUR---T3085</option>
+<option value="34849">JUNAIDS JUNIOR COLLEGE, HUMAYUN NAGAR---J5884</option>
+<option value="31477">JYOTHI VOC. JUNIOR COLLEGE SLNS COLONY---J5382</option>
+<option value="34148">KAIZEN JUNIOR COLLEGE AS RAO NAGAR KAPRA---J5761</option>
+<option value="32372">KAKATIYA ITC GANDIMYSAMMA X ROAD.---T3396</option>
+<option value="32529">KAMINENI ACADEMY OF MEDICAL SCIENCES AND REASEARCH CNETRE,LB NAGAR.---P3289</option>
+<option value="34920">KAMINENI INSTITUTE OF PARAMEDICAL SCIENCES LB NAGAR R.R. DIST---SP 205</option>
+<option value="31178">KAMINENI INST OF PARA MED SCIENCES LB NAGAR---D5773</option>
+<option value="31822">K.ANJI REDDY VOC.JR.COL,SERLINGAMPALLY.---J5219</option>
+<option value="30807">KARTHIKEYA DEGREE COLLEGE IBPM---D5724</option>
+<option value="32193">KARTHIKEYA JUNIOR COLLEGE,IBRAHIMPATNAM.---J5567</option>
+<option value="31807">KASIREDDY NARAYANA REDDY COLLEGE OF ENGG AND RESEARCH,ABDULLAPUR METT.---T3257</option>
+<option value="30614">KASTURBA GANDHI JR.COLLEGE,(W),MAREDPALLY---J5060</option>
+<option value="31759">KEN DEGREE COLLEGE,TRIMULGHERRY---D0541</option>
+<option value="31774">KESHAV MEMORIAL COLLEGE OF ENGINEERING KOHEDA ROAD CHINTAPALLYGUDA---T3256</option>
+<option value="33904">KESHAV MEMORIAL COLLEGE OF LAW,NARAYANAGUDA.---D6122</option>
+<option value="34787">KESHAV MEMORIAL ENGINEERING COLLEGE---T3460</option>
+<option value="31564">KESHAV MEMORIAL INSTITUTE OF COMMERCE  SCIENCES, NARAYANGUDA---D0370</option>
+<option value="32932">KESHAV MEMORIAL INSTITUTE OF COMMERCE  SCIENCES, NARAYANGUDA, HYD.---P0035</option>
+<option value="34760">KESHAV MEMORIAL INSTITUTE OF MANAGEMENT---D6189</option>
+<option value="31792">KESHAV MEMORIAL INSTITUTE OF TECHNOLOGY,NARYANAGUDA---T3240</option>
+<option value="31387">KESHAV MEMORIAL JR.COLL,NARAYANAGUDA---J4932</option>
+<option value="34434">KESHAV SMARAK JUNIOR COLLEGE, BARKATHPURA, HIMAYATHNAGAR---J5793</option>
+<option value="32077">K G REDDY COLLEGE ENG  TECH, CHILUKUR---T3330</option>
+<option value="32756">KGR INSTITUTE OF TECH AND MGMT, RAMPALLY, KEESAR(M)---P3175</option>
+<option value="35110">KIMS B.SC PARAMEDICAL COLLEGE,BEGUMPET,SECBAD---D6244</option>
+<option value="34926">KIMS PARAMEDICAL INSTITUTION SECBAD---SP 204</option>
+<option value="33334">KIMS SCHOOL OF NURSING,MINISTERS ROAD,SECBAD---T3428</option>
+<option value="32885">KINGSTON PG COLLEGE, SATYANARAYA NAGAR COLONY, NAGARAM.---P0719</option>
+<option value="32384">KITES JUNIOR COLLEGE (BIE 15162)---J5623</option>
+<option value="34600">KOMPASS JUNIOR COLLE, HIMAYATH NAGAR---J5816</option>
+<option value="35141">KONDA LAKSHMAN BAPUJI INDIAN INSTITUTE OF HANDLOOM TECH---T3481</option>
+<option value="35141">KONDA LAKSHMAN BAPUJI INDIAN INSTITUTE OF HANDLOOM TECH---T3481</option>
+<option value="35201">KONDAM SANDHYA RANI(KSR) B.SC(MLT) COLLEGE ANKIREDYPALLY---D6259</option>
+<option value="35062">KONERU LAKSHMAIAH EDUCATION FOUNDATION,DEPT OF ARTS, COMM SCI,AZIZNAGAR---D6239</option>
+<option value="34579">KONERU LAKSHMAIAH EDUCATION FOUNDATION,DEPT OF ENGG, AZIZNAGAR, MOINABAD---T3454</option>
+<option value="34971">KONERU LAKSHMAIAH EDUCATION FOUNDATION, DEPT OF ENGG, BOWRAMPET---T3471</option>
+<option value="35018">KONERU LAKSHMAIAH EDUCTION FOUNDATION,DEPT OF MGMT, BOWRAMPET---P3354</option>
+<option value="31845">K P R INST.OF TECH,EDULABAD---T3278</option>
+<option value="32928">KPRIT COLLEGE OF ENGINEERING GHANPUR GHATKESAR---P3243</option>
+<option value="35205">KPS 21ST CENTURY DEGREE COLLEGE, RALLAGUDA---D6261</option>
+<option value="35007">KPS TWENTYFIRST CENTURY JR COLLEGE,SHAMSHBAD---J5904</option>
+<option value="32124">KRANTHI DEGREE COLLEGE,OPP. RAMANTHAPUR  LAKE.,---D5907</option>
+<option value="34151">KRISHNA INST.OF MEDICAL SCIENCESLTD.SECBAD---D6135</option>
+<option value="34540">KRISHNAVENI JR COLLEGE,PATELGUDA.---J5808</option>
+<option value="31847">KRISHNAVENI JUNIOR COLLEGE, SAGAR COMPLEX SREEPURAM COLONY B.N.REDDY NAGAR---J5406</option>
+<option value="34302">KRK REDDY COLLEGE OF EDUCATION---D6140</option>
+<option value="32389">KRK REDDY D ED COLLEGE, ANKIREDDYAPLLY(V), KEESARA(M)---D5977</option>
+<option value="31963">KSHETRA JUNIOR COLLEGE LANGER HOUSE, GOLCONDA HYD---J5477</option>
+<option value="35039">KSHETRA JUNIOR COLLEGE,SAHEBNAGAR VSPM,HYD---J5907</option>
+<option value="32228">KSR DEGREE COLLEGE, CHANDRAGIRI COLONY, NEAR KEESARA POLICE STATION---D5963</option>
+<option value="35065">KUMUDDINI DEVI SCHOOL OF NURSING KUKATPALLY---D6241</option>
+<option value="35064">KUMUDINI DEVI COLLEGE OF NURSING KUKATPALLY---D6240</option>
+<option value="31380">K VENKANNA JR COLLEGE-CHINTAL---J5187</option>
+<option value="34923">K. VENKANNA JUNIOR COLLEGE NAGARJUNA NAGAR COLONY TARNAKA---J5896</option>
+<option value="31691">KVK COLLEGE OF PHARMACY,SURMAIGUDA,ABDULLAPURMET---D5832</option>
+<option value="30773">K.V.RANGA REDDY LAW COLLEGE.DOMALGUDA,---D0022</option>
+<option value="34897">LAKSHMI VENKATESHWARA PARA MEDICAL INST., MALLIKARJUNA NAGAR---SP200</option>
+<option value="34905">LAKSHYA COLLEGE OF COMMERCE AND MANAGEMENT---D6216</option>
+<option value="34637">LAKSHYA JR.COLLEGE,SR NAGAR.---J5836</option>
+<option value="30411">LAL BAHADUR DEG COLLEGE, MEHDIPATNAM---D0546</option>
+<option value="31065">LAL BAHADUR JR COLLEGE, MEHDIPATNAM---J4625</option>
+<option value="31951">LEO ACADEMY OF HOSPITALITY AND TOURISM MGMT, BOMMARASPET, SHAMIRPET(M)---D5897</option>
+<option value="31808">LITTLE FLOWER DEG COLLEGE,UPPAL X ROADS---D5862</option>
+<option value="31659">LITTLE FLOWER DEGREE COLLEGE,VERTEX PEARL BUILDING, KAPRA---D0547</option>
+<option value="30673">LITTLE FLOWER JR.COLL UPPAL---J3373</option>
+<option value="32431">LMA DEGREE COLLEGE,PANJAGUTTA---D6075</option>
+<option value="30972">LORDS INST OF ENG TECH,HIMAYATSAGAR---T3189</option>
+<option value="31277">LOYOLA ACADEMY DEG  P.G. COLL,OLD ALWAL.---D0548</option>
+<option value="30760">LOYOLA ACADEMY JR COLLEGE,  OLD ALWAL---J3351</option>
+<option value="34664">MAA INSTITUTE OF SPEECH  HEARING MAA RESEARCH FOUNDATION, JUBILEE HILLS,HY---D6172</option>
+<option value="30778">MADINA VOC JR COLLEGE ALI CAFE CRMR---J5225</option>
+<option value="32972">MAHARSHI DEGREE COLLEGE,  GANDI MAISAMMA X RDS---D6068</option>
+<option value="34747">MAHARSHI JUNIOR COLLEGE HASTHINAPURAM---J5862</option>
+<option value="30672">MAHATMA GANDHI COLL OF LAW,NTR NAGAR,LB NAGAR.---D0017</option>
+<option value="32478">MAHAVEER DEG.COL.FOR ARTS,COM AND SCI.,MAILARDEVPALLY---D6079</option>
+<option value="31429">MAHAVEER INSTT OF TECH  SCIE,BANDLAGUDA KESHAVAGIRI---T3022</option>
+<option value="30934">MAHBUB DEG COLLEGE, SP ROAD, SECBAD---D0551</option>
+<option value="31572">MAHBUB JR.COLLEGE,SD ROAD,SECBAD.B---J5111</option>
+<option value="31572">MAHBUB JR.COLLEGE,SD ROAD,SECBAD.B---J5111</option>
+<option value="31370">MALLA REDDY COLLEGE OF ENG AND TECH, MAISAMMAGUDA---T3204</option>
+<option value="30844">MALLA REDDY COLLEGE OF ENGINEERING,MYSAMMAGUDA.---T3217</option>
+<option value="32758">MALLA REDDY COLLEGE OF PHARMACY, MAISAMMAGUDA, DHULAPALLY---P3122</option>
+<option value="32893">MALLA REDDY COLL OF TEACHER EDN,KOMPALLY.---P3094</option>
+<option value="31873">MALLA REDDY ENG.COL AND MANG. SCIENCE,KISTAPUR.---T3253</option>
+<option value="31579">MALLA REDDY ENG. COLLEGE ,MAISAMMAGUDA MDCL---T3168</option>
+<option value="31850">MALLA REDDY ENGINEERING COLLEGE FOR WOMEN,MAISAMMAGUDA---T3259</option>
+<option value="33445">MALLA REDDY INSTITUTE OF ENGINEERING  TECHNOLOGY, MAISAMMAGUDA---P3321</option>
+<option value="30840">MALLA REDDY INSTITUTE OF TECHNOLOGY AND SCIENCE,MYSAMMAGUDA---T3214</option>
+<option value="32626">MALLA REDDY INST OF MGMT,MAISAMMAGUDA.---P3114</option>
+<option value="31906">MALLA REDDY PHARMACY COLLEGE, MAISAMMAGUDA, DHULAPALLY, SECBAD---D5813</option>
+<option value="34801">MALLA REDDY UNIVERSITY SCHOOL OF AGRICULTURE---D6200</option>
+<option value="34800">MALLA REDDY UNIVERSITY SCHOOL OF ENGINEERING---T3462</option>
+<option value="34802">MALLA REDDY UNIVERSITY SCHOOL OF MANAGEMENT AND COMMERCE---D6201</option>
+<option value="34803">MALLA REDDY UNIVERSITY SCHOOL OF SCIENCES AND ALLIED HEALTH SCIENCES---D6198</option>
+<option value="34909">MAMATHA TECHNICAL INST, MAMATHA HOSPITAL, HASTHINAPURAM CENTRAL---SP203</option>
+<option value="30734">MAM GOVT MODEL JR COLLEGE FOR GIRLS NAMPALLY.---J4860</option>
+<option value="32402">MAM GOVT MODEL JR COLLEGE FOR GIRLS, NAMPALLY.---J5641</option>
+<option value="31152">MANJEERA DEG COLL,PATANCHERU---D5692</option>
+<option value="31240">MANJEERA JR.COLLEGE,PATANCHERU---J5325</option>
+<option value="32486">MANORAMA ITI, DILSUKHNAGAR.---T3067</option>
+<option value="32859">MANPOWER DEVELOPMENT COLLEGE,KUSHAIGUDA---P3251</option>
+<option value="32937">MANTRA SCHOOL OF BUSINESS MGMT,MANSOORABAD, LB NAGAR---P3180</option>
+<option value="32026">MARRI LAXMA REDDY INST.TECH. AND MANAGMENT,DUNDIGAL---T3316</option>
+<option value="32336">MASTER MINDS JUNIOR COLLEGE, MOOSARAMBAGH---J5665</option>
+<option value="32313">MASTER MINDS JUNIOR KALASALA, AMEERPET---J5663</option>
+<option value="30602">MASTERS JUNIOR COLLEGE YOUSUF GUDA CHECK POST---J5436</option>
+<option value="32153">MATRUSRI ENGINEERING COLLEGE---T3340</option>
+<option value="32287">M.C.GUPTA COLLEGE OF BUSINESS MANAGEMENT,NALLAKUNTA.---D3387</option>
+<option value="35019">MEDFIN INSTITUTE OF MEDICAL SCIENCES H B NAGAR---SP208</option>
+<option value="31820">MEDICITI COLLEGE OF NURSING,GHANPUR---D5854</option>
+<option value="32785">MEDICITI INIST OF MED SCIENCES,GHANPUR,MEDCHAL.---P3075</option>
+<option value="32218">MEGHA DEGREE COLLEGE FOR WOMEN,ECIL---D5957</option>
+<option value="31827">MEGHA INST.OF ENG. AND TECH. FOR WOMEN,EDULABAD---T3275</option>
+<option value="30541">MEGHA JUNIOR COLLEGE FOR GIRLS ,ECIL X ROAD.---J3345</option>
+<option value="31408">MEGHANA DEGREE COLLEGE,DSNR---D5738</option>
+<option value="30985">MEGHA W. DEGREE  COLLEGE,RAMANTHAPUR---D5691</option>
+<option value="34781">MERITO JUNIOR COLLEGE MADHURANAGAR---J5871</option>
+<option value="31052">MESCO COLLEGE OF PHARMACY, MUSTAIDPURA, KARWAN ROAD---D5700</option>
+<option value="32584">MESCO INST OF MGMT AND COMP SCI,MUSTAIDPURA---P0039</option>
+<option value="31860">METHODIST COLLEGE OF ENG AND TECH ABIDS---T3251</option>
+<option value="31219">M G I T , GANDIPET---T3122</option>
+<option value="32498">MILLATH ITC,SALEEM NAGAR,NEW MALAKPET---T3066</option>
+<option value="31521">MLR INSTITUTE OF PHARMACY DUNDIGAL.---D5798</option>
+<option value="31835">MLR INSTITUTE OF TECHNOLOGY, DUNDIGAL---T3211</option>
+<option value="31242">MNJ INSTITUTE OF ONCOLOGY AND REAGIONAL CNACER---SP165</option>
+<option value="31082">MNJ INST.OF ONCOLOGY AND REGIONAL CANCER CENTER.HED HILLS.---SP163</option>
+<option value="30506">MNR DEGREE COLLEGE,KUKATPALLY---D0374</option>
+<option value="31005">MNR JR COLLEGE, BHAGYANAGAR COLONY, KUKATPALLY---J3391</option>
+<option value="32862">MNR PG COLLEGE, KUKATPALLY---P0098</option>
+<option value="32929">MNR PG TEACHER EDUCATION COLLEGE, OPP JNTU---P3147</option>
+<option value="30882">MNR TEACHER EDUCATION COLLEGE, OPP JNTU---D5636</option>
+<option value="31321">MODERN INST. PHYSICAL  MEDICINE  REHAB,SIDDIAMBER BAZAR.---D5634</option>
+<option value="31353">MODULUS JUNIOR COLLEGE KUKATAPALLY---J5430</option>
+<option value="32669">MOGHAL COLL OF EDUCATION,BANDLAGUDA---P3099</option>
+<option value="32917">MOTHER TERASA PG COLLEGE NFC NAGAR---P0734</option>
+<option value="31185">MOTHER TERESA COLLEGE OF PHARMACY NFC NAGAR---D5776</option>
+<option value="31192">MOTHER THERESA COLL OF NURSING  ECIL HYDERABAD---D5777</option>
+<option value="34977">MOTHER THERESA VOCATIONAL JUNIOR COLLEGE ASIF NAGAR MP---J5902</option>
+<option value="31117">MOULANA AZAD NAT URDU UNI, GACHIBOWLI---D5654</option>
+<option value="31855">MOULANA AZAD N URDU UNIV(POLYTECH),GACHIBOULI---T3282</option>
+<option value="31852">M R M COLLEGE OF PHARMACY,CHINTHAPALLY GUDA,IBP.---D5866</option>
+<option value="32544">MRM INST OF MGMT,CHINTAPALLY GUDA IBPN---P3074</option>
+<option value="32302">MRV-MALLA REDDY COLLEGE OF NURSING SURARAM---D6036</option>
+<option value="32797">MRV-MALLA REDDY DENTAL COLLEGE FOR WOMEN SURARAM---P3302</option>
+<option value="32909">MRV-MALLA REDDY INSTITUTE OF DENTAL SCIENCE SURARAM---P3290</option>
+<option value="32686">MRV-MALLA REDDY INSTITUTE OF MEDICAL SCIENCES SURARAM---P3272</option>
+<option value="32954">MRV-MALLA REDDY INSTITUTE OF PHARMACEUTICAL SCIENCES SURARAM---P3135</option>
+<option value="32668">MRV-MALLA REDDY MEDICAL COLLEGE FOR WOMEN SURARAM---P3298</option>
+<option value="32000">MRV-MALLA REDDY TECHNICAL CAMPUS SURARAM---T3263</option>
+<option value="30989">M.S JR COLLEGE - MNDC,MASABTANK---J5193</option>
+<option value="31361">M.S.JR.COLLEGE,NALKONDA X RD---J5304</option>
+<option value="34522">MS JUNIOR COLELGE MEHDIPATNAM---J5807</option>
+<option value="34832">MS JUNIOR COLLEGE,ARAMGHAR X RDS, KATEDHAN, HYD---J5879</option>
+<option value="34643">MS JUNIOR COLLEGE---J5833</option>
+<option value="31904">M S JUNIOR COLLEGE MOGHALPURA,HYD.---J5393</option>
+<option value="32105">M.S.JUNIOR COLLEGE,SHALIBANDA---J5536</option>
+<option value="31183">MSS LAW COLLEGE,ESAMAI BAZAR,KACHIGUDA RD.---D5883</option>
+<option value="31350">MUFFAKHAM  JAH COLLEGE OF ENG. TECH BANJARAHILLS.---T3004</option>
+<option value="32489">MUMTAZ COLLEGE MALAKPET.---J4760</option>
+<option value="32766">MUMTAZ COL.OF ENG. AND TECH,MALAKPET---P3307</option>
+<option value="31146">MUMTAZ DEG COLL,MALAKPET---D0556</option>
+<option value="31339">MVSR ENGG COLLEGE,NADERGUL---T3003</option>
+<option value="30451">NAGARJUNA ITI,OPP KPHB COLONY---T3055</option>
+<option value="34544">NAGARJUNA ITI SAROORNAGAR---T3452</option>
+<option value="30785">NALANADA JR COLLEGE VENGALRAO NAGAR.---J4693</option>
+<option value="31481">NALLA MALLAREDDY ENG. COLLEGE,DIVYANAGAR.---T3221</option>
+<option value="30448">NALLA NARASIMHA REDDY EDUCATION SOCIETYS---T3290</option>
+<option value="30463">NANO JR COLLEGE, SAIRAM COMPLEX,NALLAKUNTA---J5429</option>
+<option value="30431">NANO JUNIOR COLLEGE,MADHAPUR,R R DIST---J4893</option>
+<option value="31710">NARASIMHA REDDY ENG COLLEGE,MAISAMMAGUDA---T3238</option>
+<option value="30659">NARAYANA JR COLLEGE(30659),VITTALWADI,NARAYANAGUDA.---J5124</option>
+<option value="30657">NARAYANA JR COLLEGE,BESIDE YMCA,NARAYANGUDA.---J5122</option>
+<option value="31901">NARAYANA JR COLLEGE CHAITHAYAPURI---J5467</option>
+<option value="30780">NARAYANA JR COLLEGE CHANDANAGAR---J5226</option>
+<option value="32263">NARAYANA JR COLLEGE,CHINTAL---J5653</option>
+<option value="32508">NARAYANA JR COLLEGE,DWARAKA NAGAR,SAROORNAGAR---J6029</option>
+<option value="31047">NARAYANA JR COLLEGE, ECIL X ROADS---J5204</option>
+<option value="32108">NARAYANA JR COLLEGE, GADDI ANNARAM, DILSUKH NAGAR RR DIST---J5468</option>
+<option value="32117">NARAYANA JR COLLEGE, GADDIANNARAM---J5528</option>
+<option value="32038">NARAYANA JR.COLLEGE GADDIANNARAM---J5599</option>
+<option value="31206">NARAYANA JR COLLEGE,GOTTIPATI TOWER, M.P---J5303</option>
+<option value="34149">NARAYANA JR.COLLEGE,GOTTIPATI TOWER,MP.---J5760</option>
+<option value="34376">NARAYANA JR COLLEGE GREEN HILLS COLONY,KOTHAPET.---J5774</option>
+<option value="32181">NARAYANA JR COLLEGE, H.NO.2-22-307/9, BHAGYA NAGAR COLONY, KUKATPALLY---J5554</option>
+<option value="32081">NARAYANA JR COLLEGE---J5531</option>
+<option value="31718">NARAYANA JR COLLEGE,JJ NAGAR, ALWAL---J5512</option>
+<option value="30624">NARAYANA JR COLLEGE KUKATPALLY---J6037</option>
+<option value="32286">NARAYANA JR COLLEGE MADHAPUR---J5657</option>
+<option value="31740">NARAYANA JR COLLEGE MARGADARSHI CLY,LB NGR.---J5437</option>
+<option value="31166">NARAYANA JR.COLLEGE,NEAR VEG.MARKET,SHANKERMATT.3-5-1034/B, NARAYANAGUDA---J5355</option>
+<option value="33699">NARAYANA JR.COLLEGE,NEW NALLAKUNTA.---J5719</option>
+<option value="32259">NARAYANA JR COLLEGE,PET BHASHEERBAD, QUTHBULLAHPUR---J5648</option>
+<option value="31530">NARAYANA JR COLLEGE,PRASANTHNAGAR, V.PURAM---J5220</option>
+<option value="32142">NARAYANA JR COLLEGE RAMALAYAM STREET,KP---J5508</option>
+<option value="33396">NARAYANA JR COLLEGE,RD.NO.82,JUBILEE HILLS,HYD.---J5661</option>
+<option value="31526">NARAYANA JR COLLEGE SANTHOSHNAGAR---J4544</option>
+<option value="31516">NARAYANA JR COLLEGE, SCIENTIST COLONY, HABSIGUDA---J5370</option>
+<option value="33738">NARAYANA JR.COLLEGE,SRINAGAR CLY ROAD,PANJAGUTTA.---J5725</option>
+<option value="31868">NARAYANA JR COLLEGE SR NAGAR.---J4865</option>
+<option value="32070">NARAYANA JR COLLEGE SR NAGAR---J5525</option>
+<option value="32071">NARAYANA JR COLLEGE,SR.NAGAR---J5526</option>
+<option value="33735">NARAYANA JR.COLLEGE,ST.NO.9.HIMAYATHNAGAR,HYD.---J5726</option>
+<option value="32174">NARAYANA JR COLLEGE, ST.NO.9,TARNAKA.---J5557</option>
+<option value="31015">NARAYANA JR COLLEGE TARNAKA---J5116</option>
+<option value="31127">NARAYANA JR COLLEGE,VITTALWADI, N.GUDA---J5171</option>
+<option value="34626">NARAYANA JUNIOR COLLEGE---J5824</option>
+<option value="34629">NARAYANA JUNIOR COLLEGE---J5831</option>
+<option value="34669">NARAYANA JUNIOR COLLEGE, SR NAGAR---J5843</option>
+<option value="31735">NARAYAN  JUNIOR COLLEGE CHAMPAPET---J5417</option>
+<option value="34625">NARAYNA JUNIOR COLLEGE---J5827</option>
+<option value="30516">NAT.INS. EMPOWER.PER.INT.DIS.(DIVYANJAN)---SP025</option>
+<option value="30516">NAT.INS. EMPOWER.PER.INT.DIS.(DIVYANJAN)---SP025</option>
+<option value="33923">NATIONAL INSTITUTE OF NUTRITION, TARNAKA---P3332</option>
+<option value="32853">NATIONAL INST.OF PHARA.EDU.AND RECH,BALANAGAR---P3280</option>
+<option value="30846">NATIONAL INST. OF TOURISM AND HOSPITALITY MANG.,GACHIBOWLI---D5752</option>
+<option value="32615">NATIONAL INSTT OF TOURISM AND HOSPITAL---P3123</option>
+<option value="31559">NATIONAL SKILL TRG INST.RMTP---T3137</option>
+<option value="30709">NATURECURE HOSP. BALKAMPET---T3097</option>
+<option value="30587">NAVABHARATHI COLL OF EDUCATION,BOLLARAM,SECBAD.---D0005</option>
+<option value="32599">NAVABHARATHI COLL P.G. STUDIES,BURTON RD,BOLLARAM---P0259</option>
+<option value="31196">NAVA CHAITANYA DEG COLLEGE, YMCA NARAYANGUDA---D5767</option>
+<option value="31072">NAVEENA JR.COLLEGE HASTANAPURM---J6052</option>
+<option value="30931">NAVYA JR COLLEGE MOOSARAMBAGH---J4686</option>
+<option value="31856">NAWAB SHAH ALAM KHAN COL.OF ENG AND TECH,NEW MALAKPET---T3283</option>
+<option value="32639">N B SCIENCE COL. AND PG CENTER,CHAR KAMAN---P4039</option>
+<option value="31023">N.B. SCIENCE COLL,CHARKAMAN.---D0257</option>
+<option value="32762">NB SCIENCE COLLEGE,CHARKAMAN---P0099</option>
+<option value="34475">NEIL GOGTE INST. OF TECHNOLOGY, KACHAVANI SINGARAM, GTKR---T3448</option>
+<option value="32036">NETAJI INSTITUTE OF ENG.  TECH, TOOPRANPET.---T3358</option>
+<option value="32526">NETAJI INST.OF PHAR.SCIENCE,TOOPRANPET---P4026</option>
+<option value="32398">NEW CHAITANYA JR COLLEGE, EC EXTENSION, ECIL X ROADS---J5627</option>
+<option value="31755">NEW CHAITANYA JR COLLEGE HIMAYATHNAGAR---J5399</option>
+<option value="31126">NEW CHAITANYA JR COLLEGE TARNAKA---J5170</option>
+<option value="30466">NEW ERA JR.COLLEGE,CHIKKADPALLY---J5446</option>
+<option value="30805">NEW GOVT DEG AND PG COLLEGE,KHAIRATABAD---D0382</option>
+<option value="31706">NEW GOVT DEG.PG COLLEGE KHAIRATABAD---D0563</option>
+<option value="30929">NEW GOVT JR.COLLEGE MALAKPET.---J4680</option>
+<option value="30408">NEW GOVT JR.COLLEGE,(NAMPALLY), KUKATPALLY.---J6062</option>
+<option value="31155">NEW GOVT JR COLL,YMCA,SEC---J5127</option>
+<option value="34619">NEW MASTERMINDS JR.COLLEGE,BALAPUR.---J5821</option>
+<option value="31209">NEW NOBLE DEG.  P.G COLLEGE,MOOSARAMBAGH---D5876</option>
+<option value="32423">NEW PAGE DEGREE COLLEGE---D6074</option>
+<option value="32341">NEW PRAGATHI COL.OF COMMERCE AND SCI.,CHANDANAGAR---D6018</option>
+<option value="30917">NEW SCIENCE COLLEGE AMEERPET.---D0567</option>
+<option value="32160">NEW SIDDHARTHA DEG.COLLEGE,KMG COLONY,CHINTAL MAIN ROAD.---D5919</option>
+<option value="31974">NEW SRI CHAITANYA JR.COLLEGE,TURKAYAMJAL.---J5481</option>
+<option value="32437">NEW SRI CHAITANYA JR.KALASALA,TOLICHOWKI,HYD.---J5686</option>
+<option value="31982">NEW SRI MEDHA JUNIOR COLLEGE, RB NAGAR, SHAMSHABAD---J5502</option>
+<option value="32201">NEW ST FRANCIS XAVIER JR.COL,BARKATPURA---J5587</option>
+<option value="31794">NEW ST JOSEPHS JR COLLEGE, STREET NO 8, HIMAYATHNAGAR---J4975</option>
+<option value="30441">NICT ITI ,TARNAKA---T3071</option>
+<option value="30900">NIFT MADHAPUR---SP105</option>
+<option value="31770">NIMS COLLEGE OF NURSING P.GUTTA---SP093</option>
+<option value="34883">NIMS COLLEGE OF PARAMEDICAL  ALLIED SCIENCES, PANJAGUTTA---D6214</option>
+<option value="31025">NINE EDUCATION JUNIOR COLLEGE---J3392</option>
+<option value="32199">NINE EDUCATION JUNIOR COLLEGE---J5580</option>
+<option value="31123">NIZAM COLLEGE,LB STADIUM---D5659</option>
+<option value="32683">NIZAM COLLEGE---P0351</option>
+<option value="32872">NIZAMS INST.OF MEDICAL SCIENCES,PUNJAGUTTA---P3284</option>
+<option value="33822">N.N.M.L.B.VOCATIONAL JUNIOR COLLEGE, NEAR MEHDIPATNAM BUS DEPOT---J5738</option>
+<option value="30919">NOBLE DEG AND PG COLLEGE, MOOSARAMBAGH---D0186</option>
+<option value="32742">NOBLE P.G COLLEGE,NADARGUL---P3072</option>
+<option value="30424">NRI JR.COLLEGE BHAGYANAGAR, KP---J5485</option>
+<option value="32331">NRI JR COLLEGE, CHINTAL---J5652</option>
+<option value="31234">NRI JUNIOR COLLEGE, SRINIVASA COLONY,AMEERPET---J5321</option>
+<option value="35208">NRUPATUNGA INST OF TECH  MGMT KACHIGUDA---D6262</option>
+<option value="31509">NRUPATUNGA JR.COLL,KACHIGUDA---J4800</option>
+<option value="31608">NRUPTUNGA DEGREE COLLEGE, KACHIGUDA---D0569</option>
+<option value="30946">NSKK JR.COLLEGE GAGILAPUR(V), QUTHBULLAPUR(M) RR.DIST.---J6009</option>
+<option value="31663">NSR  COLLEGE OF EDUCATION,JAMBAGH,KOTI---D0004</option>
+<option value="32203">NSR JR COLLEGE,RAILWAY STN.RD,MEDCHAL.---J5590</option>
+<option value="31032">NSTI,VIDYA NAGAR---T3153</option>
+<option value="34846">OBS DEGREE COLLEGE,SCIENTIST COL,HABSIGUDA---D6203</option>
+<option value="31615">OMEGA COLLEGE OF PHARMACY,EDULABAD---D5793</option>
+<option value="31665">OMEGA DEGREE COLLEGE, HABSIGUDA---D0520</option>
+<option value="30813">OMEGA DEGREE COLLEGE, MAHESH NAGAR, ECIL---D5744</option>
+<option value="33040">OMEGA DEGREE COLLEGE PLOT 216 PEERZAGIDUDA---D6092</option>
+<option value="33782">OMEGA ELITE JUNIOR COLLEGE  HABSHIGUDA---J5730</option>
+<option value="30621">OMEGA JR.COLLEGE,HABSIGUDA.---J6051</option>
+<option value="31077">OMEGA JR COLLEGE,MAHESH NAGAR, ECIL---J5191</option>
+<option value="34361">OMEGA PG COLLEGE MBA---P3341</option>
+<option value="32736">OMEGA PG COLLEGE MCA ,EDULABAD---P3164</option>
+<option value="31057">OSMANIA MEDICAL COLLEGE,KOTI---SP139</option>
+<option value="30489">OSMANIA  MEDICAL COLLEGE,KOTI---T3083</option>
+<option value="33307">OSMANIA UNIVERSITY P.G.COLLEGE, NARSAPUR.---P3312</option>
+<option value="32148">OSM DEG.COLLEGE,BANDLAGUDA KHALSA---D5920</option>
+<option value="31867">OSM JUNIOR COLLEGE,MOGHULPURA---J5378</option>
+<option value="33248">OU COLLEGE FOR WOMEN---T3418</option>
+<option value="32782">O.U COLLEGE OF PHYSICAL EDUCTION,O.U---P3144</option>
+<option value="31531">O U COLLEGE (WOMENS) - KOTI---D5640</option>
+<option value="32624">PADALA RAMA REDDY COLLEGE OF COMMERCE  AND MANAGEMENT, MANCHIREVULA, RJNR(M)---P0271</option>
+<option value="30933">PADALA RAMA REDDY LAW COLLEGE,YELLAREDDYGUDA---D0018</option>
+<option value="32420">PAGE JR COLLEGE,HIMAYATH NAGAR---J5687</option>
+<option value="32988">PAGE JUNIOR COLLEGE, ADITYA COURT,BANJARAHILLS---J5691</option>
+<option value="34439">PAGE JUNIOR COLLEGE---J5794</option>
+<option value="31884">PALLAVI ENGINEERING COLLEGE, KUNTLOOR (V) BDULLAPURMET (M) R.R.DIST---T3301</option>
+<option value="31546">PANCHAJANYA JUNIOR COLLEGE, NAGARAM---J5186</option>
+<option value="31693">PANINEEYA MV INST OF DENTAL SCI. RES.CENTER,KAMALANAGAR,DSNR.---T3196</option>
+<option value="32542">PANNALA RAM REDDY COL.BUS.MGT,BODUPPAL---P3250</option>
+<option value="30826">PDS COLLEGE OF B.SC(MLT),PURANI HAVELI,HYD.---D5713</option>
+<option value="30825">P.D.S COLLEGE OF PHYSIOTHERAPY,PURANI HAVELI.---D5714</option>
+<option value="32961">PENDEKANTI INST OF MANAGEMENT,IBRAHIMBAGH---P0042</option>
+<option value="32126">PENDEKANTI LAW COLLEGE CHIKKADPALLY.---D5903</option>
+<option value="32609">P.G.COLLEGE OF SCIENCE,SAIFABAD---P0349</option>
+<option value="32794">PG COLL OF LAW,BASHEERBAGH---P3062</option>
+<option value="34620">PGR JUNIOR COLLEGE,VIVEKNAGAR,KP.---J5820</option>
+<option value="30641">PINEGROVE JR.COLLEGE,TS POLICE ACADAMY,PEERUNCHERU.---J3368</option>
+<option value="32470">PINNACLE DEGREE COLLEGE MOOSAPET KP---D6070</option>
+<option value="31195">PINNACLE INST. OF HOTEL MANG. CATE. TECH,MOOSAPET, KUKATPALLY, HYD---D5764</option>
+<option value="31462">PINNACLE VOC JR COLLEGE, DHARMAREDDY GUDA, HYDERNAGAR---J5351</option>
+<option value="30663">PIONEER DEGREE COLLEGE,ABIDS JN ROAD---D0571</option>
+<option value="31407">PIONEER INSTITUTE OF HOTEL MANG.,RAMNAGAR ROAD,ZASMISTANPUR.---D5727</option>
+<option value="35173">PIONEER PARAMEDICAL COLLEGE---SP211</option>
+<option value="32278">P J R MEMORIAL SAI TEJA DEG.COLLEGE TUMUKUNTA.O---D5910</option>
+<option value="31586">P N R COLLEGE OF PHARMACY PEDDASHAPUR, SHAMSHABAD---D5836</option>
+<option value="31514">PNR MEMORIAL ITI,IDA,JEEDIMETLA---T3059</option>
+<option value="31027">PONUGOTI MADHAVA RAO LAW COLLEGE, LB NAGAR---D0020</option>
+<option value="31148">PRAGATHI DEG COLLEGE FOR WOMEN,GADDIANNARAM,DSNR---D0574</option>
+<option value="30967">PRAGATHI DEGREE COL,KPHB---D5694</option>
+<option value="30512">PRAGATHI DEGREE COLLEGE,GADDI ANNARAM,DILSUKHNAGAR---D0599</option>
+<option value="32164">PRAGATHI JR COLLEGE FOR GIRLS.VV NAGAR,KP., VIVEKANANDA NAGAR, KUKATPALLY---J5547</option>
+<option value="31489">PRAGATHI JR COLLEGE,GADDIANNRAM, DSNR---J3367</option>
+<option value="30426">PRAGATHI JR.COLLEGE MIG.210,KPHB---J6061</option>
+<option value="34857">PRAGATHI JUNIOR COLLEGE---J5888</option>
+<option value="34894">PRAGATHI JUNIOR COLLEGE---J5893</option>
+<option value="31145">PRAGATHI MAHAVIDYALAYA DEG  COLLEGE OF COMMERCE  SCIENCE HANUMANTEKDI KANDASWAMY LANE HYD---D0573</option>
+<option value="30787">PRAGATHI MAHA VIDYALAYA JUNIOR COLLEGE HANMANTEKDI, HYD---J4700</option>
+<option value="32554">PRAGATHI MAHA VIDYLAYA P.G. COLLEGE,HANNUMANTEKDI---P0188</option>
+<option value="32155">PRAGATHI WOMENS DEGREE COLLEGE, CHANDANAGAR.---D5931</option>
+<option value="31007">PRAGATHI WOMENS DEGREE COLLEGE,VIVEKANAND  COLONY,KP.---D5671</option>
+<option value="31859">PRAGNA COLLEGE OF EDUCATION,SEETHARAMPET, IBPM(M)---D5853</option>
+<option value="31967">PRAGNYA DEGREE COLLEGE,CHANDANAGAR---D5895</option>
+<option value="32094">PRAGNYA WOMENS DEGREE COLLEGE CHANDA NAGAR---D5932</option>
+<option value="31056">PRANATHI JR.COLLEGE MALAKPET---J4967</option>
+<option value="31357">PRATHIBHA DEG COLLEGE,,KUKATPALLY---D5715</option>
+<option value="30784">PRATHIBHA DEGREE COLLEGE,IBPM---D0758</option>
+<option value="32363">PRESIDENCY DEGREE COLLEGE FOR COMMERCE AND SCIENCES,JAHANUMA---D6007</option>
+<option value="31971">PRESIDENCY JR COL FOR BOYS AND GIRILS,JAHANUMA---J5493</option>
+<option value="30521">PRESTON VOC JR COLLEGE,PHISALBANDA---J6063</option>
+<option value="30891">PRINCESS DURRUSHWAR JR.COLL,PURANI HAVELI.---J4724</option>
+<option value="33369">PRINCESS DURUU SHEHVAR COLLEGE OF NURSING.PURANI HAVELLI.---P3317</option>
+<option value="31804">PRINCETON COLL OF PHARMA,KORREMULA---D5860</option>
+<option value="30636">PRINCETON DEG PG COLL,SHARADANAGAR RAMANTHAPUR.---D0578</option>
+<option value="33941">PRINCETON PG COLLEGE OF INF.TECH,(1317),SHARADANAGAR,RAMANTHAPUR.---P3337</option>
+<option value="33940">PRINCETON PG COLLEGE OF MANAGEMENT(1318),SHARADANAGAR,RAMANTHAPUR---P3336</option>
+<option value="31540">PRINCETON SCH OF EDUCATION,RAMANTHPUR---D5683</option>
+<option value="32802">PRISM SCHOOL OF BUSINESS DOMADUGU---P3162</option>
+<option value="30503">PROF.JAYA SHANKER TELANGANA AGRI.UNIVERSITY,RJNR---D5620</option>
+<option value="31551">PS TELUGU UNIV,NAMPALLY---D5617</option>
+<option value="34779">PUJYA SHRI MADHAVANJI DEGREE COLLEGE---D6192</option>
+<option value="31692">PULLA REDDY INSTITUTE OF PHARMACY NEAR DUNDIGAL  A.F.A.---D5837</option>
+<option value="32770">P V RAM REDDY P.G.COLLEGE,UPPARIGUDA VILL---P3215</option>
+<option value="31384">Q.Q.ITI, OLD CITY(GIRLS),NEW SANTOSHNAGAR.---T3062</option>
+<option value="31322">Q.Q.POLYTECHNIC,OPP.ZOO PARK.---T3144</option>
+<option value="32557">RACHANA COLLEGE OF JOURNALISM, NARAYANGUDA---P3286</option>
+<option value="31598">RACHANA CO OF JOURNALISM N.GUDA---SP060</option>
+<option value="31695">RAILWAY DEGREE COLLEGE,LALAGUDA---D0585</option>
+<option value="30767">RAILWAY J/C, SD---J5131</option>
+<option value="30611">RAILWAY JR.COLLEGE LALAGUDA---J5030</option>
+<option value="32097">RAINBOW INTEGRATED DEGREE COLLEGE PAPAIAH YADAV NAGAR IDPL COLONY---D5933</option>
+<option value="30454">RAJIV GANDHI AVIATION ACADEMY, OLD BOWENPALLY, SECBAD---SP046</option>
+<option value="31998">RAMADEVI COLLEGE OF EDU,RAMANTHAPUR---D5861</option>
+<option value="31552">RATNA JR COLLEGE NARAYANGUDA---J4883</option>
+<option value="32593">R.B.V.R.R. INST OF TECH ABIDS,REDDY HOSTEL PREMISES---P3080</option>
+<option value="31782">RBVRR WOMENS COLLEGE,NARAYANAGUDA---D0581</option>
+<option value="32552">REAH SCH.OF BUS.MGT,KESARAM---P4050</option>
+<option value="31658">REGENCY COLLEGE OF HOTEL MGMT   CATERING TECH, ERRAMANZIL, KHAIRATABAD, HYD.---D0079</option>
+<option value="34646">RESONANCE JUNIOR COLLEGE,CHAITANYAPURI---J5837</option>
+<option value="32080">RESONANCE JUNIOR COLLEGE HABSHIGUDA NACHARAM---J5532</option>
+<option value="31625">RESONANCE JUNIOR COLLEGE---J4872</option>
+<option value="32131">RESONANCE JUNIOR COLLEGE---J5484</option>
+<option value="34696">RESONANCE JUNIOR COLLEGE---J5856</option>
+<option value="34724">RESONANCE JUNIOR COLLEGE---J5861</option>
+<option value="34408">RESONANCE JUNIOR COLLEGE,KAVURI HILLS---J5782</option>
+<option value="35152">RESONANCE JUNIOR COLLEGE QUTHBULLAPR---J3483</option>
+<option value="30920">RG KEDIA COLLEGE OF COMMERCE,ESAMIYABAZAR---D0582</option>
+<option value="32792">R.G KEDIA COLLEGE OF COMMERCE,OCHADARGHAT---P3054</option>
+<option value="32840">RGR SIDDHANTHI COLLEGE OF BUSINESS MANG.OPP.TIVOLI GARDENS,SECBAD.---P3154</option>
+<option value="31757">R.G.R SIDDHANTHI COLLEGE OF EDUCATION,TIVOLI GARDENS.---D5829</option>
+<option value="32409">RIDDHI INDUSTRIAL TRAINING CENTER,PEERZADIGUDA---T3375</option>
+<option value="30749">RISHI DEGREE COLLEGE,HIMAYATHNAGAR---D0588</option>
+<option value="32981">RISHI JUNIOR COLLEGE, GHATKESAR---J5693</option>
+<option value="30662">RODA MISTRY COLL OF SOC WORK  RES,GACHIBOWLI---D0090</option>
+<option value="34755">ROOTS COLLEGE OF DESIGN, FILM  MEDIA,JUBLEE HILLS,HYD---D6185</option>
+<option value="32060">ROOTS DEGREE COLLEGE,RAJBHAVAN RD.,SOMAJIGUDA.---D5954</option>
+<option value="30965">ROYAL DEGREE COLLEGE,CHINTAL---D5693</option>
+<option value="30864">ROYAL ITC NACHARAM,MALLAPUR---T3171</option>
+<option value="31014">ROYAL JR COLLEGE,SR NAGAR---J4983</option>
+<option value="30829">ROYAL JUNIOR COLLEGE, RETHIBOWLI, MEHDIPATNAM---J5315</option>
+<option value="31523">ROYAL VOC JR COLLEGE,BAHADURPURA---J5392</option>
+<option value="32247">RUKMINI COLLEGE OF MANAGEMENT  COMMERCE, AMEERPET---D5971</option>
+<option value="35023">RV INSTITUTE OF PARAMEDICAL SCIENCES COL. BODUPPAL---SP209</option>
+<option value="34785">RVM TNST.OF MEDICAL SCIENCES  RESEARCH CENTER LAXMAKKAPALLY, MULUGU---D6193</option>
+<option value="31308">SADHANA PARA MEDICAL COLLEGE, RAMNAGAR X ROADS---SP141</option>
+<option value="31703">SADHANA VOC. JR.COLLEGE,. RAMNAGAR.---J4644</option>
+<option value="31168">SAFA JUNIOR COLLEGE,LAKDIKAPOOL---J5358</option>
+<option value="31537">SAI CHAITANYA DEG COL,KOMPALLY---D5696</option>
+<option value="33056">SAI CHAITANYA JR COLLEGE,TKRS IKON HOSPITAL LANE,DILSUKHNAGAR---J5695</option>
+<option value="31039">SAI CHAITANYA JR. COLL NCL CLY.---J5234</option>
+<option value="30708">SAIKRUPA ITC. SRIPURAM COLONY,MALAKPET---T3096</option>
+<option value="34705">SAI SANJEEVINI SCHOOL OF NURSING---D6176</option>
+<option value="30751">SAI SUDHIR DEGREE  PG COLLEGE, ECILX ROADS, HYDERABD---D0594</option>
+<option value="31789">SAI SUDHIR JUNIOR COLLEGE, ECIL X RD HYD---J5388</option>
+<option value="32642">SAI SUDHIR PG COLLEGE,ECIL X RDS---P0047</option>
+<option value="31909">SAI TEJA JR.COLLEGE,TUMKUNTA.---J5398</option>
+<option value="32144">SAKETA DEGREE COLLEGE, GADDIANNARAM, DSNR---D5993</option>
+<option value="30582">SAKETA JUNIOR COLLEGE, GADDIANNARAM,DSNR---J3308</option>
+<option value="31410">SAMIDHENI JUNIOR KALASALA NARAYANGUDA---J5353</option>
+<option value="32873">SAMSKRUTHI INST OF BUSINESS MGMT, MANNEGUDA X ROADS,TURKAYAMZAL(V)---P3259</option>
+<option value="31176">SAMSKRUTI COLLEGE OF PHARMACY,KONDAPUR,GHATKESAR.---D5771</option>
+<option value="31175">SAMSKRUTI COL. OF ENG. AND TECH KONDAPUR---T3227</option>
+<option value="34420">SANGHAMITHRA DEGREE COLLEGE---D6151</option>
+<option value="34808">SANKALP JUNIOR KALASALA, ALMASGUDA---J5873</option>
+<option value="34870">SANSKRITI DEGREE COLLEGE, KONDAPUR---D6209</option>
+<option value="31428">SARADA PRIVATE ITI, BALAPUR, SAROORNAGAR(M)---T3080</option>
+<option value="33781">SARADA PRIVATE ITI, HAYATHNAGAR, RR DIST.---T3436</option>
+<option value="31716">SARATH JUNIOR COLLEGE, NEW NALLAKUNTA---J5409</option>
+<option value="30502">SARDAR PATEL DEGREE COLLEGE, PADMARAO NAGAR, SECBAD---D0597</option>
+<option value="32868">SARDAR PATEL PG COLLEGE, PADMARAO NAGAR, SECBAD---P0126</option>
+<option value="31550">SAROJINI DEVI HOSPITAL, MP---SP081</option>
+<option value="30794">SAROJINI NAIDU VANITA PHAR. MAH.VID, BATHAKAMMA KUNTA, TARNAKA,SEC-BAD.---D5605</option>
+<option value="34665">SATYA ITI, KEESARA(M) MDCL DIST---T3455</option>
+<option value="30715">SATYA SRI ITI,  SNEHAPURI X ROADS---T3099</option>
+<option value="32280">SBS DEGREE COLLEGE AMEERPET---D5916</option>
+<option value="34250">SCHOOL OF INFORMATION TECHNOLOGY,JNTUH,KP,HYD---P3339</option>
+<option value="34229">SCHOOL OF MANAGEMENT STUDIES,JNTUH,KP---P3340</option>
+<option value="31434">SCHOOL OF NURSING GANDHI HOSPITAL,NEW BHOIGUDA,MUSHEERABAD.---SP135</option>
+<option value="30756">SCHOOL OF OPTOMETRY,SD HOSPITAL,MP---SP112</option>
+<option value="32230">SCHOOL OF PLANNING AND ARCHITECTURE (SPA) JNIAS, ROAD NO.12, BANJARAHILLS, HYD.---T3370</option>
+<option value="32069">SCHOOL OF PLANNING  ARCH,JNAFAU, MASAB TANK---T3317</option>
+<option value="31585">SCIENT INST. OF PHARMACY,IBRAHIMPATNAM.---D5828</option>
+<option value="31031">SCIENT INST.  OF TECHNOLOGY, IBP.---T3152</option>
+<option value="31227">SGM GOVT POLYTEC,ABDULLAPURMET---T3128</option>
+<option value="33930">SHADAN COLLEGE OF B.SC (MLT) PEERANCHERU---D6128</option>
+<option value="30668">SHADAN COLLEGE OF EDUCATION,KHAIRTABAD.---D0008</option>
+<option value="32680">SHADAN COLL OF PHARMACY,PEERAMCHERU.---P3133</option>
+<option value="31640">SHADAN COL OF ENGG.,PEERANCHERU.---T3109</option>
+<option value="31833">SHADAN COL.OF NURSING,PEERAMCHERU, HIMAYATHSAGAR---D5753</option>
+<option value="30670">SHADAN DEGREE COLL FOR BOYS,KHAIRATABAD.---D0600</option>
+<option value="33789">SHADAN INSTITUTE OF MANAGEMENT STUDIES,KHAIRTHABAD.---D6110</option>
+<option value="31160">SHADAN INSTITUTION OF MEDICAL SCIENCE,HIMAYATH SAGAR.---T3213</option>
+<option value="33876">SHADAN INST OF MSTHRC, COLLEGE OF PHYSIOTHERAPY, PEERANCHERU, RR DIST.---D6116</option>
+<option value="31058">SHADAN JR COLLEGE,KHAIRATABAD---J4621</option>
+<option value="34764">SHADAN SCHOOL OF NURSING, PEERANCHERU.---D6187</option>
+<option value="34690">SHAHEEN JR.COLLEGE, NEW MALAKPET.---J5857</option>
+<option value="34689">SHAHEEN JR.COLLEGE , SHA ALI BANDA.---J5858</option>
+<option value="34688">SHAHEEN JR.COLLEGE, SHIVARAMPALLY.---J5859</option>
+<option value="34723">SHAHEEN JUNIOR COLLEGE---J5860</option>
+<option value="32897">SHANKARLAL DHANRAJ SIGNODIA COLLEGE OF ARTS,COMMERCE AND PG CENTER,CHARKAMAN---P0127</option>
+<option value="32058">SHARADA JUNIOR COLLEGE,UPPERBASTHI,NAMALAGUNDU,HYD.---J5618</option>
+<option value="31026">SHARADA VIDAYALAYA DEG. COLLEGE(W),SHAMSHEERGUNJ---D0604</option>
+<option value="31979">SHIPS JR COLLEGE, GOKHALENAGAR, RAMANTHAPUR---J5500</option>
+<option value="34433">SHIVANUJA JUNIOR COLLEGE BHAHADURGUDA---J5791</option>
+<option value="33791">SHRADDA JR COLLEGE, KEESARA---J5732</option>
+<option value="30898">SHRADDHA VOC.JR.COLLEGE,NEAR 6NO.BUS STOP,SHIVAM RAOD.TILAK NGR---J5218</option>
+<option value="31921">SHREE SWAMINARAYAN GURUKUL COLL. OF EDU.YENKAPALLY---D5815</option>
+<option value="32162">SHREE UMA DEGREE AND PG COLLEGE, SARDAR PATEL NAGAR, HYDERNAGAR---D5925</option>
+<option value="30544">SHRI SHAKTHI COLL OF HOTEL MANSAGEMENT,BEGUMPET.---SP029</option>
+<option value="32274">SHRI.V.D.BAJAJ DEGREE COL. FOR WOMEN, CHANDANAGAR---D5902</option>
+<option value="32765">SIDDARTHA DEG AND PG COLLEGE, VANASTHALIPURAM---P3104</option>
+<option value="32425">SIDDHARTHA COL.OF PHYSICAL EDUCATION,VINOBHA NAGAR---D6081</option>
+<option value="30854">SIDDHARTHA DEG COLLEGE FOR WOMEN,DSNR---D5612</option>
+<option value="31549">SIDDHARTHA DEG COLLEGE,GADDIANNARAM,DSNR.---D5688</option>
+<option value="32242">SIDDHARTHA DEGREE AND PG COLLEGE,KUKATPALLY---D5966</option>
+<option value="33387">SIDDHARTHA DEGREE AND PG COLLEGE,KUKATPALLY---P3319</option>
+<option value="32440">SIDDHARTHA DEGREE COLLEGE,MOINABAD.---D6042</option>
+<option value="32156">SIDDHARTHA DEGREE COLLEGE, NAGARJUNA NAGAR, AMEERPET---D5930</option>
+<option value="32710">SIDDHARTHA INST. OF COMPUTER SCIENCES,VINOBHANAGAR.---P3181</option>
+<option value="31809">SIDDHARTHA INST.OF TECH AND SCI,KORREMULA---T3266</option>
+<option value="30681">SIDDHARTHA JR COLLEGE, DSNR---J3394</option>
+<option value="32083">SIDDHARTHA JUNIOR COLLEGE,MOINABAD.---J5527</option>
+<option value="33903">SIDDHARTHA PRIVATE ITI,CHOWDARIGUDA---T3440</option>
+<option value="31270">SIDDHARTHA WOMENS DEG COLLEGE, GADDIANNARAM,DSNR---D5670</option>
+<option value="31732">SIDHARTHA INST.OF ENG.  TECH,VINOBHANAGAR,IBP---T3276</option>
+<option value="33272">SIDHARTHA INST,OF PHARMACY,KORREMULA.---T3424</option>
+<option value="33250">SIGMA PRIVATE ITI, ISNAPUR.---T3421</option>
+<option value="31246">SINDHU DEG COLLEGE FOR WOMEN,RETHIBOWLI,MEHDIPATNAM---D5722</option>
+<option value="31163">SINDHU JR COLLEGE FOR GIRLS, RETHIBOWLI,MEHDIPATNAM---J5347</option>
+<option value="30762">SIS VOC JR COLLEGE,NLG X RDS.---J5164</option>
+<option value="31539">SIVA SIVANI DEG COLLEGE,KOMPALLY---D5681</option>
+<option value="32333">SIVA SIVANI DEGREE COLLEGE SOMAJIGUDA---D5995</option>
+<option value="30861">SIVA SIVANI INST MANAGEMENT, KOMPALY---SP034</option>
+<option value="33471">SIVA SIVANI JR COLLEGE,KOMAPLLY.---J5707</option>
+<option value="31968">S M ALIS SHANTHI NIKETHAN JR,COL,SALARJUNG COLY.---J5488</option>
+<option value="32392">SPANDANA DEG COLLEGE,PANAMA GODOWNS,VANASTHLIPURAM---D5956</option>
+<option value="35122">SPECTRUM INSTITUTE OF MANAGEMENT AND COMPUTER SCIENCES---D6249</option>
+<option value="31402">SPHOORTHY DEG AND PG COLLEGE,DSNR---D0399</option>
+<option value="31087">SPHOORTHY ENGG COLLEGE,NADARGUL---T3200</option>
+<option value="33823">SPOORTHY DEGREE COLLEGE---D6112</option>
+<option value="32385">SPOORTHY JR COLLEGE,MEDCHAL---J5625</option>
+<option value="33399">SPR DEGREE COLLEGE, SHAMEERPET---D6063</option>
+<option value="30695">SPR JR.COLLEGE,SHAMEERPET.---J5443</option>
+<option value="32382">S R COLLEGE DR A S RAO NAGAR---J5612</option>
+<option value="31231">SREE ABHYASA JR COLLEGE GOLNAKA ALWAL---J5178</option>
+<option value="34339">SREE AMRUTHA JUNIOR COLLEGE---J5771</option>
+<option value="34019">SREE DATTA GROUP OF INSTITUTIONS,SHERIGUDA.---D6132</option>
+<option value="31404">SREE DATTHA INST OF ENG AND SCI , SHERIGUDA---T3208</option>
+<option value="31588">SREE DATTHA INST OF PHARMACY, SHERIGUDA---D5841</option>
+<option value="31314">SREE GAYATHRI DEG.COLLEGE,IBRAHIMPATNAM.PM---D5663</option>
+<option value="31393">SREENIDHI INST OF SCI AND TECH,YAMNAMPET---T3094</option>
+<option value="35121">SREENIDHI UNIVERSITY SCHOOL OF ENGINEERING  TECH---T3480</option>
+<option value="34898">SREENIVASA PARA MEDICAL COLLEGE, SRI SAI COLONY, CHINTAL---SP199</option>
+<option value="30766">SREE RAMACHANDRA JR.COLLEGE,TILAKNAGAR,HYD.---J4650</option>
+<option value="35210">SREERAMA INSTITUTE OF PARAMEDICAL SCIENCES---SP212</option>
+<option value="31927">SREE RATNA COLLEGE OF PHYSIOTHERAPY,UPPAL---D5823</option>
+<option value="34582">SREE TAPASYA JR COLLEGE, DWARAKANAGAR COLONY,BANDLAGUDA.---J5812</option>
+<option value="34621">SREE USHODAYA JR.COLLEGE,SAHEBNAGAR.---J5826</option>
+<option value="32326">SREE VANI JUNIOR COLLEGE,MALAKPET,HYD.---J5597</option>
+<option value="32910">SREE VANI WOMEN PG COLLEGE,MALAKPET---P0200</option>
+<option value="31137">SREE VANI WOMENS DEG COLL,MALAKPET---D0200</option>
+<option value="31440">SREE VENKATESHWARA DEGREE COLLEGE YMCA---D0531</option>
+<option value="32204">SREE VENKATESHWARA JR COLLEGE OF COMMERCE,CHAMPAPET---J5591</option>
+<option value="32197">SREE VENKATESWARA COMMERCE DEGREE COLLEGE, APAU COLONY, SAIDABAD---D5940</option>
+<option value="30416">SREE VIGNAN JR COLLEGE,MADHURANAGAR---J5312</option>
+<option value="32161">SREYAS INST OF ENG. AND TECHNOLOGY, BANDLAGUDA, NAGOLE---T3339</option>
+<option value="33808">SRI AADARSH JR COLLEGE  ALWAL.---J5736</option>
+<option value="34606">SRI AADARSH JR.COLLEGE,CHIKKADPALLY---J5819</option>
+<option value="34605">SRI AADARSH JR COLLEGE ,SEC.BAD---J5818</option>
+<option value="34384">SRI AADARSH JUNIOR COLLEGE KUKATPALLY---J5781</option>
+<option value="34622">SRI AADYA JUNIOR COLLEGE---J5823</option>
+<option value="34231">SRI AAKASH JR.COLLEGE(58471),KESAVANAGAR,CHAMPAPET---J5764</option>
+<option value="32202">SRI AAKASH JUNIOR COLLEGE, NARAYANAGUDA.---J5588</option>
+<option value="35037">SRI ABHIDA JUNIOR COLLEGE---J5906</option>
+<option value="31255">SRI ADARSH DEGREE COLLEGE ECIL X ROADS---D5732</option>
+<option value="31943">SRI ADARSH JR COLLEGE,DACHA COMPLEX,  ECIL X RDS.---J5462</option>
+<option value="32443">SRI ADARSH JR COLLEGE ,S.R.NAGAR---J5688</option>
+<option value="32289">SRI AKSHARA JR COLLEGE(60297),NAGARJUNANAGAR,YELLAREDDYGUDA---J5666</option>
+<option value="31328">SRI AMOGHA JR.COLLEGE (CO-ED) S.R.NAGAR, HYD.---J5311</option>
+<option value="30459">SRI AUROBINDO ITI SAROORNAGAR---T3040</option>
+<option value="32629">SRI BALAJI DENTAL COLLEGE,YENKAPALLY---P3304</option>
+<option value="31594">SRI BALAJI VENKATESWARA SWAMY JR.COLLEGE,KESAVAAM.JR.COLL---J6050</option>
+<option value="30563">SRI BHAGAWATHI ITI LINGOJIGUDA,SAROORNAGAR---T3041</option>
+<option value="31090">SRI CHAITANYA BHARATHI JR COL,CHANDANAGAR---J5223</option>
+<option value="30857">SRI CHAITANYA CO-OP JR.KALASALA,S.R NAGAR.---J5138</option>
+<option value="32074">SRI CHAITANYA CO-OP JR KALASALA,S.R.NAGAR---J5515</option>
+<option value="32076">SRI CHAITANYA CO-OP JR KALASALA,S.R.NAGAR---J5517</option>
+<option value="30543">SRI CHAITANYA DEG COLLEGE, GHATKESAR---D5877</option>
+<option value="34684">SRI CHAITANYA JR.COLLEGE,L.B.NAGAR.---J5851</option>
+<option value="31466">SRI CHAITANYA JR COLLEGE NALLAGNDLA---J5349</option>
+<option value="31286">SRI CHAITANYA JR COLLEGE NARAYANAGUDA---J4561</option>
+<option value="32410">SRI CHAITANYA JR COLLEGE,NARAYANAGUDA---J5634</option>
+<option value="34671">SRI CHAITANYA JR.COLLEGE,SHAIKPET---J5844</option>
+<option value="31411">SRI CHAITANYA JR COLLEGE,  SHIVA REDDY GUDA, GHATKESAR---J5354</option>
+<option value="30951">SRI CHAITANYA JR COLLEGE,TARNAKA---J5228</option>
+<option value="34658">SRI CHAITANYA JR.COLLEGE UPPARPALLY.---J5839</option>
+<option value="34232">SRI CHAITANYA JR.KALASALA(152790,MADINAGUDA---J5763</option>
+<option value="31382">SRI CHAITANYA JR.KALASALA,ATTAPUR---J5373</option>
+<option value="32397">SRI CHAITANYA JR KALASALA, AZIZ BAGH, DD COLONY---J5633</option>
+<option value="31888">SRI CHAITANYA JR KALASALA, BALAJI NAGAR, KUKATPALLY---J5459</option>
+<option value="31946">SRI CHAITANYA JR KALASALA (CC.27038)NARAYANGUDA---J5471</option>
+<option value="31776">SRI CHAITANYA JR.KALASALA,DILSHUKNAGAR---J5413</option>
+<option value="30533">SRI CHAITANYA JR KALASALA ECIL---J6077</option>
+<option value="31841">SRI CHAITANYA JR.KALASALA,HABSIGUDA---J5402</option>
+<option value="31823">SRI CHAITANYA JR KALASALA, HANUMANNAGAR, DSNR---J5412</option>
+<option value="31886">SRI CHAITANYA JR KALASALA, KPHB COLONY---J5455</option>
+<option value="31721">SRI CHAITANYA JR KALASALA MADHAVI NAGAR, ALWAL---J5419</option>
+<option value="34230">SRI CHAITANYA JR.KALASALA,MADINAGUDA---J5765</option>
+<option value="31492">SRI CHAITANYA JR KALASALA, MANIKONDA---J5439</option>
+<option value="32063">SRI CHAITANYA JR KALASALA, NAVEEN COMPLEX, KUKATPALLY---J5456</option>
+<option value="31896">SRI CHAITANYA JR KALASALA, OPP: IDPL COLONY---J5453</option>
+<option value="31945">SRI CHAITANYA JR KALASALA RK TOWERS NARAYANGUDA---J5472</option>
+<option value="31891">SRI CHAITANYA JR KALASALA, SAI VIKRAM TOWERS, BALAJI NAGAR, KUKATPALLY---J5458</option>
+<option value="34740">SRI CHAITANYA JR.KALASALA,SHANTHI NAGAR CLY.---J5864</option>
+<option value="31244">SRI CHAITANYA JR KALASALA SHIVARAMAKRISHNA COLONY,W. MARREDPALLY.---J5327</option>
+<option value="30910">SRI CHAITANYA JR KALASALA SRINIVASA COMPLEX, KUKATPALLY---J6030</option>
+<option value="32075">SRI CHAITANYA JR KALASALA,S.R.NAGAR---J5516</option>
+<option value="31235">SRI CHAITANYA JR KALASALA,VINAY NGR.IS SADAN,---J5322</option>
+<option value="31961">SRI CHAITANYA JR KALASALA, VIVEK NAGAR, KUKATPALLY---J5457</option>
+<option value="30714">SRI CHAITANYA JR KALASALA YOUSUFGUDA---J4795</option>
+<option value="35041">SRI CHAITANYA JUNIOR KALASALA BAGH AMBERPET HYD---J5908</option>
+<option value="34654">SRI CHAITANYA JUNIOR KALASALA---J 5559</option>
+<option value="34817">SRI CHAITANYA JUNIOR KALASALA---J5878</option>
+<option value="34922">SRI CHAITANYA JUNIOR KALASALA KUKATPALLY---J5894</option>
+<option value="35138">SRI CHAITANYA JUNIOR KALASALA,NALLAKUNTA---J6251</option>
+<option value="35063">SRI CHAITANYA JUNIOR KALASALA  NIZAMPET ROAD HYDERNAGAR---J5911</option>
+<option value="34505">SRI CHAITANYA JUNIOR KALASHALA, KUKATPALLY---J5805</option>
+<option value="32482">SRI CHAITANYA TECHNICAL CAMPUS, SHERIGUDA---T3288</option>
+<option value="32416">SRI CHAITANYA TECHNICAL CAMPUS SHERIGUDA---T3404</option>
+<option value="32321">SRI CHAITANYA VOC.JR KALASALA,TOLICHOWKI, HYD---J5660</option>
+<option value="32179">SRI CHAITHANYA JR KALASALA,KAMALANAGAR,CHAITANYAPURI.---J5561</option>
+<option value="32007">SRI CHAITHANYA JR KALASALA,KAMALANAGAR,ECIL---J5558</option>
+<option value="32178">SRI CHAITHANYA JR KALASALA,PRABHATNAGAR,CHAITANYAPURI.---J5562</option>
+<option value="32234">SRI CHAKRA COLLEGE OF EDUCATION SHERIGUDA.---D5968</option>
+<option value="33877">SRI CHANDRA DEGREE COLLEGE,KHILWATH,CHARMINAR---D6115</option>
+<option value="35049">SRI CHANDRA JUNIOR COLLEGE CHAMPAPET SRNR HYD---J5910</option>
+<option value="33924">SRI CHANDRA JUNIOR COLLEGE,CHANDRAYANGUTTA---J5747</option>
+<option value="32055">SRI CHANDRA JUNIOR COLLEGE, KHILWATH,CHARMINAR---J5620</option>
+<option value="34815">SRI GAYATHRI JUNIOR COLLEGE CHECK POST CHINTAL KUNTA HYD---J5875</option>
+<option value="33838">SRI GITANJALI JR.COLLEGE, BANDLAGUDA.---J5742</option>
+<option value="32020">SRI GNANA CHAITANYA JR.COLLEGE, BAGH HAYATHNAGAR---J5604</option>
+<option value="31111">SRI INDU COLLEGE OF ENG AND TECH, SHERIGUDA---T3140</option>
+<option value="31771">SRI INDU INST.OF ENG.TECH,SHERIGUDA---T3237</option>
+<option value="32658">SRI INDU INST. OF MGMT,SHERIGUDA,IBPM---P3116</option>
+<option value="32810">SRI INDU INST OF PHARMACY,SHERIGUDA---P3136</option>
+<option value="32839">SRI INDU P.G. COLL VAIDEHINGR---P0840</option>
+<option value="34884">SRI K.M.PANDU MEMORIAL GOVT.VOC.JR.COLEGE, QUTHBULLAPUR.---J5892</option>
+<option value="30492">SRI KRISHNA DEVARAYA ITI,R.C.PURAM---T3057</option>
+<option value="30439">SRI  LALITHA ITI, SAFILGUDA---T3064</option>
+<option value="32459">SRI LEPAKSHI JUNIOR COLLEGE, CHANDANAGAR---J5684</option>
+<option value="31311">SRI MATHA MEDICAL LAB INS---SP145</option>
+<option value="33415">SRI MEDHA JUNIOR COLLEGE, ATTAPUR---J5702</option>
+<option value="32411">SRI MEDHAVI JR COLLEGE, HASTINAPURAM---J5643</option>
+<option value="32172">SRI MEDHAVI JUNIOR COLLEGE,KOUSALYA NAGAR,SAROORNAGAR.---J5555</option>
+<option value="33356">SRI MEDHA V JR COLLEGE, ARUL COLONY, KAPRA---J5698</option>
+<option value="32347">SRI MEDHA V JR COLLEGE,RETHIBOWLI.---J5670</option>
+<option value="34683">SRI NAGARJUNA JUNIOR COLLEGE---J5852</option>
+<option value="34682">SRI NARAYANA COLLEGE OF COMMERCE,MEDIPALLY.---J5848</option>
+<option value="30458">SRI  NARAYANA JR COLLEGE  R.B. NAGAR SHAMSHABAD---J5451</option>
+<option value="32265">SRI NRI JR COLLEGE,CHAITANYA NAGAR,BN REDDY NAGAR.---J5655</option>
+<option value="32018">S R INTERNATIONAL INSTITUTE OF TECH.,RAMPALLY DAYARA,KEESARA.---T3361</option>
+<option value="33831">SRI RAAMA JUNIOR COLLEGE GUDIMALKAPUR---J5737</option>
+<option value="31272">SRI RAMACHANDRA ITI,MOOSARABAGH.---T3124</option>
+<option value="30918">SRI RAMCHANDRA ARTS SCI COLL,TILAK NAGAR MAIN ROAD,---D0087</option>
+<option value="32661">SRI RAMCHANDRA ARTS  SCIENCE COLLEGE, TILAKNAGAR---P0129</option>
+<option value="32091">SRI RAM DEGREE COLLEGE, MARGADARSHI COLONY,KOTHPET---D5924</option>
+<option value="34345">SRI RAM JUNIOR COLLEGE SAROOR NAGAR---J5772</option>
+<option value="30460">SRI SAI CHAITANYA JR COLLEGE,MARKET ST.SEC---J5105</option>
+<option value="32718">SRI SAI DEGREE AND PG COLL,DILSUKHNAGAR---P0050</option>
+<option value="31273">SRI SAI DEGREE COLLEGE,DILSUKHNAGAR,HYD.---D0614</option>
+<option value="31786">SRI SAI VIDYA VIKAS DEG.COLLEGE,SEETHAPHALMANDI.---D5788</option>
+<option value="32125">SRI SAI VIDYA VIKAS JR COLLEGE---J5519</option>
+<option value="32462">SRI SAI VIKAS DEGREE COLLEGE,MARUTHI NAGAR, SAROORNAGAR---D6056</option>
+<option value="31351">SRI SAI VOCATIONAL JR. COLLEGE,GADDIANNARAM.---J5421</option>
+<option value="31646">SRI SAI VOCATIONAL JUNIOR COLLEGE SHAMASHABAD---J5384</option>
+<option value="32338">SRI SARADA DEGREE COLLEGE MOOSAPET---D6011</option>
+<option value="32231">SRI SHARADA VOC. JR COLLEGE,MAHESHWARAM.---J5632</option>
+<option value="31829">SRI SRINIVASA JR.COLLEGE,SANTOSHNAGAR---J4543</option>
+<option value="30978">SRI SRI VOC. JR COLLEGE,KPHB COLONY.---J5205</option>
+<option value="34228">SRI SURYA JUNIOR COLLEGE, OM PLAZA, SR NAGAR---J5766</option>
+<option value="34687">SRI VAGDEVI JR.COLLEGE,BALAPUR X ROAD.---J5855</option>
+<option value="34578">SRI VAISHNAVI JUNIOR COLLEGE, KATEDAN.---J5811</option>
+<option value="34851">SRI VASISHTA JR.COLLEGE,MATHRUSRI NAGAR COL,SERLINGAMPALLY.---J5886</option>
+<option value="32442">SRI VASISTHA JR COLLEGE, VANASTALIHILLS---J5678</option>
+<option value="34763">SRI VASISTHA JUNIOR COLLEGE KUKATPALLY---J5868</option>
+<option value="31237">SRI VASISTHA JUNIOR COLLEGE,MOOSARAMBAGH,SVNAGAR---J5320</option>
+<option value="35142">SRI VASISTHA JUNIOR COLLEGE S.R. NAGAR AMEERPET---J5919</option>
+<option value="34886">SRI VATHSA DEGREE COLLEGE, CHAITANYAPURI X ROADS---D6212</option>
+<option value="33498">SRI VEDA JUNIOR COLLEGE, OPP BAWARCHI, UPPAL DEPOT---J5713</option>
+<option value="31394">SRI VENKATESHWARA COLL OF ARCHITECTURE,MADAPUR---T3159</option>
+<option value="31641">SRI VENKATESHWARA COLL OF PHARMACY,HI TECH CITY RD,MADAPUR.---T3158</option>
+<option value="32976">SRI VENKATESHWARA DEGREE COLLEGE OF COMMERCE, KARMANGHAT X ROADS---D6087</option>
+<option value="31978">SRI VENKATESWARA JR COLLEGE TIRUMALLAGIRI HILLS GADIANARAM---J5498</option>
+<option value="34852">SRI VIDYA DEGREE COLLEGE CHINTAL QUTBULLAPUR---D6205</option>
+<option value="31098">SRI VIDYA JUNIOR COLLEGE(28144), V.PURAM---J3357</option>
+<option value="34390">SRI VIDYA JUNIOR COLLEGE , CHINTAL---J5784</option>
+<option value="31011">SRI VIDYANJALI PARAMEDICAL COLLEGE IBRAHIMPATNAM---SP116</option>
+<option value="32089">SRI VIDYANJALI VOC. JR. COLLEGE, IBRAHIMPATNAM---J5549</option>
+<option value="31645">SRI VIGNAN DEG COLLEGE,SHAMSHABAD---D5784</option>
+<option value="30473">SRI VIJAYA SAI ITI, GAYATHRINAGAR,DSNR.---T3073</option>
+<option value="34581">SRI VIVEKANANDA JR COLLEGE, SRINIVASANAGAR COLONY, GHATKESAR---J5813</option>
+<option value="33946">S.R. JR.COLLEGE LAXMI NAGAR.---J5751</option>
+<option value="30957">S R JR COLLEGE, PEERZADIGUDA.---J5214</option>
+<option value="32188">S R  JR COLLEGE, VIKRAMPURI,HABSIGUDA---J5574</option>
+<option value="34412">SR JUNIOR COLLEG, CHEERYAL, KEESARA(M), MEDCHAL DIST---J5783</option>
+<option value="34627">SR JUNIOR COLLEGE BHAGYANAGAR COOPERATIVVE HOUSING SOCIETY KUKATPALLY MEDCHAL DIST---J5828</option>
+<option value="30839">S R JUNIOR COLLEGE(BIE-22118) SR.NAGAR,HYD.---J5356</option>
+<option value="31966">S.R.JUNIOR COLLEGE CHANDANAGAR SERLINGAMPALLY MEDCHAL DIST---J5480</option>
+<option value="32079">SR JUNIOR COLLEGE CHINTAL, QUTHBULLAPUR(VM), MDCL---J5530</option>
+<option value="32030">S R JUNIOR COLLEGE ,GUDIMALKAPUR, MEHDIPATNAM---J5576</option>
+<option value="34925">SR JUNIOR COLLEGE---J5895</option>
+<option value="32194">S R JUNIOR COLLEGE, MOYYANAGAR,DWARAKANAGAR,---J5582</option>
+<option value="31964">S.R. JUNIOR COLLEGE,SAI NAGAR,HYDERNAGAR, HYD---J5478</option>
+<option value="32195">SR JUNIOR COLLEGE TUMMALAKUNTA CHAMPAPET.---J5583</option>
+<option value="32190">S R JUNIOR COLLEGE,VIVEKNAGAR,KP---J5577</option>
+<option value="32381">S.R.JUNIOR COLLEGE WEST MAREDPALLY---J5613</option>
+<option value="31902">S R JUNIOR JR COLLEGE,SRI NAGAR COLONY GADDIANNARAM RANGA REDDY---J5475</option>
+<option value="32096">SRM COLLEGE OF EDUCATION, GURRAMGUDA.---D5934</option>
+<option value="32419">SRM DEGREE COLLEGE,SHAMSHABAD.---D6051</option>
+<option value="31839">S.S.J.COLL. OF PHARMACY VATTINAGULPALLY.---D5803</option>
+<option value="32401">SSR ITI, AMEENPUR, PATANCHERU(M)---T3379</option>
+<option value="31224">ST ALPHONSA CL OF EDU,MADHURA NAGAR,HYD.---D5618</option>
+<option value="31805">STANLEY COLLEGE OF ENGINEERING  TECHNOLOGY FOR WOMEN ABIDS---T3252</option>
+<option value="31881">ST ANNS COLLEGE FOR WOMEN, MP---D5843</option>
+<option value="31012">ST ANNS JR COLLEGE BOLARAM---J3314</option>
+<option value="31059">ST ANNS JUNIOR COLLEGE FOR GIRLS,MEHDIPATNAM.---J4662</option>
+<option value="34744">ST.ANTHONY DEGREE COLLEGE,BALAPUR X RD.---D6182</option>
+<option value="30940">ST ANTHONYS ITI,   RC PURAM, MEDAK DIST.---T3167</option>
+<option value="31866">ST ANTHONYS JR. COLLEGE, KOMPALLY,---J5375</option>
+<option value="31140">ST FRANCIS COLL FOR WOMEN BEGUMPET---D0091</option>
+<option value="30608">ST FRANCIS JR.COLL FOR WOMEN,SECBAD---J5000</option>
+<option value="31122">ST FRANCIS XAVIER DEG COLL,BARKATHPURA---D5658</option>
+<option value="30666">ST FRANCIS XAVIER ITC  BALANAGAR---T3102</option>
+<option value="31512">ST FRANSIS XAVIOUR JR COLLEGE, BARKATPURA---J4786</option>
+<option value="31468">ST GEORGES BOYS  JR COLLEGE,ABIDS.---J4666</option>
+<option value="31830">ST JOHNS CHURCH JR.COLLEGE,SECBAD---J5109</option>
+<option value="32814">ST JOHNS INST. SCI. AND TECH,TURKAYAMZAL---P0285</option>
+<option value="32604">ST JOHNS PG COLLEGE AGAPE CENTRE,CHEGICHERLA---P3150</option>
+<option value="30651">ST JOSEPH DEG  PG COLLEGE,KING KOTI---D0629</option>
+<option value="35026">ST.JOSEPHS DEGREE COLLEGE FOR WOMEN---D6233</option>
+<option value="31728">ST JOSEPHS DEGREE COLLEGE,TOLICHOWKI---D5856</option>
+<option value="32455">ST JOSEPHS DEGREE COLLEGE,UPPERPALLY, RJNR(M)---D6054</option>
+<option value="33990">ST.JOSEPHS JR.COLLEGE(22109),DELUXE COLONY,TOLICHOWKI---J5752</option>
+<option value="30725">ST JOSEPHS JR.COLLEGE,TRIMULGHERRY.---J5114</option>
+<option value="32328">ST JOSEPHS JUNIOR COLLEGE, UPPERPALLY, RJNR(M)---J5640</option>
+<option value="32800">ST JOSEPHS PG COLL,KINGKOTI---P3047</option>
+<option value="34628">ST MARKS JUNIOR COLLEGE---J5830</option>
+<option value="30899">ST MARTINS ENGG COLLEGE, DHULAPALLY---T3177</option>
+<option value="32318">ST MARTINS JR COLLEGE,MADHAVANAGAR,MIYAPUR---J5668</option>
+<option value="34989">ST.MARYS CENTENARY COLLEGE OF MANAGEMENT, ST.F STREET,SECUNDERABAD---P3348</option>
+<option value="31259">ST MARYS CENTENARY DEG COLLEGE,ST FRANCIS STREET SECBAD---D0630</option>
+<option value="30706">ST MARYS CENTENARY DEG COLLEGE,ST FRANCIS STREET, SECBAD---D5609</option>
+<option value="30615">ST MARYS CENTENARY JR COLLEGE, ST FRANCIS STREET, SECBAD---J5091</option>
+<option value="31568">ST MARYS COLLEGE OF PHARMACY,SEC.BAD---D5797</option>
+<option value="31319">ST MARYS COLLEGE,YOUSUFGUDA---D5662</option>
+<option value="31688">ST MARYS COL OF EDUCATION,SECBAD---D5824</option>
+<option value="31828">ST MARYS ENGG COLLEGE,DESHMUKHI---T3280</option>
+<option value="33906">ST MARYS ENGINEERING COLLEGE,NEAR RFC,DESHMUKHI---T3442</option>
+<option value="32757">ST MARYS GROUP OF INSTITUTIONS,NEAR RFC,DESHMUKHI---P3221</option>
+<option value="31493">ST MARYS INTEGRATED CAMPUS,NEAR RFC,DESHMUKHI---T3292</option>
+<option value="31467">ST MARYS JR COLLEGE BASHEER BAGH---J4663</option>
+<option value="31293">ST MARYS JR COLLEGE JUBILEE HILLS,GUTTALABEGUMPET. HYD---J4615</option>
+<option value="34949">ST MARYS VIDYADHAYINI JUNIOR COLLEGE MASABTANK---J5897</option>
+<option value="30750">ST PATRICKS DEGREE COLLEGE,NALLKUNTA---D0404</option>
+<option value="30428">ST PATRICKS JR.COLL OU ROAD,NALLAKUNTA---J4887</option>
+<option value="33736">ST PAULS COLLEGE OF PHARMACY,SY.NO.603,605,TURKAYAMJAL---D6106</option>
+<option value="30575">ST PAULS DEGREE COLLEGE, STREET NO 8, HIMAYATHNAGAR---D0288</option>
+<option value="31479">ST PETERS ENGINEERING COLLEGE MAISAMMAGUDA,MEDCHAL---T3242</option>
+<option value="31261">ST PIOUS X DEGREE COLLEGE FOR WOMEN,SNEHAPURI COLONY,NACHARAM---D0633</option>
+<option value="32734">ST VINCENT PG COLLEGE,GHATKESAR---P3073</option>
+<option value="34695">ST XAVIER JUNIOR COLLEGE, RETHIBOWLI MP---J5849</option>
+<option value="32821">ST XAVIERS PG COLLEGE, GOPANPALLY.RR---P3077</option>
+<option value="32430">SUCCESS DEGREE COLLEGE,SANTOSHNAGAR HYD..---D6066</option>
+<option value="32198">SUCCESS JR COLLEGE,SANTOSHNAGAR,HYD.---J5586</option>
+<option value="30860">SUCCESS JUNIOR COLLEGE,CHANDRAYANGUTTA---J4694</option>
+<option value="34730">SUCCESS THE JUNIOR COLLEGE---J6181</option>
+<option value="31642">SULTAN UL ULOOM COLLEGE OF PHARMACY, RD NO 3, BANJARA HILLS---T3142</option>
+<option value="31513">SULTAN UL ULOOM JR COLLEGE,  RD NO 3,  BANJARAHILLS---J4972</option>
+<option value="30771">SULTAN-UL-ULOOM LAW COLLEGE,BANJARA HILLS.---D0021</option>
+<option value="30534">SUMAN JR.COLLEGE FOR GIRLS, CHANDANAGAR.---J6078</option>
+<option value="30949">SUN DEGREE COLLEGE,RAMNAGAR.---D5733</option>
+<option value="30810">SUN INSTITUTE OF HOTEL MANAGEMENT  CATERING TECHNOLOGY, RAMNAGAR---D5737</option>
+<option value="31378">SUN PRIDE DEGREE COLLEGE---D5757</option>
+<option value="34700">SUN PRIDE INST.OF HOTEL MANG.CATERING TECH. MIYAPUR---D6175</option>
+<option value="32709">SUPRABHATH INST FOR MGMT AND COMPUTER STUDIES, CHEERYAL, KEESARA(M)---P3110</option>
+<option value="30885">SUSRUTA INST OF PHYSICAL MEDICINE  REHABILITATION, OPP FRUIT MARKET,KOTHAPET---D5637</option>
+<option value="31368">SWAMI VIVEKANANDA INSTT OF TECH,MAHABOOB COLL.CAMPUS, SECBAD---T3203</option>
+<option value="32475">SYNERGY DEGREE COLLEGE, ALWAL X ROADS---D6069</option>
+<option value="32777">SYO NARAYANA RAMCHANDRAN PATWARI PG COLL.COMMERCE.ESANIA BAZAR,---P0132</option>
+<option value="30610">TAGORES HOME JR.COLLEGE,E.MARREDPALLY.---J5020</option>
+<option value="32295">TAPASYA DEG.COLLEGE,PATNY.---D6029</option>
+<option value="32240">TAPASYA DEG.CPOLLEGE,NARAYANAGUDA.---D5958</option>
+<option value="32517">TAPASYA DEGRE COLLEGE, OPP SHAH FUNCTION HALL, RED HILLS---D6084</option>
+<option value="32450">TAPASYA DEGREE COLLEGE 16-11-511/B/14 SHALIVAHANA NAGAR COLONY DILSUKHNAGAR HYDERABAD---D6083</option>
+<option value="30932">TAPASYA DEGREE COLLEGE,KUKATPALLY---D0534</option>
+<option value="32436">TAPASYA JR COLLEGE,BKP ROAD,NARAYANAGUDA---J5680</option>
+<option value="31034">TAPASYA  JR COLLEGE, KUKATPALLY---J3353</option>
+<option value="34672">TAPASYA JR.COLLEGE,NARAYANAGUDA.---J5847</option>
+<option value="34227">TAPASYA JR.COLLEGE,RP ROAD,PATNY,SECBAD---J5762</option>
+<option value="34226">TAPASYA JR.COLLEGE,SHAH ALI BANDA---J5767</option>
+<option value="34385">TAPASYA JUNIOR COLLEGE CHAITANYAPURI---J5780</option>
+<option value="32010">TAPASYA JUNIOR COLLEGE, HANUMAN NAGAR COLONY, CHAITANYAPURI---J5571</option>
+<option value="32032">TAPASYA JUNIOR COLLEGE---J5570</option>
+<option value="32192">TAPASYA JUNIOR COLLEGE PLOT NO MIG 210 ROAD NO1 KPHB COLONY KUKATPALLY HYDERABAD---J5572</option>
+<option value="32823">TARA GOVERNMENT DEGREE ANDPG COLLEGE---P3276</option>
+<option value="31976">T D R JUNIOR COLLEGE UPL HYD---J5495</option>
+<option value="31503">TEEGALA KRISHNA REDDY COLLEGE OF PHARMACY MEDBOWLI---D5795</option>
+<option value="31522">TEEGALA KRISHNA REDDY ENGG COLL,MEDBOWLI,MEERPET.---T3244</option>
+<option value="30865">TELANGANA INIST OF MED SCI AND TECH,NARASIMHAPURI CLY.---SP073</option>
+<option value="33247">TELANGANA STATE AVIATION ACADEMY, NEW BOWENPALLY.---P3327</option>
+<option value="32809">THE ENGLISH AND FOREIGN LNG.UNIVERSITY---P3058</option>
+<option value="32133">THE PROGRESS JUNIOR COLLEGE, FALAKNUMA---J5490</option>
+<option value="30759">TKR COLLEGE OF ENGG AND TECH, MEDBOWLI, MEERPET---T3169</option>
+<option value="32666">TKR INST. OF MANAGEMENT   SCIENCE,MEDIBOWLI MEERPET.---P3112</option>
+<option value="32219">TOPPERS JR COLLEGE, SAINIK ENCLAVE,KAPRA---J5621</option>
+<option value="34430">TOPPERS JUNIOR COLLEGE---J5789</option>
+<option value="32386">TRAINING CENTRE FOR TECHERS OF V.HANDICAPPED,E.MARREDPALLY.---D5960</option>
+<option value="32386">TRAINING CENTRE FOR TECHERS OF V.HANDICAPPED,E.MARREDPALLY.---D5960</option>
+<option value="32421">TRINITY COLLEGE OF HOTEL MANAGEMENT WHITE HOUSE,TARNAKA.---D6053</option>
+<option value="32233">TRINITY PRIVATE ITI, PEDDA AMBERPET---T3374</option>
+<option value="33478">TRIVIDYAA JUNIOR COLLEGE, A S RAO NAGAR---J5706</option>
+<option value="33873">TRIVIDYAA JUNIOR COLLEGE JEEDIMETLA(V).---J5744</option>
+<option value="32637">TRR COLLEGE OF PHARMACY,MEERPET---P3157</option>
+<option value="34984">TRR COLLEGE OF TECHNOLOGY,MEERPET,SAROORNAGAR,R.R.DIST---T3473</option>
+<option value="30909">TRR COLL OF (POLY)TECHNOLOGY,MEERPET---T3199</option>
+<option value="34859">TRR INST.OF MEDICAL SCIENCES, TRR NAGAR,INOLE---T3463</option>
+<option value="31091">TS GOVT.INST.OF LEATHER TECH---T3157</option>
+<option value="34150">TS MODEL JR.COLLEGE  MAHESHWARAM(V7M0,R.R.DIST---J5759</option>
+<option value="30886">TS P ORIEN COLL, TILAK ROAD---D5638</option>
+<option value="30449">TS POWERLOOM SRV CENTRE,MSDD---SP044</option>
+<option value="34795">TSRTC COLLEGE OF NURSING, RTC HOSPITAL, TARNAKA.---T3461</option>
+<option value="34999">TSRTC ITI,ZSTC,HPT---T3474</option>
+<option value="34864">TSRTC (VOC) JUNIOR COLLEGE,TSRTC HOSP. TARNAKA---J5890</option>
+<option value="32591">TS SOCIAL WELFARE COLLOF COMP---P0412</option>
+<option value="30626">TS SPORTS JR.COLL HAKIMPET---J6043</option>
+<option value="31746">UK COLLEGE OF EDUCATION, GODUMAKUNTA---D5809</option>
+<option value="32843">UNI COLLEGE OF LAW, OU---P3052</option>
+<option value="31198">UNITES VOC JUNIOR COLLEGE, ABOVE SBI, AS RAO NAGAR---J5361</option>
+<option value="32630">UNIV. COLL.OF COMM, OU CAMPUS---P3040</option>
+<option value="32960">UNIVERSITY COLLEGE EDUCATION, OU CAMPUS.---P3068</option>
+<option value="30744">UNIVERSITY COLLEGE FOR WOMEN,KOTI---D0211</option>
+<option value="32625">UNIVERSITY COLLEGE FOR WOMEN---P0134</option>
+<option value="30869">UNIVERSITY COLLEGE OF ENGG, (O U)---T3149</option>
+<option value="32620">UNIVERSITY COLLEGE OF LAW,OU CAMPUS.---P3038</option>
+<option value="32621">UNIVERSITY COLLEGE OF SCIENCE,OU CAMPUS---P0156</option>
+<option value="32881">UNIVERSITY COLL. OF  ARTS  SOCIAL SCIENCE, O.U O U COMPUS---P3041</option>
+<option value="32672">UNIVERSITY COLL. OF COM. AND BUSI. MANAGEMENT OU HYD---P3193</option>
+<option value="30409">UNIVERSITY COLL OF ENGINEERING,OU CAMPUS.---T3007</option>
+<option value="32967">UNIVERSITY COLL OF LAW,OU---P3063</option>
+<option value="32824">UNIVERSITY COLL OF SCIENCE,OU---P3066</option>
+<option value="31223">UNIVERSITY COLL.OF TECH,OU(AUTO)---T3126</option>
+<option value="32781">UNIVERSITY OF HYDERABAD, GACHIBOWLI.---P3043</option>
+<option value="32856">UNIVERSITY PG COLLEGE, PARADISE,SECUNDERABAD.---P0350</option>
+<option value="35094">UNNATHI JUNIOR COLLEGE FOR HEARING HANDICAPPED SECBAD---J5912</option>
+<option value="32226">URBANE JR.COLLEGE(28053),NACHARAM---J5647</option>
+<option value="30422">URBANE JR COLLEGE MADHAPUR---J5136</option>
+<option value="35158">VAGDEVI DEGREE COLLEGE,RAMANTHPUR---D6253</option>
+<option value="34608">VAIBHAV JUNIOR COLLEGE---J5817</option>
+<option value="32025">VAISHNAVI SCHOOL OF ARCHITECHTURE  PLANNING,KAVURI HILLS, MADHAPUR---T3319</option>
+<option value="34975">VALLEY OAK JUNIOR COLLEGE---J 5901</option>
+<option value="35103">VALLEY OAK JUNIOR COLLEGE---J5914</option>
+<option value="30793">VANDANA DEG. COLL, LOTHKUNTA.---D0641</option>
+<option value="31581">VANDANA JR COLLEGE VENKATAPURAM---J6021</option>
+<option value="32147">VANITHA DEGREE COLLEGE, CHINTHAL---D5918</option>
+<option value="31395">VARDHAMAN COLLEGE OF ENGG, KACHARAM, SHAMSHABAD(M)---T3032</option>
+<option value="30591">VASAVI COLLEGE OF ENGINEERING,IBRAHIMBAGH. IBRAHIMBAGH---T3005</option>
+<option value="30893">VASAVI JUNIOR COLLEGE HP BUNK IBRAHIMPATNAM---J5185</option>
+<option value="33270">VASAVI (VOC)JUNIOR COLLEGE IBRAHIMPATNAM---J5697</option>
+<option value="32858">VASUNDARA DEGREE AND PG COLLEGE (CO ED) MEERPET, HB COLONY, MOULALI---P3220</option>
+<option value="33939">VASUNDARA DEGREE COLLEGE(2063),ECIL X ROAD.---D6049</option>
+<option value="31944">VASUNDARA DEGREE  COLLEGE_CO-ED), MANGAPURAM, MOULAL---D5894</option>
+<option value="31172">VASUNDARA  JR.COLLEGE FOR GIRLS, ECIL X RD.---J5364</option>
+<option value="33712">VASUNDARA JUNIOR COLLEGE ECIL X ROADS---J5723</option>
+<option value="30696">VASUNDHARA WOMENS DEG COLLEGE, ECIL X RD.---D0642</option>
+<option value="32464">VEDA DEGREE COLLEGE,RAJI REDDY NAGAR.---D6059</option>
+<option value="32132">VEDA JUNIOR COLLEGE, RAJIREDDY NAGAR, CHAMPAPET---J5486</option>
+<option value="35087">VERTEX INSTITUTE OF PARAMEDICAL SCIENCES---SP 210</option>
+<option value="31055">VGR PARAMEDICAL COLLEGE NARAYANAGUDA---SP128</option>
+<option value="35100">VIDISHA JUNIOR COLLEGE---J5913</option>
+<option value="31510">VIDYA DAYANI COLL OF INFORMATION TECH,RCI,MALLAPUR.---T3012</option>
+<option value="30697">VIDYADAYANI DEG.  PG  COLL,SANTOSHNAGAR.---D0644</option>
+<option value="32548">VIDYA DAYINI SCHOOL OF MANAGEMENT RCI,MALLAPUR HYD---P3197</option>
+<option value="31511">VIDYA JYOTHI INST OF TECH,HIMAYATH NAGAR---T3129</option>
+<option value="32157">VIDYAMAYI JR.COLLEGE,KANDUKUR X RD.---J5548</option>
+<option value="30923">VIDYAPEETH JUNIOR COLLEGE A.S. RAO NAGAR---J5120</option>
+<option value="35156">VIDYAPEETH JUNIOR COLLEGE KOTHAPET---J5921</option>
+<option value="35127">VIDYAPEETH JUNIOR COLLEGE KUKATPALLY---J5917</option>
+<option value="32452">VIDYAPEETH JUNIOR COLLEGE SUCHITRA---J5675</option>
+<option value="30990">VIDYAPEET JUNIOR COLLEGE,HABSIGUDA---J3338</option>
+<option value="30824">VIGNANA BHARATHI INST OF TECH AUSHAPUR---T3202</option>
+<option value="32053">VIGNANA BHARATHI JR COLLEGE,CHANDRAPURI COLONY,KAPRA.---J5616</option>
+<option value="33818">VIGNANA BHARATHI JUNIOR COLLEGE ALWAL---J5739</option>
+<option value="35194">VIGNANA JYOTHI JR COLLEGE JUBILEE HILLS---J5923</option>
+<option value="31849">VIGNAN DEG. COLLEGE, BANDLAGUDA,RJRN.---D5858</option>
+<option value="32432">VIGNAN DEGREE COLLEGE,---D6025</option>
+<option value="32100">VIGNAN INST.OF PHAR.SCIENCES,DESHMUKHI---T3347</option>
+<option value="31396">VIGNAN INST. TECH.  SCI. DESHMUKHI---T3101</option>
+<option value="32208">VIGNAN JR COLLEGE,ATTAPUR X ROADS, RJNR(M)---J5596</option>
+<option value="31948">VIGNAN JR.COLLEGE,GANDHAMGUDA---J5487</option>
+<option value="30583">VIGNAN JUNIOR COLLEGE,NIZAMPET---J3312</option>
+<option value="32051">VIGNAN JYOTHI INSTITUTE OF ARTS AND SCIENCE, WEST MARREDPALLY---D5951</option>
+<option value="31690">VIJAYA BHARTHI COLLEGE OF EDUCATION,HAYATNAGAR---D5831</option>
+<option value="31193">VIJAYA COLLEGE OF PHARMACY,MUNAGANOOR---D5780</option>
+<option value="31652">VIJAYA HEALTH CARE ACADEMIC SOC.COL.OF NURSING,GODHUMAKUNTA.---D5807</option>
+<option value="30698">VIJAYANAGAR COLLEGE OF COMMERCE, APHB,VIJAYANAGAR COLONY---D0646</option>
+<option value="31538">VIJAYANAGAR JR COLLEGE,VIJAYNAGAR COLONY.---J4982</option>
+<option value="32939">VIJAYA P.G. COLLEGE,MUNAGANOOR---P3152</option>
+<option value="31225">VIJAYA RESEARCH IMLS,DSNR---SP083</option>
+<option value="32767">VIJAYA SCH.OF BUS.MANAGEMENT,SURMAIGUDA---P3176</option>
+<option value="31124">VIJETHA DEGREE COLLEGE, KPHB---D5686</option>
+<option value="30581">VIJETHA JR COLLEGE ALLWYN COLONY BALANAGAR---J3305</option>
+<option value="31668">VIJETHA TECH INIST,SAROORNAGAR---SP107</option>
+<option value="31651">VIKAS BED COLLEGE KALIKA TEMPLE.HIMAYATH SAGAR ROAD---D5802</option>
+<option value="32238">VIKAS D.ED COLLEGE,CHILKOOR---D5980</option>
+<option value="32122">VIKAS JR COLLEGE,VANASTHALIPURAM---J5520</option>
+<option value="32483">VILLA MARRY JR COLLEGE(GIRLS),SOMAJIGUDA---J4718</option>
+<option value="32854">VILLA MARRY P G COLL (W),SOMAJIGUDA---P0294</option>
+<option value="30699">VILLA MARY DEGREE COLLEGE FOR WOMEN,SOMAJIGUDA---D0647</option>
+<option value="34770">VINJEE JR.COLLEGE, OPPR.BJP OFFICE,KP.---J5870</option>
+<option value="30419">VISHRA JR.KALASALA(CC.58365) TRIVENI NAGAR,MEERPET---J5344</option>
+<option value="32285">VISHWA BHARATHI DEG.COLLEGE,HYDERSHAKOT.---D5962</option>
+<option value="33494">VISHWA BHARATHI JR COLLEGE,SUN CITY,HYDERSHAKOTE.---J5714</option>
+<option value="30616">VISHWA CHAITANYA JR COLLEGE,TARNAKA---J5102</option>
+<option value="32900">VISHWA VISHWANI INST.OF SYS.AND MNG.TUMKUNTA---P3173</option>
+<option value="33866">VISHWA VISHWANI SCHOOL OF BUSINESS, THUMKUNTA.---D6114</option>
+<option value="31861">VISIONARY DEGREE COLLEGE, KHILWATH---D5873</option>
+<option value="31689">VISIONARY VOC JR COLLEGE,KHILWATH,CHARMINAR---J5394</option>
+<option value="32608">VISION COL.OF PHARMACEUTICAL SCI.  RESEARCH,BODUPPAL---P3166</option>
+<option value="32466">VISION DEGREE COLLEGE H.NO: 6-51/1 PEERZADIGUDA BUDDHANAGAR UPPAL DEPOT---D6064</option>
+<option value="32029">VISION JUNIOR COLLEGE,PEERZADIGUDA---J5566</option>
+<option value="31173">VISION VOC JR COLLEGE, ASHOK NAGAR,RC PURAM---J5363</option>
+<option value="31787">VISVESVARAYA COLLEGE OF ENGINEERING AND TECHNOLOGY, PATELGUDA, IBPM---T3236</option>
+<option value="34732">VISWA BHARATHI COLLEGE OF LAW, MUTHANGI---D6180</option>
+<option value="31874">VIVEKANANAD JR.COLLEGE,CHEVELLA---J5401</option>
+<option value="30546">VIVEKANANDA CO-OP JR.COLLEGE,SEETHAPHALMANDI.---SP031</option>
+<option value="31676">VIVEKANANDA DEG  P.G COLL,SEETAPHALMANDI.---D0409</option>
+<option value="33001">VIVEKANANDA DEGREE COLLEGE CHEVELLA, RR.DIST---D6091</option>
+<option value="31245">VIVEKANANDA DEGREE COLLEGE,KP---D5721</option>
+<option value="31397">VIVEKANANDA GOVT COLLEGE,VIDYANAGAR---J4640</option>
+<option value="31257">VIVEKANANDA GOVT DEG COLL,VIDYANAGAR.---D0652</option>
+<option value="30995">VIVEKANANDA ITI MOULALI---T3120</option>
+<option value="32643">VIVEKANANDA P.G COLLEGE BOGARAM---P4056</option>
+<option value="33885">VIVEK VARDHINI SCHOOL OF BUSSINESS MANAGEMENT, JAMBAGH, HYD---P3325</option>
+<option value="32424">VMS DEGREE COLLEGE,UPPERPALLY,RJNR.---D6073</option>
+<option value="30498">VNR VIGNAN JOYTI INST.OF ENG.,BACHUPALLY---T3121</option>
+<option value="31218">V.V COLL OF ARTS COMM SCIENCE,JAMBAGH---D0649</option>
+<option value="31618">V V JR.COLLEGE JAMBAGH---J4750</option>
+<option value="32616">V V SANGHS BASAVESHWARA INST OF IT, BARKATHPURA---P3045</option>
+<option value="30652">WESLEY DEG COLL FOR WOMEN,OLD LANCER LANE SECBAD---D0654</option>
+<option value="31258">WESLEY DEGREE COLLEGE (CO-ED), OPP ANAND THEATRE, SECBAD---D0653</option>
+<option value="30609">WESLEY JR.COLL FOR BOYS PG ROAD.SEC---J5010</option>
+<option value="32725">WESLEY PG COLLEGE,SECBAD---P3051</option>
+<option value="32057">WESTIN COLLEGE OF HOTEL MANAGEMENT,BANDLAGUDA---D5955</option>
+<option value="34701">WORD AND DEED ITC, KUNTLOOR (V)---T3456</option>
+<option value="30537">WORD  DEED JR.COLLEGE HAYATHNAGAR.---J3328</option>
+<option value="31565">YASHODA COLLEGE OF NURSING,RTC COL.TIRUMALAGIRI---D5782</option>
+<option value="34329">YASHODA COLLEGE OF PHYSIOTHERAPY, GOWDAVALLY---D6144</option>
+<option value="31189">YASHODA COLL OF NURSING,C-53,RD.16,GREENPARK COL.SAROORNAGARMALAKPET.---D5781</option>
+<option value="34576">YASHODA INSTITUTE OF PHYSIOTHERAPY GOWDAVELLY---T3453</option>
+<option value="31207">YASHODA LAKSHMI COLLEGE OF NURSING,GOWDAVALLY.---D5775</option>
+<option value="32364">YASHODA LAKSHMI SCHOOL OF NURSING,GOWDAVALLY..---D6008</option>
+<option value="34030">YASHODA SCHOOL OF NURSING GOWDAVELLY.---T3446</option>
+<option value="33931">YASHODA SCHOOL OF NURSING,GREEN PARK CLY.---T3445</option>
+<option value="32298">YSR ELEMENTARY TEACHER TRAINING INSTITUTION, ANKIREEDDYPALLY(V), KEESARA(M)---D6031</option>
+<option value="34020">YUVA JR.COOLEGE(28189),PRASHANTH NAGAR KHURD, VN.PURAM, HYT.---J5754</option>
+<option value="31318">ZEN VOC JR.COLLEGE,KAIRTHABAD.---J5133</option></select>
+															
+															<input type="hidden" name="userProperties(greaterRouteInstitute)" value="false" id="greaterRouteInstitute">
+															</td>
+															<th width="18%"><span class="num">4.4</span> Course Name  <font color="red">*</font></th>
+														<td width="23%"><select name="userProperties(instcourseid)" onchange="getCoursesYears();" id="instcourseid" style="width:200px"><option value="">-----Select-----</option>
+<option value="027A">B.Tech 1st Yr</option>
+<option value="027B">B.Tech 2nd Yr</option>
+<option value="027C">B.Tech 3rd Yr</option>
+<option value="027D">B.Tech 4th Yr</option>
+<option value="279C">B.Tech Bme Iii Yr</option>
+<option value="279B">B.Tech Bme Ii Yr</option>
+<option value="279D">B.Tech Bme Iv Yr</option>
+<option value="279A">B.Tech Bme I Yr</option>
+<option value="276C">B.Tech Civil Iii Yr</option>
+<option value="276B">B.Tech Civil Ii Yr</option>
+<option value="276D">B.Tech Civil Iv Yr</option>
+<option value="276A">B.Tech Civil I Yr</option>
+<option value="272C">B.Tech Cse Iii Yr</option>
+<option value="272B">B.Tech Cse Ii Yr</option>
+<option value="272D">B.Tech Cse Iv Yr</option>
+<option value="272A">B.Tech Cse I Yr</option>
+<option value="271C">B.Tech Ece Iii Yr</option>
+<option value="271B">B.Tech Ece Ii Yr</option>
+<option value="271D">B.Tech Ece Iv Yr</option>
+<option value="271A">B.Tech Ece I Yr</option>
+<option value="278C">B.Tech Ecm Iii Yr</option>
+<option value="278B">B.Tech Ecm Ii Yr</option>
+<option value="278D">B.Tech Ecm Iv Yr</option>
+<option value="278A">B.Tech Ecm I Yr</option>
+<option value="274C">B.Tech Eee Iii Yr</option>
+<option value="274B">B.Tech Eee Ii Yr</option>
+<option value="274D">B.Tech Eee Iv Yr</option>
+<option value="274A">B.Tech Eee I Yr</option>
+<option value="277C">B.Tech Eie Iii Yr</option>
+<option value="277B">B.Tech Eie Ii Yr</option>
+<option value="277D">B.Tech Eie Iv Yr</option>
+<option value="277A">B.Tech Eie I Yr</option>
+<option value="273C">B.Tech It Iii Yr</option>
+<option value="273B">B.Tech It Ii Yr</option>
+<option value="273D">B.Tech It Iv Yr</option>
+<option value="273A">B.Tech It I Yr</option>
+<option value="275C">B.Tech Mech Iii Yr</option>
+<option value="275B">B.Tech Mech Ii Yr</option>
+<option value="275D">B.Tech Mech Iv Yr</option>
+<option value="275A">B.Tech Mech I Yr</option>
+<option value="030A">Diploma 1st Yr</option>
+<option value="030B" selected="selected">Diploma 2nd Yr</option>
+<option value="030C">Diploma 3rd Yr</option>
+<option value="301C">Diploma Civil Iii Yr</option>
+<option value="301B">Diploma Civil Ii Yr</option>
+<option value="301A">Diploma Civil I Yr</option>
+<option value="303C">Diploma Mech Iii Yr</option>
+<option value="303B">Diploma Mech Ii Yr</option>
+<option value="303A">Diploma Mech I Yr</option>
+<option value="037A">M.B.A 1st Yr</option>
+<option value="037B">M.B.A 2nd Yr</option>
+<option value="060B">Mba T And H Ii Year</option>
+<option value="060A">Mba T And H I Year</option>
+<option value="039A">M.C.A 1st Yr</option>
+<option value="039B">M.C.A 2nd Yr</option>
+<option value="039C">M.C.A 3rd Yr</option>
+<option value="033A">M.Tech 1st Yr</option>
+<option value="033B">M.Tech 2nd Yr</option></select></td>
+													</tr>
+													<tr class="secondrow">
+															
+														<th width="18%" style="display:none" id="45Id">
+														
+															
+														<span class="num">4.5</span> Present Course Year <font color="red">*</font></th>
+
+															
+														<td width="23%" style="display:none" id="451Id">
+														
+															
+														<select name="userProperties(instcourseyear)" onchange="getPasses_clear();" id="instcourseyear" style="width:200px"></select></td>
+															<th width="18%"><span class="num">4.6</span> Admission No <font color="red">*</font></th>
+														<td width="23%"><input type="text" name="userProperties(admissionno)" maxlength="15" value="23356CS157" id="userProperties(admissionno)" style="width:200px"></td>
+													</tr>
+													<tr class="firstrow">
+														<th width="18%"><span class="num">4.7</span> Institution Address</th>
+														<td width="23%" colspan="4"><textarea name="userProperties(inst_address)" cols="20" rows="1" onfocus="setReadonly(this)" id="inst_address" style="width:200px">PATELGUDA-- AMEENPUR--PATANCHERU-</textarea></td>
+													</tr>
+												</tbody></table>
+											</fieldset></td>
+									</tr>
+<tr>
+									<td>
+										<fieldset style="width: 750px" class="ofeildset">
+											<legend>
+												<font style="font-weight: bold;"><b>5.Route
+														Details</b> </font>
+											</legend>
+											<br><table>
+												<tbody><tr class="firstrow">
+													<th width="18%"> <span class="num">5.1</span>  At which center you want to collect ID/PASS <font color="red">*</font>
+													</th>
+													<td>
+																	
+													<select name="userProperties(center_id)" onchange="getPasses()" disabled="disabled" id="cen" style="width:200px"><option value="1360">GHZ Mobile App -- HYD</option>
+<option value="1275">RTC ABIDS -- HYD</option>
+<option value="850">RTC AFZALGUNJ -- HYD</option>
+<option value="1197">RTC ARAMGHAR -- HYD</option>
+<option value="1212">RTC BALA NAGAR -- HYD</option>
+<option value="1284">RTC BORABANDA -- HYD</option>
+<option value="923">RTC CBS -- HYD</option>
+<option value="1222">RTC CHARMINAR -- HYD</option>
+<option value="918">RTC DILSUKHNAGAR -- HYD</option>
+<option value="992">RTC ECIL -- HYD</option>
+<option value="1203">RTC FAROOQNAGAR -- HYD</option>
+<option value="1175">RTC GHATKESAR -- HYD</option>
+<option value="876">RTC HAYATHNAGAR -- HYD</option>
+<option value="852">RTC IBRAHIMPATNAM -- HYD</option>
+<option value="924">RTC JBS -- HYD</option>
+<option value="1036">RTC KACHIGUDA -- HYD</option>
+<option value="1024">RTC KOTI -- HYD</option>
+<option value="944">RTC KPHB -- HYD</option>
+<option value="945">RTC KUKATAPALLY -- HYD</option>
+<option value="1342">RTC LAKDIKAPOOL -- HYD</option>
+<option value="990">RTC LB NAGAR -- HYD</option>
+<option value="1186">RTC LINGAMPALLY -- HYD</option>
+<option value="1272">RTC LOTHUKUNTA -- HYD</option>
+<option value="1034">RTC MEDCHAL -- HYD</option>
+<option value="931">RTC MEHDIPATNAM -- HYD</option>
+<option value="851">RTC MIDHANI -- HYD</option>
+<option value="1206">RTC MOINABAD -- HYD</option>
+<option value="991">RTC NGOS COLONY -- HYD</option>
+<option value="943" selected="selected">RTC PATANCHERU -- HYD</option>
+<option value="1096">RTC RATHIFILE -- HYD</option>
+<option value="1183">RTC RISALABAZAR -- HYD</option>
+<option value="994">RTC SANATHNAGAR -- HYD</option>
+<option value="1215">RTC  SECERTARIAT -- HYD</option>
+<option value="1035">RTC SHAMSHABAD -- HYD</option>
+<option value="877">RTC SHAPURNAGAR -- HYD</option>
+<option value="1194">RTC SR NAGAR -- HYD</option>
+<option value="1209">RTC SUCHITRA -- HYD</option>
+<option value="1023">RTC TARNAKA -- HYD</option>
+<option value="1231">RTC THUKKUGUDA -- HYD</option>
+<option value="993">RTC UPPAL -- HYD</option>
+<option value="1198">RTC UPPAL X ROAD -- HYD</option>
+<option value="1263">RTC W.COLLEGE -- HYD</option></select>
+														
+																
+
+													</td>
+													<th width="18%" nowrap="nowrap"><span class="num">5.2</span> Pass Type Required <font color="red">*</font>
+													</th>
+
+													<td><select name="userProperties(buspasstypeid)" onchange="getPass();getGreaterRoutesByInst();" id="passTypeId" style="width:200px"><option value="175-26">STUDENT GENERAL PASS MONTHLY</option>
+<option value="175-9">STUDENT GENERAL PASS QUARTERLY</option>
+<option value="175-5" selected="selected">STU GREATER PASS MTLY</option>
+<option value="175-4">STU GREATER PASS QTLY</option>
+<option value="175-60">STU CITY ROUTE PASS MTLY</option>
+<option value="175-22">STU DIST ROUTE PASS MTLY</option>
+<option value="175-20">STU CITY ROUTE PASS QTLY</option>
+<option value="175-23">STU DIST ROUTE PASS QTLY</option></select></td>
+										  </tr><tr class="firstrow">
+													
+													
+													<td id="kiloMetersId1" align="center" colspan="3" nowrap="nowrap" style="color: red;display: none;"></td>
+													
+												</tr>
+												<tr class="secondrow">
+												<th width="18%" id="amountId" style="display: none" nowrap="nowrap"></th>
+													<td width="100px" id="kiloMetersId1" colspan="3" style="color: red;display: none;"></td>
+												</tr>
+						
+		   
+						<tr class="secondrow" id="pdId">
+						 
+
+													<th width="18%"><span class="num">5.3</span> From Place District<font color="red">*</font>
+													</th>
+													<td><select name="userProperties(fromdistid)" id="fromplacedistId" style="width:200px"><option value="16" selected="selected">Hyderabad</option></select>
+													</td>
+
+													<th width="18%" nowrap="nowrap"><span class="num">5.4</span> To Place District<font color="red">*</font>
+													</th>
+													<td><select name="userProperties(todistid)" id="toplacedistId" style="width:200px"><option value="16" selected="selected">Hyderabad</option></select>
+													</td>
+												</tr>
+
+														
+								
+										<tr class="secondrow" id="fpId">
+						 			
+
+													<th width="18%"><span class="num">5.5</span> From Place <font color="red">*</font>
+													</th>
+													<td width="23%">
+														<!-- styleId="routefrom" -->
+														<div class="ui-widget">
+															<span role="status" aria-live="polite" class="ui-helper-hidden-accessible">23 results are available, use up and down arrow keys to navigate.</span><input type="text" name="userProperties(jrnyfromplace)" tabindex="0" value="HYDERABAD--HYD" onkeydown="javascript:if(this.value !=&#39;&#39; &amp;&amp; document.getElementById(&#39;passTypeId&#39;).value==&#39;&#39; ){ alert(&#39;select Pass Type&#39;); this.value=&#39;&#39;;} " onblur="checkExistance1_getkilometers();" onfocus="javascript:if(document.getElementById(&#39;passTypeId&#39;).value==&#39;&#39;){ alert(&#39;select Pass Type&#39;);} " id="jrnyrouteId" style="width : 200px;" class="ui-autocomplete-input" autocomplete="off">
+															<span id="spanroutefrom"></span>
+														</div>
+														</td>
+
+													<th width="18%"><span class="num">5.6</span> To Place <font color="red">*</font>
+													</th>
+													<td width="23%">
+														<div class="ui-widget">
+															<span role="status" aria-live="polite" class="ui-helper-hidden-accessible">11 results are available, use up and down arrow keys to navigate.</span><input type="text" name="userProperties(jrnytoplace)" value="PATELGUDA--HYD" onblur="getRoutes();" id="toplaceId" style="width : 200px;" class="ui-autocomplete-input" autocomplete="off">
+															<span id="spanrouteto"> </span>
+														</div>
+													</td>
+												</tr>
+												
+									
+											<tr class="firstrow" id="viaId">
+						 			
+
+													<th width="18%" nowrap="nowrap">5.7 Route <font color="red">*</font> <font color="red"> (From--Via--To)</font>
+													</th>
+													<td nowrap="nowrap" colspan="3">
+													<input type="hidden" name="userProperties(route_kms)" value="26" id="hiddenkiloMetersId">
+													<select name="userProperties(routeId)" onchange="getKmsandFare();" id="routeId" style="width:500px"><option value="">-----Select-----</option><option value="322635-R">PATELGUDA PTC--PATANCHERU--HYDERABAD--26Kms</option></select></td>
+														</tr>
+												<!--  <tr  id="distanceId"  style="display: none">
+												 <br>
+                                                    <td id="kiloMetersId" style="color: red" colspan="4" ></td>
+                                                </tr> -->
+											
+												 <tr id="distanceId">
+												 
+                                                    <td id="kiloMetersId" style="color: red;font: bold" colspan="4"> <b> Distance(in KMs):26 ;  </b><b><font color="blue"> Pass Amount(&#8377;): </font></b><font color="blue"> <b>1125 </b>/- +  <b>Id Charges(&#8377;): </b> <b>50 </b>/- = </font> <b>Total Amount(&#8377;): </b><b>1175 </b>/- </td>
+                                                    </tr>
+												 
+												 
+
+											</tbody></table>
+
+										</fieldset></td>
+									</tr>
+
+									<tr>
+									</tr>
+									 <tr>
+									<td>
+									
+											
+								<div class="form-group">
+							<div style="float: center; margin-left:280px">
+								<img alt="Not Available Plz try again" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAeAJYDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDy2iiivIP0QK7C9+GfiPStFvtV1aK3sLa0VSfNmDtIScAKI93OcDnA+Yc4zjj69Nn/AOJT+z9bfZ/m/tjUT9o8znbtZsbMYx/qE656t7YuCTvc5MTUnBwUHu0v6+SfRnGeF/C+oeLdX/s3TfJEojaV3mfaiKMDJwCepA4B6+mTV/UfBS6bp8943inw1cCJc+VbXxlkc9gqhOST+HckDmuq+DH2bT/+Ek8QXHnN/Z1kMpHg7kO524Pf90McgcmuPvbHw7qmqaZp/hZtUWW6mEEjaoYwoZmVUx5YPGSc/hiq5UoJ9WZe3nLEShe0Y26eV3dmFZ2k9/e29nbJ5lxcSLFEmQNzMcAZPA5PetDxJ4fuPDGtSaVd3NvPcxKpk+zliqlhkDLKMnBB4yOeuc49atE0PS/ibpfgqx0KxaC1VZJb6eHN0ZlQzqwlBHGQmRj+8MbcCodLWx1Pxj8QvEOr6db3zaSrJHayIpjdYw4BO4NhsQKM/wC03HOKr2Sta+tzJ5hLm5uX3bX83d2R4rW6/hS+h8HR+J55baKymm8iCNmYyStkg4ABAHyv94j7p9Rns3TTde+C+qas+haXZXlhdxwQSWcJRtoMQ+ZiSzEiRs5JzweozWn4g1DTfC/wq8JWL6YmpSzqt7At2SYkfAdywUruGZiAp4wec4wUqa1bfQueMk3GMI681mvRXZ45XbW/wu1yaCAPd6Xb6hcQmaHS7i52XTqASPkI4JCnqeO+MHG749s9I8MfFrQri3torGzX7NdXAhTCjbMwZgq9PlQcAc4z1NbreHtN8QfGRNZi1+xuYCyXUMFg5nk3QpGP3hVSsa7h1J54A5PDjSV2n3Iq46ThGcdE4t7X26Hit5aT2F7cWdynl3FvI0UqZB2spwRkcHkdqhrd8aX0WpeNdZu4FthE93IEa2A2OoO0OMdSwG4nuST3rCrFqzselTk5QUnu0FFFFIsKKKKACiiigAooooAu6Tc2NnqcM+o6f/aFou7zLbzmi35UgfMvIwcH8MV2es/EHRNW8NxaIPCP2e3to3W0Cak4WFyCBIVCgOQTn5sk5PPzHPn9FUptKyMKmHhUkpSvdbatfkzs/Cvjiy8P+G7/AEa60H7cl9JunlS8a3d0wAIyVXcV4bvj5iMcnOfe+IdJj1TS9Q0Dw6mlzWM4nYPeSXCzMrKyg7sYAKnp1z7VzlFHO7WEsNTU3NXu99Xbttex6gnxZ02LxHJrieDbf7bMv72d7svJuChVKMUwg27gQB82Rk8c3fCuprovwh1zWdRtUuZdQvzG/wBpYo99G2xXUSfeJwZsEZwdx7GvIqKtVZXuzCWX0nFRjptfd6LpvodV4k8ZLrOi2Oh6bpiaXo9mxlS2ExmZpCWO4uwzj5mwPc9eMTeI/HEXiDxFo9+dISHT9NWNF0wzB4mVXyQBtAUMu1SNp4UdelcfRUc8jdYakrWW1+r67/8ADnW6n43/ALV8er4ku9LhubddqjTrt/OjCBNpUEjA5LMOMBjnB7zP46tNNtbiPwp4fi0Oa6jMU919qe4mC5BxGzY2d84zng8FQa4yinzyD6rSslbRaWu7ad1s/mFFFFQdAUUUUAFFFFABRRRQB//Z" id="imagetext" style="width: 40%; height: 40px;"> <img src="./detILS_files/reload.png" alt="No Photo" style="width: 40px; height: 40px;" onclick="return loadCaptcha();">
+									
+							</div>
+							<!-- <div style="float:center;display: block;cursor: pointer;" >
+				      	</div> -->
+				<center><span id="cpatcha-info" class="info"></span>
+							<!-- <input type="text" class="form-control" id="captcha" name="dynaProperty(captcha)" placeholder="Enter Captcha" maxlength="6" required="required"> -->
+							<input type="text" name="userProperties(inputcaptcha)" maxlength="6" value="" id="inputcaptcha"></center>	
+							
+						</div>
+					</td>
+					</tr>
+									<tr>
+										<td align="center" colspan="4"><input type="button" name="userProperties(sbutton)" value="Submit" onclick="return validation(&#39;update&#39;)" class="button">
+										</td>
+
+
+									</tr>
+								</tbody></table>
+							
+						
+					
+				</div>
+				
+				
+
+				
+					<br> <br> <br> <br>
+				
+
+		</center>
+		
+</form>
+
+<ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content ui-corner-all" id="ui-id-1" tabindex="0" style="display: none; top: 1137.59px; left: 421.365px; width: 280.667px;"><li class="ui-menu-item" role="presentation"><a id="ui-id-68" class="ui-corner-all" tabindex="-1">PATELNAGAR-LALITHABAGH--HYD</a></li><li class="ui-menu-item" role="presentation"><a id="ui-id-69" class="ui-corner-all" tabindex="-1">PATELGUDA (MANGAL PALLY)--HYD</a></li><li class="ui-menu-item" role="presentation"><a id="ui-id-70" class="ui-corner-all" tabindex="-1">PATNY--HYD</a></li><li class="ui-menu-item" role="presentation"><a id="ui-id-71" class="ui-corner-all" tabindex="-1">PATELGUDA PTC--HYD</a></li><li class="ui-menu-item" role="presentation"><a id="ui-id-72" class="ui-corner-all" tabindex="-1">PATELCHERVU TANDA--HYD</a></li><li class="ui-menu-item" role="presentation"><a id="ui-id-73" class="ui-corner-all" tabindex="-1">PATELGUDA(IBPN)--HYD</a></li><li class="ui-menu-item" role="presentation"><a id="ui-id-74" class="ui-corner-all" tabindex="-1">PATEL NAGAR (AMBERPET)--HYD</a></li><li class="ui-menu-item" role="presentation"><a id="ui-id-75" class="ui-corner-all" tabindex="-1">PATEL NAGAR--HYD</a></li><li class="ui-menu-item" role="presentation"><a id="ui-id-76" class="ui-corner-all" tabindex="-1">PATHARGATTI--HYD</a></li><li class="ui-menu-item" role="presentation"><a id="ui-id-77" class="ui-corner-all" tabindex="-1">PATIGADDA--HYD</a></li><li class="ui-menu-item" role="presentation"><a id="ui-id-78" class="ui-corner-all" tabindex="-1">PATELNAGAR(MALKAJGIRI)--HYD</a></li><li class="ui-menu-item" role="presentation"><a id="ui-id-79" class="ui-corner-all" tabindex="-1">PATTUGUDEM--HYD</a></li><li class="ui-menu-item" role="presentation"><a id="ui-id-80" class="ui-corner-all" tabindex="-1">PATEL HOTEL--HYD</a></li><li class="ui-menu-item" role="presentation"><a id="ui-id-81" class="ui-corner-all" tabindex="-1">PATIGANAPUR--HYD</a></li><li class="ui-menu-item" role="presentation"><a id="ui-id-82" class="ui-corner-all" tabindex="-1">PATIGADDA COLONY--HYD</a></li><li class="ui-menu-item" role="presentation"><a id="ui-id-83" class="ui-corner-all" tabindex="-1">PATANCHERU--HYD</a></li><li class="ui-menu-item" role="presentation"><a id="ui-id-84" class="ui-corner-all" tabindex="-1">PATELGUDA--HYD</a></li><li class="ui-menu-item" role="presentation"><a id="ui-id-85" class="ui-corner-all" tabindex="-1">PATI VILLAGE--HYD</a></li><li class="ui-menu-item" role="presentation"><a id="ui-id-86" class="ui-corner-all" tabindex="-1">PATHYPALLY--HYD</a></li><li class="ui-menu-item" role="presentation"><a id="ui-id-87" class="ui-corner-all" tabindex="-1">PATEL CHERUVU TANDA--HYD</a></li><li class="ui-menu-item" role="presentation"><a id="ui-id-88" class="ui-corner-all" tabindex="-1">PATI--HYD</a></li><li class="ui-menu-item" role="presentation"><a id="ui-id-89" class="ui-corner-all" tabindex="-1">PATI X RD--HYD</a></li><li class="ui-menu-item" role="presentation"><a id="ui-id-90" class="ui-corner-all" tabindex="-1">PATHIMAPUR--HYD</a></li></ul><ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content ui-corner-all" id="ui-id-2" tabindex="0" style="display: none; top: 1137.59px; left: 787.896px; width: 277.667px;"><li class="ui-menu-item" role="presentation"><a id="ui-id-91" class="ui-corner-all" tabindex="-1">HYDERSHAKOTE--HYD</a></li><li class="ui-menu-item" role="presentation"><a id="ui-id-92" class="ui-corner-all" tabindex="-1">HYDERABAD--HYD</a></li><li class="ui-menu-item" role="presentation"><a id="ui-id-93" class="ui-corner-all" tabindex="-1">HYDERGUDA X ROAD (RJNR)--HYD</a></li><li class="ui-menu-item" role="presentation"><a id="ui-id-94" class="ui-corner-all" tabindex="-1">HYDER SAB KUNTA--HYD</a></li><li class="ui-menu-item" role="presentation"><a id="ui-id-95" class="ui-corner-all" tabindex="-1">HYDERGUDA VILLAGE--HYD</a></li><li class="ui-menu-item" role="presentation"><a id="ui-id-96" class="ui-corner-all" tabindex="-1">HYDERGUDA X RD--HYD</a></li><li class="ui-menu-item" role="presentation"><a id="ui-id-97" class="ui-corner-all" tabindex="-1">HYDERGUDA(RJNR)--HYD</a></li><li class="ui-menu-item" role="presentation"><a id="ui-id-98" class="ui-corner-all" tabindex="-1">HYDER NAGAR--HYD</a></li><li class="ui-menu-item" role="presentation"><a id="ui-id-99" class="ui-corner-all" tabindex="-1">HYD.PUB.SCHOOL--HYD</a></li><li class="ui-menu-item" role="presentation"><a id="ui-id-100" class="ui-corner-all" tabindex="-1">HYDERGUDA--HYD</a></li><li class="ui-menu-item" role="presentation"><a id="ui-id-101" class="ui-corner-all" tabindex="-1">HYD.PUB.SCH.BGPT--HYD</a></li></ul></body></html>
