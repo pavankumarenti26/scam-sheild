@@ -1,119 +1,63 @@
-import re
+﻿import re
 
 
-def analyze_caller(phone_number: str):
+def analyze_caller(number: str):
+    """
+    Check basic phone-number formatting for ScamShield.
 
-    score = 0
-    reasons = []
+    A phone number alone cannot prove that a caller is a scammer.
+    Use this result as a limited signal, not as proof of fraud.
+    """
 
-    # Remove spaces, brackets and hyphens
-    cleaned = re.sub(r"[\s\-\(\)]", "", phone_number)
-
-    # 1. Check whether the number contains valid characters
-    if not re.match(r"^\+?\d+$", cleaned):
-
+    if not isinstance(number, str) or not number.strip():
         return {
-            "caller_risk": 80,
-            "risk_level": "HIGH",
-            "is_suspicious": True,
-            "reasons": [
-                "Invalid phone number format"
-            ]
+            "caller_risk": 0,
+            "risk_level": "SAFE",
+            "is_suspicious": False,
+            "reasons": ["No phone number provided"]
         }
 
-    # 2. Check number length
-    digits_only = cleaned.lstrip("+")
+    original = number.strip()
+    cleaned = re.sub(r"[\s()-]", "", original)
 
-    if len(digits_only) < 10:
+    if not re.fullmatch(r"\+?\d+", cleaned):
+        return {
+            "caller_risk": 0,
+            "risk_level": "SAFE",
+            "is_suspicious": False,
+            "reasons": ["Invalid phone number formatting; risk cannot be determined"]
+        }
 
-        score += 30
+    digits = cleaned.lstrip("+")
 
-        reasons.append(
-            "Phone number appears unusually short"
-        )
-
-    elif len(digits_only) > 15:
-
-        score += 30
-
-        reasons.append(
-            "Phone number appears unusually long"
-        )
-
-    # 3. Repeated digits
-    if len(set(digits_only)) <= 2:
-
-        score += 25
-
-        reasons.append(
-            "Phone number contains highly repetitive digits"
-        )
-
-    # 4. Suspicious prefixes
-    suspicious_prefixes = [
-        "+44",
-        "+92",
-        "+234",
-        "+63",
-        "+880"
-    ]
-
-    for prefix in suspicious_prefixes:
-
-        if cleaned.startswith(prefix):
-
-            score += 15
-
-            reasons.append(
-                f"Unusual international calling prefix detected: {prefix}"
-            )
-
-            break
-
-    # 5. International number
+    # Reject impossible international lengths as a format warning.
     if cleaned.startswith("+"):
-
-        score += 5
-
-        reasons.append(
-            "International phone number"
-        )
-
-    # Keep score between 0 and 100
-    score = min(score, 100)
-
-    # Risk level
-    if score >= 80:
-
-        risk_level = "CRITICAL"
-
-    elif score >= 60:
-
-        risk_level = "HIGH"
-
-    elif score >= 30:
-
-        risk_level = "CAUTION"
-
+        valid_length = 8 <= len(digits) <= 15
     else:
+        # Accept a 10-digit number without a country code.
+        valid_length = len(digits) == 10
 
-        risk_level = "SAFE"
+    risk = 0
+    reasons = []
 
-    is_suspicious = score >= 60
+    if not valid_length:
+        risk += 15
+        reasons.append("Phone number has an unusual length")
+
+    # A repeated-digit pattern is only a weak signal.
+    if len(digits) >= 8 and len(set(digits)) <= 2:
+        risk += 10
+        reasons.append("Phone number contains highly repetitive digits")
+
+    risk = min(risk, 30)
+    level = "CAUTION" if risk >= 20 else "SAFE"
 
     if not reasons:
-
-        reasons.append(
-            "No major caller-risk indicators detected"
-        )
+        reasons.append("No major number-format risk detected")
 
     return {
-
-        "caller_risk": score,
-
-        "risk_level": risk_level,
-
-        "is_suspicious": is_suspicious,
-
+        "caller_risk": risk,
+        "risk_level": level,
+        "is_suspicious": risk >= 20,
         "reasons": reasons
     }
