@@ -1,4 +1,4 @@
-import os
+﻿import os
 import uuid
 import json
 from pathlib import Path
@@ -238,7 +238,7 @@ def analyze_caller_endpoint(request: CallerRequest):
 
     result = analyze_caller(request.phone_number)
 
-    caller_risk = result.get("risk_score", 0)
+    caller_risk = result.get("caller_risk", 0)
 
     final_risk = calculate_risk(
         caller_risk=caller_risk
