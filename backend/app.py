@@ -1,4 +1,4 @@
-﻿import os
+import os
 import uuid
 import json
 from pathlib import Path
@@ -783,42 +783,10 @@ async def analyze_audio_endpoint(
 
 @app.get("/recent-threats")
 def recent_threats():
-
-    try:
-
-        threats = get_recent_threats(
-            limit=20
-        )
-
-        # Convert JSON reasons back to Python lists
-        for threat in threats:
-
-            try:
-
-                threat["reasons"] = json.loads(
-                    threat.get("reasons", "[]")
-                )
-
-            except Exception:
-
-                threat["reasons"] = []
-
-        return {
-            "count": len(threats),
-            "threats": threats
-        }
-
-    except Exception as error:
-
-        print(
-            "Recent threats error:",
-            error
-        )
-
-        raise HTTPException(
-            status_code=500,
-            detail="Unable to retrieve recent threats"
-        )
+    raise HTTPException(
+        status_code=403,
+        detail="Threat history access is disabled until authentication is configured"
+    )
 
 
 # ============================================================
@@ -827,28 +795,10 @@ def recent_threats():
 
 @app.delete("/recent-threats")
 def delete_recent_threats():
-
-    try:
-
-        delete_all_threats()
-
-        return {
-            "success": True,
-            "message": "Threat history deleted"
-        }
-
-    except Exception as error:
-
-        print(
-            "Delete threats error:",
-            error
-        )
-
-        raise HTTPException(
-            status_code=500,
-            detail="Unable to delete threat history"
-        )
-
+    raise HTTPException(
+        status_code=403,
+        detail="Threat history deletion is disabled until authentication is configured"
+    )
 
 # ============================================================
 # FRONTEND

@@ -1,10 +1,13 @@
+import os
 import sqlite3
 from pathlib import Path
 
 
 # Database will be stored inside the backend folder
 BASE_DIR = Path(__file__).resolve().parent
-DATABASE_PATH = BASE_DIR / "scamshield.db"
+DATABASE_PATH = Path(os.getenv("SCAMSHIELD_DB_PATH", str(BASE_DIR / "scamshield.db")))
+
+DATABASE_PATH.parent.mkdir(parents=True, exist_ok=True)
 
 
 def get_connection():
